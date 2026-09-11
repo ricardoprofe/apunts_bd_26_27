@@ -1,0 +1,1905 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 01. Introducció a les Bases de Dades. - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-01-introduccio-a-les-bases-de-dades" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 01. Introducció a les Bases de Dades.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fitxers" class="md-nav__link">
+    2. Fitxers
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tipus-de-fitxers-segons-lorganitzacio" class="md-nav__link">
+    2.1. Tipus de fitxers segons l'organització
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Tipus de fitxers segons l'organització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-fitxers-plans-sequencials" class="md-nav__link">
+    2.1.1. Fitxers plans (seqüencials)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-fitxers-indexats" class="md-nav__link">
+    2.1.2. Fitxers indexats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-fitxers-dacces-directe-relatius" class="md-nav__link">
+    2.1.3. Fitxers d'accés directe (relatius)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-altres-tipus-de-fitxers" class="md-nav__link">
+    2.1.4. Altres tipus de fitxers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bases-de-dades" class="md-nav__link">
+    3. Bases de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Bases de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conceptes-basics" class="md-nav__link">
+    3.1 Conceptes bàsics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-usos-de-les-bases-de-dades" class="md-nav__link">
+    3.2 Usos de les bases de dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tipus-de-bases-de-dades" class="md-nav__link">
+    3.3 Tipus de bases de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Tipus de bases de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-segons-el-model-de-dades" class="md-nav__link">
+    3.3.1 Segons el model de dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-segons-la-ubicacio-de-la-informacio" class="md-nav__link">
+    3.3.2 Segons la ubicació de la informació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-exemples-practics-de-bases-de-dades" class="md-nav__link">
+    3.4 Exemples pràctics de bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sistemes-gestors-de-bases-de-dades-sgbd" class="md-nav__link">
+    4. Sistemes gestors de bases de dades (SGBD)
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Sistemes gestors de bases de dades (SGBD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-funcions-principals-dels-sgbd" class="md-nav__link">
+    4.1 Funcions principals dels SGBD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-components-principals-dun-sgbd" class="md-nav__link">
+    4.2 Components principals d'un SGBD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tipus-de-sgbd" class="md-nav__link">
+    4.3 Tipus de SGBD
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Tipus de SGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-segons-el-model-de-dades-que-suporten" class="md-nav__link">
+    4.3.1 Segons el model de dades que suporten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-segons-larquitectura" class="md-nav__link">
+    4.3.2 Segons l'arquitectura
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bases-de-dades-centralitzades-i-bases-de-dades-distribuides" class="md-nav__link">
+    5. Bases de dades centralitzades i bases de dades distribuïdes
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Bases de dades centralitzades i bases de dades distribuïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-bases-de-dades-centralitzades" class="md-nav__link">
+    5.1 Bases de dades centralitzades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-bases-de-dades-distribuides" class="md-nav__link">
+    5.2 Bases de dades distribuïdes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-tecniques-de-fragmentacio" class="md-nav__link">
+    5.3 Tècniques de fragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Tècniques de fragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-fragmentacio-horitzontal" class="md-nav__link">
+    5.3.1 Fragmentació horitzontal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-fragmentacio-vertical" class="md-nav__link">
+    5.3.2 Fragmentació vertical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-fragmentacio-mixta-hibrida" class="md-nav__link">
+    5.3.3 Fragmentació mixta (híbrida)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-legislacio-espanyola-i-europea-sobre-proteccio-de-dades" class="md-nav__link">
+    6. Legislació espanyola i europea sobre protecció de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Legislació espanyola i europea sobre protecció de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-marc-normatiu-europeu-el-rgpd" class="md-nav__link">
+    6.1 Marc normatiu europeu: el RGPD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-marc-normatiu-espanyol-la-lopdgdd" class="md-nav__link">
+    6.2 Marc normatiu espanyol: la LOPDGDD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-sancions-i-incompliments" class="md-nav__link">
+    6.3 Sancions i incompliments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-implicacions-per-a-bases-de-dades" class="md-nav__link">
+    6.4 Implicacions per a bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-big-data-introduccio-analisi-de-dades-i-intelligencia-de-negocis" class="md-nav__link">
+    7. Big Data: introducció, anàlisi de dades i intel·ligència de negocis
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Big Data: introducció, anàlisi de dades i intel·ligència de negocis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-introduccio-al-big-data" class="md-nav__link">
+    7.1 Introducció al Big Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-analisi-de-dades-data-analytics" class="md-nav__link">
+    7.2 Anàlisi de dades (Data Analytics)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-intelligencia-de-negocis-business-intelligence-bi" class="md-nav__link">
+    7.3 Intel·ligència de negocis (Business Intelligence, BI)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fitxers" class="md-nav__link">
+    2. Fitxers
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tipus-de-fitxers-segons-lorganitzacio" class="md-nav__link">
+    2.1. Tipus de fitxers segons l'organització
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Tipus de fitxers segons l'organització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-fitxers-plans-sequencials" class="md-nav__link">
+    2.1.1. Fitxers plans (seqüencials)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-fitxers-indexats" class="md-nav__link">
+    2.1.2. Fitxers indexats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-fitxers-dacces-directe-relatius" class="md-nav__link">
+    2.1.3. Fitxers d'accés directe (relatius)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-altres-tipus-de-fitxers" class="md-nav__link">
+    2.1.4. Altres tipus de fitxers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bases-de-dades" class="md-nav__link">
+    3. Bases de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Bases de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conceptes-basics" class="md-nav__link">
+    3.1 Conceptes bàsics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-usos-de-les-bases-de-dades" class="md-nav__link">
+    3.2 Usos de les bases de dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tipus-de-bases-de-dades" class="md-nav__link">
+    3.3 Tipus de bases de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Tipus de bases de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-segons-el-model-de-dades" class="md-nav__link">
+    3.3.1 Segons el model de dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-segons-la-ubicacio-de-la-informacio" class="md-nav__link">
+    3.3.2 Segons la ubicació de la informació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-exemples-practics-de-bases-de-dades" class="md-nav__link">
+    3.4 Exemples pràctics de bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sistemes-gestors-de-bases-de-dades-sgbd" class="md-nav__link">
+    4. Sistemes gestors de bases de dades (SGBD)
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Sistemes gestors de bases de dades (SGBD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-funcions-principals-dels-sgbd" class="md-nav__link">
+    4.1 Funcions principals dels SGBD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-components-principals-dun-sgbd" class="md-nav__link">
+    4.2 Components principals d'un SGBD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tipus-de-sgbd" class="md-nav__link">
+    4.3 Tipus de SGBD
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Tipus de SGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-segons-el-model-de-dades-que-suporten" class="md-nav__link">
+    4.3.1 Segons el model de dades que suporten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-segons-larquitectura" class="md-nav__link">
+    4.3.2 Segons l'arquitectura
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bases-de-dades-centralitzades-i-bases-de-dades-distribuides" class="md-nav__link">
+    5. Bases de dades centralitzades i bases de dades distribuïdes
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Bases de dades centralitzades i bases de dades distribuïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-bases-de-dades-centralitzades" class="md-nav__link">
+    5.1 Bases de dades centralitzades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-bases-de-dades-distribuides" class="md-nav__link">
+    5.2 Bases de dades distribuïdes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-tecniques-de-fragmentacio" class="md-nav__link">
+    5.3 Tècniques de fragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Tècniques de fragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-fragmentacio-horitzontal" class="md-nav__link">
+    5.3.1 Fragmentació horitzontal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-fragmentacio-vertical" class="md-nav__link">
+    5.3.2 Fragmentació vertical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-fragmentacio-mixta-hibrida" class="md-nav__link">
+    5.3.3 Fragmentació mixta (híbrida)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-legislacio-espanyola-i-europea-sobre-proteccio-de-dades" class="md-nav__link">
+    6. Legislació espanyola i europea sobre protecció de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Legislació espanyola i europea sobre protecció de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-marc-normatiu-europeu-el-rgpd" class="md-nav__link">
+    6.1 Marc normatiu europeu: el RGPD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-marc-normatiu-espanyol-la-lopdgdd" class="md-nav__link">
+    6.2 Marc normatiu espanyol: la LOPDGDD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-sancions-i-incompliments" class="md-nav__link">
+    6.3 Sancions i incompliments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-implicacions-per-a-bases-de-dades" class="md-nav__link">
+    6.4 Implicacions per a bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-big-data-introduccio-analisi-de-dades-i-intelligencia-de-negocis" class="md-nav__link">
+    7. Big Data: introducció, anàlisi de dades i intel·ligència de negocis
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Big Data: introducció, anàlisi de dades i intel·ligència de negocis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-introduccio-al-big-data" class="md-nav__link">
+    7.1 Introducció al Big Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-analisi-de-dades-data-analytics" class="md-nav__link">
+    7.2 Anàlisi de dades (Data Analytics)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-intelligencia-de-negocis-business-intelligence-bi" class="md-nav__link">
+    7.3 Intel·ligència de negocis (Business Intelligence, BI)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-01-introduccio-a-les-bases-de-dades">Unitat 01. Introducció a les Bases de Dades</h1>
+<h2 id="1-introduccio">1. Introducció</h2>
+<p>En qualsevol organització o sistema informàtic, una de les necessitats fonamentals és emmagatzemar, organitzar i recuperar informació de manera eficient. Històricament, aquesta tasca s'ha resolt mitjançant dos enfocaments principals: els <strong>fitxers tradicionals</strong> i les <strong>bases de dades</strong>. Els fitxers van ser el primer mètode utilitzat, però presenten limitacions importants quan es tracta de gestionar grans volums de dades o quan múltiples usuaris necessiten accedir-hi simultàniament. Les bases de dades van sorgir com a solució a aquests problemes, oferint major flexibilitat, seguretat i consistència en la gestió de la informació. </p>
+<p>En aquest tema explorarem els dos sistemes d'emmagatzematge, les seues característiques, avantatges, inconvenients i exemples pràctics per a comprendre quan és més adequat utilitzar cadascun.</p>
+<hr>
+<h2 id="2-fitxers">2. Fitxers</h2>
+<p>Els <strong>fitxers</strong> són <strong>estructures bàsiques d'emmagatzematge de dades</strong> que organitzen la informació en registres seqüencials o amb accés directe. Cada fitxer conté registres del mateix tipus, però no permet establir relacions automàtiques entre diferents fitxers. </p>
+<p><strong>Avantatges i inconvenients dels fitxers</strong></p>
+<p><strong>Avantatges:</strong></p>
+<ul>
+<li>Simples d'implementar per a aplicacions petites.</li>
+<li>No requereixen software especialitzat (SGBD).</li>
+<li>Consumeixen poc espai quan estan ben organitzats.</li>
+<li>Ideals per a processos per lots (ex.: generar informes nocturns a partir de logs).</li>
+</ul>
+<p><strong>Inconvenients:</strong></p>
+<ul>
+<li><strong>Redundància</strong>: Les mateixes dades es repeteixen en diversos fitxers, malbaratant espai.</li>
+<li><strong>Inconsistència</strong>: Si una dada es modifica en un fitxer però no en els altres, es generen contradiccions.</li>
+<li><strong>Dificultat d'accés</strong>: Per a cerques complexes cal programar cada consulta específicament.</li>
+<li><strong>Aïllament de dades</strong>: Cada fitxer té el seu propi format, dificultant la integració.</li>
+<li><strong>Problemes de concurrència</strong>: Dificultat per a gestionar accessos simultanis de múltiples usuaris.</li>
+<li><strong>Manca d'atomicitat</strong>: No es garanteix que les operacions complexes s'executen completament o no s'executen. </li>
+</ul>
+<h3 id="21-tipus-de-fitxers-segons-lorganitzacio">2.1. Tipus de fitxers segons l'organització</h3>
+<h4 id="211-fitxers-plans-sequencials">2.1.1. Fitxers plans (seqüencials)</h4>
+<p>Els registres s'emmagatzemen un darrere l'altre de manera contigua, normalment en ordre d'arribada o ordenats per una clau. Per accedir a un registre concret, cal recórrer tots els anteriors des del principi. </p>
+<div class="admonition info">
+<p class="admonition-title">Fitxers "plans"</p>
+<p>Els fitxers plans (el nom vé de l'anglès <strong><em>plain text</em></strong>) són fitxers de text que contenen dades sense formatació especial, només amb caràcters ASCII o Unicode. </p>
+</div>
+<ul>
+<li>
+<p><strong>Característiques</strong>:</p>
+<ul>
+<li>Organització simple i lineal.</li>
+<li>Els registres poden ser de longitud fixa o variable.</li>
+<li>Ideal per a processos que llegeixen tots els registres (ex.: generar nòmines).</li>
+</ul>
+</li>
+<li>
+<p><strong>Avantatges</strong>:</p>
+<ul>
+<li>Aprofita al màxim l'espai al no deixar buits entre registres.</li>
+<li>Consumeix poc espai d'emmagatzematge.</li>
+<li>Insercions ràpides (al final del fitxer).</li>
+</ul>
+</li>
+<li>
+<p><strong>Inconvenients</strong>:</p>
+<ul>
+<li>Consulta i modificació de registres individuals costosa (cal recórrer tot el fitxer).</li>
+<li>L'esborrat requereix compactació, que és costosa.</li>
+<li>Mantenir el fitxer ordenat és costós. </li>
+</ul>
+</li>
+<li>
+<p><strong>Exemples</strong>:</p>
+<ul>
+<li>Fitxers de text (<code>.txt</code>, <code>.csv</code>) amb llistats d'alumnes, on cada línia és un registre.</li>
+<li>Fitxers de registre (<code>.log</code>) de servidors web, on cada entrada és un accés.</li>
+<li>Fitxers de configuració simples (<code>.ini</code>, <code>.conf</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Exemple</strong> de fitxer pla en format <strong>csv</strong> amb registres d'alumnes:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>DNI,Nom,Cognoms,Curs
+12345678A,Joan,Pérez,1r ESO
+23456789B,Maria,García,2n ESO
+34567890C,Lluc,Martínez,3r ESO
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>Exemple</strong> de fitxer <strong>log</strong> de Linux amb registres d'accés:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Jun 10 12:34:56 server sshd[1234]: Accepted password for user1 from 192.168.1.100
+Jun 10 12:34:57 server sshd[1234]: Failed password for user1 from 192.168.1.101
+Jun 10 12:34:58 server sshd[1234]: Accepted password for user2 from 192.168.1.102
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="212-fitxers-indexats">2.1.2. Fitxers indexats</h4>
+<p>Combinen un fitxer de dades (amb els registres) amb un o més fitxers d'índex que actuen com a "guia" per localitzar ràpidament els registres segons una clau. L'índex conté les claus i la posició física (adreça) de cada registre. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/ficheros_indexados.jpg" data-title="Exemple de fitxer indexat" data-desc-position="bottom"><img alt="Exemple de fitxer indexat" src="../images/ficheros_indexados.jpg"></a></p>
+<ul>
+<li>
+<p><strong>Característiques</strong>:</p>
+<ul>
+<li>Permeten accés seqüencial i directe per valor.</li>
+<li>Poden tenir múltiples índexs per a diferents claus (ex.: per DNI, per cognom).</li>
+</ul>
+</li>
+<li>
+<p><strong>Avantatges</strong>:</p>
+<ul>
+<li>Accés ràpid a registres si la cerca es realitza sobre el camp clau indexat.</li>
+<li>Actualitzacions ràpides.</li>
+<li>Admeten cerques binàries sobre l'índex.</li>
+</ul>
+</li>
+<li>
+<p><strong>Inconvenients</strong>:</p>
+<ul>
+<li>Ocupen més espai en disc que els fitxers seqüencials (cal emmagatzemar l'índex).</li>
+<li>Augmenta el temps mitjà d'accés a registres (cal mantenir l'índex actualitzat).</li>
+<li>Requereixen reorganització periòdica quan hi ha moltes insercions/esborrats. </li>
+</ul>
+</li>
+<li>
+<p><strong>Exemples</strong>:</p>
+<ul>
+<li>Fitxers de clients d'una empresa amb índex per NIF per a cerques ràpides.</li>
+<li>Catàlegs de biblioteques amb índex per títol, autor i matèria.</li>
+<li>Fitxers de matriculació d'alumnes amb índex per expedient i per curs.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Exemple</strong> de fitxer indexat amb un índex per DNI:</p>
+<p>Fitxer de dades (alumnes.dat):
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>DNI,Nom,Cognoms,Curs
+12345678A,Joan,Pérez,1r ESO
+23456789B,Maria,García,2n ESO
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Fitxer d'índex (alumnes.idx):
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>DNI,Posició
+12345678A,0
+23456789B,1
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<h4 id="213-fitxers-dacces-directe-relatius">2.1.3. Fitxers d'accés directe (relatius)</h4>
+<p>La posició física del registre es calcula directament a partir de la seua clau, normalment mitjançant una <strong>funció de dispersió</strong> (<em>hashing</em>) o perquè el registre <em>n</em> ocupa la posició <em>n</em> del fitxer. No necessiten índexs externs.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/hash.png" data-title="Exemple de fitxer d'accés directe amb funció hash" data-desc-position="bottom"><img alt="Exemple de fitxer d'accés directe amb funció hash" src="../images/hash.png"></a></p>
+<ul>
+<li>
+<p><strong>Característiques</strong>:</p>
+<ul>
+<li>Accés immediat sense necessitat d'índexs ni recórrer registres.</li>
+<li>Solen requerir registres de mida fixa.</li>
+<li>La clau es transforma en una adreça física mitjançant una funció matemàtica.</li>
+</ul>
+</li>
+<li>
+<p><strong>Avantatges</strong>:</p>
+<ul>
+<li>Accés extremadament ràpid.</li>
+<li>No requereixen fitxers d'índex addicionals.</li>
+<li>Ideals per a cerques puntuals freqüents.</li>
+</ul>
+</li>
+<li>
+<p><strong>Inconvenients</strong>:</p>
+<ul>
+<li>La relació entre clau i adreça la defineix el programador (funció de dispersió).</li>
+<li>Si el rang de claus possibles és molt superior al de claus utilitzades, es desaprofita espai.</li>
+<li>Accés a registres només a través del camp clau (no es poden fer cerques per altres camps fàcilment).</li>
+<li>Les col·lisions (dues claus que generen la mateixa adreça) requereixen estratègies de resolució. </li>
+</ul>
+</li>
+<li>
+<p><strong>Exemples</strong>:</p>
+<ul>
+<li>Fitxers de taules de dispersió per a memòries cau (caches).</li>
+<li>Fitxers de sessió d'usuaris on l'ID de sessió determina la posició.</li>
+<li>Fitxers de traducció de pàgines en sistemes de memòria virtual.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Exemple</strong> de fitxer d'accés directe amb funció de dispersió:</p>
+<p>Fitxer de dades (alumnes.dat):
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Posició 0: 12345678A,Joan,Pérez,1r ESO
+Posició 1: 23456789B,Maria,García,2n ESO
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Funció de dispersió: hash(DNI) mod 10
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>- DNI 12345678A -&gt; hash(12345678A) mod 10 = 0
+- DNI 23456789B -&gt; hash(23456789B) mod 10 = 1
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<h4 id="214-altres-tipus-de-fitxers">2.1.4. Altres tipus de fitxers</h4>
+<ul>
+<li>
+<p><strong>Fitxers XML</strong>: Estructuren les dades amb etiquetes jeràrquiques, permetent interoperabilitat entre sistemes. </p>
+<ul>
+<li><em>Exemple</em>: Fitxers de configuració d'aplicacions, exportació de dades entre programes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fitxers JSON</strong>: Emmagatzemen dades com a parelles clau-valor i arrays, molt utilitzats en aplicacions web. </p>
+<ul>
+<li><em>Exemple</em>: Respostes d'APIs REST, fitxers de configuració de projectes (<code>package.json</code>).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-bases-de-dades">3. Bases de dades</h2>
+<p>Una <strong>base de dades (BBDD)</strong> és una <strong>col·lecció organitzada de dades relacionades, emmagatzemades digitalment, que permet accedir-hi, gestionar-la i actualitzar-la de manera eficient</strong>. A diferència dels fitxers, una base de dades és <strong>autodescriptiva</strong>: la definició de la seua estructura (tipus de dades, camps, relacions) forma part de la pròpia base de dades mitjançant el <strong>diccionari de dades</strong>. </p>
+<h3 id="31-conceptes-basics">3.1 Conceptes bàsics</h3>
+<ul>
+<li><strong>Dades</strong>: Informació estructurada (ex.: noms, dates, quantitats, imatges).</li>
+<li><strong>Registre/Tupla</strong>: Conjunt de dades relatives a una entitat (ex.: un alumne: nom, cognoms, DNI, curs).</li>
+<li><strong>Camp/Atribut</strong>: Cada dada individual dins d'un registre (ex.: el camp "cognom").</li>
+<li><strong>Taula/Relació</strong>: Conjunt de registres amb la mateixa estructura (ex.: la taula "Alumnes").</li>
+<li><strong>Clau primària</strong>: Camp o conjunt de camps que identifica de manera única un registre (ex.: el DNI).</li>
+<li><strong>Clau forana/aliena</strong>: Camp que estableix una relació amb la clau primària d'una altra taula.</li>
+<li><strong>SGBD (Sistema Gestor de Bases de Dades)</strong>: Software que gestiona la base de dades (ex.: MySQL, PostgreSQL, Oracle). </li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/table.png" data-title="Exemple de taula d'una base de dades" data-desc-position="bottom"><img alt="Exemple de taula d'una base de dades" src="../images/table.png"></a></p>
+<p><strong>Avantatges (en comparació amb fitxers):</strong></p>
+<ul>
+<li><strong>Redundància mínima</strong>: Les dades només s'emmagatzemen una vegada, evitant duplicacions.</li>
+<li><strong>Consistència</strong>: Si les relacions estan ben dissenyades, no hi ha risc d'inconsistències.</li>
+<li><strong>Interrelacions</strong>: El sistema té eines per a relacionar taules diferents (consultes complexes).</li>
+<li><strong>Atomicitat</strong>: Les transaccions garanteixen que les operacions complexes s'executen completament o no s'executen.</li>
+<li><strong>Seguretat</strong>: Es poden definir perfils d'usuari amb diferents permisos i vistes de les dades.</li>
+<li><strong>Concurrència</strong>: Múltiples usuaris poden accedir simultàniament sense conflictes.</li>
+<li><strong>Independència de dades</strong>: La modificació de l'estructura no afecta els programes que hi accedeixen. </li>
+</ul>
+<p><strong>Inconvenients:</strong></p>
+<ul>
+<li><strong>Complexitat</strong>: Requereixen disseny i modelatge acurat.</li>
+<li><strong>Cost</strong>: El hardware i software són més costosos que els fitxers.</li>
+<li><strong>Necessitat de personal especialitzat</strong>: Cal administradors de bases de dades (DBA).</li>
+</ul>
+<h3 id="32-usos-de-les-bases-de-dades">3.2 Usos de les bases de dades</h3>
+<ul>
+<li>Emmagatzemar grans volums de dades de manera estructurada (ex.: registres d'usuaris, productes, transaccions).</li>
+<li>Permetre consultes ràpides i complexes mitjançant llenguatges com SQL (ex.: "llista d'alumnes amb nota &gt; 5 ordenats per cognom").</li>
+<li>Garantir la integritat i consistència de les dades (validar formats, evitar duplicats, mantenir relacions).</li>
+<li>Facilitar l'accés concurrent de múltiples usuaris o aplicacions (ex.: web + app mòbil accedint a les mateixes dades).</li>
+<li>Separar la lògica de l'aplicació de l'emmagatzematge de dades (independència de dades).</li>
+<li>Generar informes i estadístiques a partir de dades agregades. </li>
+</ul>
+<h3 id="33-tipus-de-bases-de-dades">3.3 Tipus de bases de dades</h3>
+<h4 id="331-segons-el-model-de-dades">3.3.1 Segons el model de dades</h4>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Descripció</th>
+<th>Exemples</th>
+<th>Casos d'ús</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relacional</strong></td>
+<td>Dades en taules relacionades mitjançant claus. És el més utilitzat.</td>
+<td>MySQL, PostgreSQL, Oracle, SQL Server</td>
+<td>Aplicacions web, sistemes de gestió empresarial (ERP), aplicacions mòbils.</td>
+</tr>
+<tr>
+<td><strong>NoSQL - Documental</strong></td>
+<td>Dades en documents (JSON, XML) dins de col·leccions. Flexible i escalable.</td>
+<td>MongoDB, CouchBase</td>
+<td>Catàlegs de productes, gestió de continguts, aplicacions web modernes.</td>
+</tr>
+<tr>
+<td><strong>NoSQL - Clau-valor</strong></td>
+<td>Emmagatzematge simple de parelles clau-valor. Molt ràpid.</td>
+<td>Redis, DynamoDB</td>
+<td>Memòries cau, sessions d'usuari, carrets de compra.</td>
+</tr>
+<tr>
+<td><strong>NoSQL - Columnar</strong></td>
+<td>Dades organitzades per columnes en lloc de files. Optimitzat per a consultes analítiques.</td>
+<td>Cassandra, HBase</td>
+<td>Big Data, anàlisi de dades massives, sistemes de recomanació.</td>
+</tr>
+</tbody>
+</table>
+<p>Altres tipus de bases de dades en desús hui en dia són les <strong>bases de dades jeràrquiques</strong> (ex.: IBM IMS) i les <strong>bases de dades en xarxa</strong> (ex.: IDMS), que van ser populars en els anys 70 i 80, però han estat reemplaçades per models més flexibles com el relacional i NoSQL. També existeixen bases de dades <strong>orientades a objectes</strong> (ex.: db4o, ObjectDB), que combinen conceptes de programació orientada a objectes amb emmagatzematge de dades, però no són tan àmpliament utilitzades com les relacionals i NoSQL.</p>
+<h4 id="332-segons-la-ubicacio-de-la-informacio">3.3.2 Segons la ubicació de la informació</h4>
+<table>
+<thead>
+<tr>
+<th>Tipus</th>
+<th>Descripció</th>
+<th>Avantatges</th>
+<th>Inconvenients</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Centralitzades</strong></td>
+<td>Totes les dades en un sol servidor o ubicació física.</td>
+<td>Fàcil de gestionar, mantenir i assegurar.</td>
+<td>Punt únic de fallada, pot saturar-se amb molts usuaris.</td>
+<td>Bases de dades locals d'una petita empresa.</td>
+</tr>
+<tr>
+<td><strong>Distribuïdes</strong></td>
+<td>Les dades estan repartides en diversos servidors o ubicacions, però es gestionen com una única base de dades lògica.</td>
+<td>Major disponibilitat, escalabilitat, tolerància a fallades.</td>
+<td>Complexitat de gestió, consistència més difícil de garantir.</td>
+<td>Sistemes bancaris internacionals, xarxes de vendes.</td>
+</tr>
+<tr>
+<td><strong>En el núvol (cloud)</strong></td>
+<td>Allotjades en servidors remots accessibles via Internet. El proveidor gestiona el hardware.</td>
+<td>Escalabilitat elàstica, pagament per ús, accés des de qualsevol lloc.</td>
+<td>Dependència del proveidor, latència, preocupacions de privadesa.</td>
+<td>AWS RDS, Google Cloud SQL, Azure SQL Database.</td>
+</tr>
+<tr>
+<td><strong>Locals (on-premise)</strong></td>
+<td>Instal·lades en servidors propis de l'organització, dins de les seues instal·lacions.</td>
+<td>Control total, seguretat física, sense dependència externa.</td>
+<td>Cost inicial elevat, manteniment intern, escalabilitat limitada.</td>
+<td>Bases de dades de hospitals, administracions públiques.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-exemples-practics-de-bases-de-dades">3.4 Exemples pràctics de bases de dades</h3>
+<ul>
+<li><strong>MySQL, MariaDB, PostgreSQL</strong>: Gestió de continguts en llocs web (ex.: WordPress, Moodle).</li>
+<li><strong>Oracle</strong>, <strong>SQL Server</strong>: Sistemes de gestió empresarial (ERP) en grans corporacions.</li>
+<li><strong>SQLite</strong>: Bases de dades lleugeres en aplicacions mòbils o navegadors.</li>
+<li><strong>MongoDB</strong>: Emmagatzematge de documents flexibles com a perfils d'usuaris amb dades variables.</li>
+<li><strong>Firestore</strong>: Base de dades en temps real per a aplicacions mòbils i web (ex.: xats, notificacions).</li>
+</ul>
+<h2 id="4-sistemes-gestors-de-bases-de-dades-sgbd">4. Sistemes gestors de bases de dades (SGBD)</h2>
+<p>Un <strong>Sistema Gestor de Bases de Dades (SGBD)</strong> és el <strong>software que permet crear, gestionar i mantenir bases de dades</strong>. Actua com a intermediari entre els usuaris (o aplicacions) i la base de dades física, ocultant els detalls d'emmagatzematge i oferint interfícies senzilles per a interactuar amb les dades. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/MySQL_Workbench_Mainscreen_Windows.gif" data-title="SGBD MySQL Workbench" data-desc-position="bottom"><img alt="SGBD MySQL Workbench" src="../images/MySQL_Workbench_Mainscreen_Windows.gif"></a></p>
+<h3 id="41-funcions-principals-dels-sgbd">4.1 Funcions principals dels SGBD</h3>
+<p>Els SGBD tenen com a objectiu facilitar l'ús simultani a molts usuaris de tipus diferent, independitzar l'usuari del món físic i mantenir la integritat de les dades. Les seues funcions principals són: </p>
+<ul>
+<li>
+<p><strong>Acces i modificació de les dades</strong>: Permet als usuaris i aplicacions llegir, escriure, modificar i eliminar dades de manera eficient.</p>
+</li>
+<li>
+<p><strong>Definició de l'esquema de la base de dades</strong>: Permet crear i modificar l'estructura de les taules, relacions, índexs i restriccions.</p>
+</li>
+<li>
+<p><strong>Control de la integritat</strong>: Comprova que les dades complisquen les restriccions definides a l'esquema (ex.: claus primàries úniques, claus foranes vàlides, dominis de dades correctes).</p>
+</li>
+<li>
+<p><strong>Control d'accessos concurrents</strong>: Gestiona l'accés simultani de múltiples usuaris per a evitar interferències entre transaccions. Utilitza mecanismes com bloquejos (<em>locks</em>) i protocols de concurrència. </p>
+</li>
+<li>
+<p><strong>Reconstrucció en cas de fallada</strong>: Manté diaris d'actualitzacions (<em>log</em>) i còpies de seguretat (<em>backup</em>) per a recuperar la base de dades després d'errors de hardware, software o interrupcions elèctriques. </p>
+</li>
+<li>
+<p><strong>Seguretat i privacitat</strong>: Defineix perfils d'usuari, permisos d'accés (lectura, escriptura, modificació) i vistes personalitzades per a protegir dades sensibles. </p>
+</li>
+<li>
+<p><strong>Gestió de transaccions</strong>: Assegura que les transaccions es completen completament o no es completen (atomicitat), i manté la consistència de la base de dades. </p>
+</li>
+</ul>
+<h3 id="42-components-principals-dun-sgbd">4.2 Components principals d'un SGBD</h3>
+<p>Un SGBD típic té diversos mòduls o components que treballen conjuntament per a oferir les funcions anteriors. Els components principals són:</p>
+<ul>
+<li>
+<p><strong>Gestor d'emmagatzemament</strong></p>
+<p>És el nucli del SGBD i s'encarrega de gestionar l'emmagatzematge físic de les dades en disc, així com la memòria intermèdia (buffer) per a optimitzar l'accés a les dades. </p>
+</li>
+<li>
+<p><strong>Processador de consultes</strong></p>
+<p>S'encarrega d'interpretar les consultes SQL, optimitzar-les i generar el pla d'execució més eficient. Inclou:</p>
+<ul>
+<li><strong>Intèrpret SQL</strong>: Analitza i valida les consultes en llenguatge SQL. </li>
+<li><strong>Optimitzador de consultes</strong>: Genera el pla d'execució més eficient per a cada consulta, considerant índexs, estadístiques i costos. </li>
+</ul>
+</li>
+<li>
+<p><strong>Altres components</strong></p>
+<ul>
+<li><strong>Gestor de vistes</strong>: Crea i manté vistes personalitzades per a usuaris. </li>
+<li><strong>Gestor d'usuaris i permisos</strong>: Controla l'accés a les dades segons rols i privilegis.</li>
+<li><strong>Gestor de diaris (log manager)</strong>: Registra totes les transaccions per a recuperació en cas de fallada. </li>
+<li><strong>Gestor de còpies de seguretat i restauració</strong>: Realitza backups i permet restaurar la base de dades. </li>
+</ul>
+</li>
+</ul>
+<h3 id="43-tipus-de-sgbd">4.3 Tipus de SGBD</h3>
+<p>Els SGBD es poden classificar segons diversos criteris:</p>
+<h4 id="431-segons-el-model-de-dades-que-suporten">4.3.1 Segons el model de dades que suporten</h4>
+<ul>
+<li><strong>SGBD relacionals</strong>: MySQL, PostgreSQL, Oracle, SQL Server, SQLite.</li>
+<li><strong>SGBD NoSQL</strong>: MongoDB, Cassandra, Firestore.</li>
+<li><strong>SGBD orientats a objectes</strong>: PostgreSQL (amb extensions), db4o.</li>
+</ul>
+<h4 id="432-segons-larquitectura">4.3.2 Segons l'arquitectura</h4>
+<ul>
+<li><strong>SGBD centralitzats</strong>: Tot el software, clients i servidors, s'executa en la mateixa màquina o aplicació local.</li>
+<li><strong>SGBD client-servidor</strong>: El servidor gestiona la base de dades i els clients es connecten remotament.</li>
+<li><strong>SGBD distribuïts</strong>: La base de dades està repartida en diversos nodes, però es gestiona com una única base de dades lògica. </li>
+</ul>
+<hr>
+<h2 id="5-bases-de-dades-centralitzades-i-bases-de-dades-distribuides">5. Bases de dades centralitzades i bases de dades distribuïdes</h2>
+<h3 id="51-bases-de-dades-centralitzades">5.1 Bases de dades centralitzades</h3>
+<p>Una <strong>base de dades centralitzada</strong> emmagatzema totes les dades en un sol servidor o ubicació física. Tot el processament de consultes i transaccions es realitza en aquest servidor central. </p>
+<p><strong>Característiques:</strong></p>
+<ul>
+<li>Única còpia de les dades en un lloc físic.</li>
+<li>Fàcil de gestionar, mantenir i assegurar.</li>
+<li>El disseny i l'administració són més simples.</li>
+<li>Tots els usuaris accedeixen al mateix servidor.</li>
+</ul>
+<p><strong>Avantatges:</strong></p>
+<ul>
+<li><strong>Simplicitat</strong>: Menys complexitat en disseny, implementació i manteniment.</li>
+<li><strong>Consistència</strong>: Com que hi ha una única còpia de les dades, no hi ha problemes de sincronització.</li>
+<li><strong>Seguretat</strong>: És més fàcil controlar l'accés i aplicar polítiques de seguretat.</li>
+<li><strong>Cost inicial</strong>: Generalment més econòmica d'implementar per a volums de dades mitjans.</li>
+</ul>
+<p><strong>Inconvenients:</strong></p>
+<ul>
+<li><strong>Punt únic de fallada</strong>: Si el servidor falla, tot el sistema queda inoperatiu.</li>
+<li><strong>Coll d'ampolla</strong>: Amb molts usuaris concurrents, el servidor pot saturar-se.</li>
+<li><strong>Latència</strong>: Usuaris geogràficament distants poden experimentar retards.</li>
+<li><strong>Escalabilitat limitada</strong>: L'escalabilitat vertical (afegir més recursos al servidor) té un límit físic i econòmic.</li>
+</ul>
+<p><strong>Exemples d'ús:</strong></p>
+<ul>
+<li>Petites i mitjanes empreses amb usuaris en una sola ubicació.</li>
+<li>Aplicacions internes amb pocs usuaris concurrents.</li>
+<li>Aplicacions mòvils amb dades locals.</li>
+<li>Prototips i entorns de desenvolupament.</li>
+</ul>
+<h3 id="52-bases-de-dades-distribuides">5.2 Bases de dades distribuïdes</h3>
+<p>Una <strong>base de dades distribuïda</strong> està formada per un <strong>conjunt de bases de dades parcialment independents, emmagatzemades en diferents computadores (nodes)</strong>, que comparteixen un esquema comú i coordinen el processament de les transaccions que accedeixen a dades remotes. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/distributed_db.png" data-title="Base de dades distribuïda" data-desc-position="bottom"><img alt="Base de dades distribuïda" src="../images/distributed_db.png"></a></p>
+<p><strong>Característiques:</strong></p>
+<ul>
+<li>Les dades estan físicament repartides en diversos nodes (servidors).</li>
+<li>Lògicament, es presenta com una única base de dades als usuaris.</li>
+<li>Cada node pot processar consultes locals de manera autònoma.</li>
+<li>Les transaccions poden accedir a dades en múltiples nodes simultàniament.</li>
+</ul>
+<p><strong>Avantatges:</strong></p>
+<ul>
+<li><strong>Disponibilitat</strong>: Si un node falla, els altres poden continuar operant.</li>
+<li><strong>Escalabilitat</strong>: Es pot escalar horitzontalment afegint més nodes.</li>
+<li><strong>Rendiment</strong>: Les dades es poden col·locar prop dels usuaris que més les utilitzen, reduint la latència.</li>
+</ul>
+<p><strong>Inconvenients:</strong></p>
+<ul>
+<li><strong>Complexitat</strong>: El disseny, implementació i manteniment són molt més complexos.</li>
+<li><strong>Cost</strong>: Requereix més hardware, software i personal especialitzat.</li>
+<li><strong>Seguretat</strong>: Cal protegir múltiples nodes i les comunicacions entre ells.</li>
+</ul>
+<p><strong>Exemples d'ús:</strong></p>
+<ul>
+<li>Sistemes bancaris (dades repartides per sucursals).</li>
+<li>Xarxes de vendes amb múltiples botigues.</li>
+<li>Aplicacions web globals amb usuaris en diversos continents.</li>
+</ul>
+<h3 id="53-tecniques-de-fragmentacio">5.3 Tècniques de fragmentació</h3>
+<p>La <strong>fragmentació</strong> és el <strong>procés de dividir una taula (relació) en fragments més menuts que es distribueixen entre els diferents nodes de la base de dades distribuïda</strong>. L'objectiu és col·locar cada fragment el més a prop possible dels usuaris que hi accedeixen més freqüentment, millorant així el rendiment i reduint la càrrega de la xarxa. 
+Hi ha tres tècniques principals de fragmentació:</p>
+<h4 id="531-fragmentacio-horitzontal">5.3.1 Fragmentació horitzontal</h4>
+<p>La <strong>fragmentació horitzontal</strong> consisteix a dividir les <strong>tuples</strong> (files) d'una relació en dos o més subconjunts en funció dels valors que aquelles tinguen en un o més atributs. Cada fragment conté totes les columnes de la taula original, però només un subconjunt de les files. </p>
+<p><strong>Característiques:</strong></p>
+<ul>
+<li>Es basa en una condició de selecció (ex.: <code>ciutat = 'València'</code>).</li>
+<li>Cada fragment té la mateixa estructura (esquema) que la taula original.</li>
+<li>La unió de tots els fragments horitzontals ha de recuperar la taula original.</li>
+<li>Els fragments no han de tindre files duplicades (fragmentació disjunta).</li>
+</ul>
+<p><strong>Exemple:</strong>
+Taula original <code>Alumnes</code>:</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nom</th>
+<th>Cognoms</th>
+<th>Ciutat</th>
+<th>Curs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>Maria</td>
+<td>García</td>
+<td>València</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>Joan</td>
+<td>López</td>
+<td>Castelló</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3C</td>
+<td>Anna</td>
+<td>Martínez</td>
+<td>València</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4D</td>
+<td>Pere</td>
+<td>Sánchez</td>
+<td>Alacant</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Fragmentació horitzontal per ciutat:</p>
+<ul>
+<li><strong>Fragment València</strong>: Files on <code>ciutat = 'València'</code> (alumnes 1A i 3C).</li>
+<li><strong>Fragment Castelló</strong>: Files on <code>ciutat = 'Castelló'</code> (alumne 2B).</li>
+<li><strong>Fragment Alacant</strong>: Files on <code>ciutat = 'Alacant'</code> (alumne 4D).</li>
+</ul>
+<h4 id="532-fragmentacio-vertical">5.3.2 Fragmentació vertical</h4>
+<p>La <strong>fragmentació vertical</strong> consisteix a dividir els <strong>atributs</strong> (columnes) de la relació en diferents fragments. Cada fragment conté totes les files de la taula original, però només un subconjunt de les columnes. La clau primària s'ha de repetir en tots els fragments per a poder reconstruir la taula original.</p>
+<p><strong>Característiques:</strong></p>
+<ul>
+<li>Es basa en una projecció de columnes.</li>
+<li>Cada fragment té un subconjunt d'atributs de la taula original.</li>
+<li>La clau primària es repeteix en tots els fragments.</li>
+<li>La taula original es reconstrueix mitjançant un <em>join</em> natural sobre la clau primària.</li>
+</ul>
+<p><strong>Exemple:</strong>
+Taula original <code>Alumnes</code>:</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nom</th>
+<th>Cognoms</th>
+<th>Ciutat</th>
+<th>Curs</th>
+<th>Nota_Mitjana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>Maria</td>
+<td>García</td>
+<td>València</td>
+<td>1</td>
+<td>8.5</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>Joan</td>
+<td>López</td>
+<td>Castelló</td>
+<td>2</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>3C</td>
+<td>Anna</td>
+<td>Martínez</td>
+<td>València</td>
+<td>1</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>4D</td>
+<td>Pere</td>
+<td>Sánchez</td>
+<td>Alacant</td>
+<td>3</td>
+<td>6.8</td>
+</tr>
+</tbody>
+</table>
+<p>Fragmentació vertical:</p>
+<ul>
+<li><strong>Fragment 1 (dades personals)</strong>: <code>DNI, Nom, Cognoms, Ciutat</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nom</th>
+<th>Cognoms</th>
+<th>Ciutat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>Maria</td>
+<td>García</td>
+<td>València</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>Joan</td>
+<td>López</td>
+<td>Castelló</td>
+</tr>
+<tr>
+<td>3C</td>
+<td>Anna</td>
+<td>Martínez</td>
+<td>València</td>
+</tr>
+<tr>
+<td>4D</td>
+<td>Pere</td>
+<td>Sánchez</td>
+<td>Alacant</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Fragment 2 (dades acadèmiques)</strong>: <code>DNI, Curs, Nota_Mitjana</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Curs</th>
+<th>Nota_Mitjana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>1</td>
+<td>8.5</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>2</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>3C</td>
+<td>1</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>4D</td>
+<td>3</td>
+<td>6.8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="533-fragmentacio-mixta-hibrida">5.3.3 Fragmentació mixta (híbrida)</h4>
+<p>La <strong>fragmentació mixta</strong> combina fragmentació horitzontal i vertical. Primer es fragmenta horitzontalment i després cada fragment horitzontal es fragmenta verticalment (o viceversa). Aquesta tècnica permet una distribució més fina de les dades, adaptant-se millor als patrons d'accés dels usuaris. </p>
+<p><strong>Exemple:</strong></p>
+<p>Taula <code>Alumnes</code> fragmentada:</p>
+<ol>
+<li>Primer, fragmentació horitzontal per ciutat (València, Castelló, Alacant).</li>
+<li>Després, dins de cada fragment horitzontal, fragmentació vertical separant dades personals de dades acadèmiques.</li>
+</ol>
+<p>Resultat: 6 fragments (3 ciutats × 2 tipus de dades).</p>
+<div class="admonition question">
+<p class="admonition-title">Exercici pràctic</p>
+<p>Fragmenta la següent taula <code>Productes</code> primer horitzontalment per categoria i després verticalment separant dades generals de dades de preu i estoc. Finalment, fes una fragmentació mixta amb els 2 criteris exposats</p>
+<p>Taula <code>Productes</code>:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nom</th>
+<th>Categoria</th>
+<th>Preu</th>
+<th>Estoc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Llibre A</td>
+<td>Llibres</td>
+<td>15.99</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Llibre B</td>
+<td>Llibres</td>
+<td>12.50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Joguet A</td>
+<td>Joguets</td>
+<td>25.00</td>
+<td>30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Joguet B</td>
+<td>Joguets</td>
+<td>30.00</td>
+<td>20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Aparell A</td>
+<td>Electrònica</td>
+<td>199.99</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="6-legislacio-espanyola-i-europea-sobre-proteccio-de-dades">6. Legislació espanyola i europea sobre protecció de dades</h2>
+<p>La protecció de dades personals és un dret fonamental reconegut tant a nivell europeu com espanyol. El marc legal actual garanteix que les persones tinguen control sobre les seues dades personals i estableix obligacions per a les organitzacions que les tracten. </p>
+<h3 id="61-marc-normatiu-europeu-el-rgpd">6.1 Marc normatiu europeu: el RGPD</h3>
+<p>El <strong>Reglament General de Protecció de Dades (RGPD)</strong>, oficialment <em>Reglament (UE) 2016/679 del Parlament Europeu i del Consell, de 27 d'abril de 2016</em>, és la normativa europea de referència en matèria de protecció de dades. </p>
+<p>És un <strong>reglament europeu</strong> d'aplicació directa en tots els estats membres de la UE. Té com a objectiu <strong>protegir les persones físiques pel que fa al tractament de les seues dades personals i garantir la lliure circulació d'aquestes dades dins de la UE</strong>. </p>
+<p><strong>Principis fonamentals del RGPD:</strong></p>
+<ul>
+<li><strong>Licitud, lleialtat i transparència</strong>: Les dades han de ser tractades de manera legal, justa i transparent.</li>
+<li><strong>Limitació de la finalitat</strong>: Les dades només es poden recollir per a finalitats determinades, explícites i legítimes.</li>
+<li><strong>Minimització de dades</strong>: Només es poden tractar les dades adequades, pertinents i limitades al necessari.</li>
+<li><strong>Exactitud</strong>: Les dades han de ser exactes i, si cal, actualitzades.</li>
+<li><strong>Limitació del termini de conservació</strong>: Les dades només es poden conservar durant el temps necessari per a la finalitat.</li>
+<li><strong>Integritat i confidencialitat</strong>: Les dades han de ser tractades de manera segura, protegint-les contra accés no autoritzat o pèrdua. </li>
+</ul>
+<p><strong>Drets reconeguts als ciutadans:</strong></p>
+<ul>
+<li><strong>Accés</strong>: Dret a saber quines dades es tracten i com.</li>
+<li><strong>Rectificació</strong>: Dret a corregir dades inexactes.</li>
+<li><strong>Supressió (dret a l'oblit)</strong>: Dret a eliminar les dades quan ja no siguen necessàries o es retire el consentiment.</li>
+<li><strong>Oposició</strong>: Dret a oposar-se al tractament en certs casos.</li>
+<li><strong>Limitació del tractament</strong>: Dret a limitar l'ús de les dades en certes circumstàncies.</li>
+<li><strong>Portabilitat</strong>: Dret a rebre les dades en format estructurat i transferir-les a un altre responsable.</li>
+<li><strong>Informació</strong>: Dret a ser informat sobre el tractament de les dades. </li>
+</ul>
+<h3 id="62-marc-normatiu-espanyol-la-lopdgdd">6.2 Marc normatiu espanyol: la LOPDGDD</h3>
+<p>La <strong>Llei Orgànica 3/2018, de 5 de desembre, de Protecció de Dades Personals i garantia dels drets digitals (LOPDGDD)</strong> és la llei espanyola que adapta el dret intern al RGPD i desenvolupa aspectes específics no regulats pel reglament europeu. Va entrar en vigor el <strong>7 de desembre de 2018</strong> i deroga la Llei Orgànica 15/1999 de Protecció de Dades de Caràcter Personal (<strong>LOPD</strong>).</p>
+<p><strong>Aspectes que desenvolupa la LOPDGDD:</strong></p>
+<ul>
+<li><strong>Edat de consentiment</strong>: A Espanya, l'edat mínima per a prestar consentiment per al tractament de dades és de <strong>14 anys</strong> (menors d'aquesta edat requereixen consentiment dels pares o tutors). </li>
+<li><strong>Drets digitals</strong>: Inclou una segona part dedicada a garantir drets digitals, alguns dels quals són:<ul>
+<li>Dret a la <strong>desconnexió digital</strong> en l'àmbit laboral.</li>
+<li>Dret a l'<strong>oblit en internet</strong> (xarxes socials i serveis equivalents).</li>
+<li><strong>Testament digital</strong> (disposicions sobre dades personals després de la mort).</li>
+<li>Dret a la <strong>protecció de dades en internet</strong>.</li>
+<li>Dret a la <strong>utilització de dispositius digitals en l'àmbit laboral</strong> amb límits.</li>
+</ul>
+</li>
+<li><strong>Delegat de Protecció de Dades (DPD)</strong>: Defineix les activitats que obliguen a designar un DPD. El delegat és responsable de supervisar el compliment de la normativa i actuar com a punt de contacte amb l'autoritat de control.</li>
+<li><strong>Deure de confidencialitat</strong> del personal que accedeix a dades. </li>
+</ul>
+<p>L'<strong>Agència Espanyola de Protecció de Dades (AEPD)</strong> és l'autoritat independent encarregada de supervisar el compliment de la normativa, investigar denúncies i imposar sancions. </p>
+<p><a href="https://www.aepd.es/informes-y-resoluciones/normativa">AEPD</a></p>
+<h3 id="63-sancions-i-incompliments">6.3 Sancions i incompliments</h3>
+<p>El RGPD i la LOPDGDD estableixen un règim sancionador estricte:</p>
+<ul>
+<li><strong>Infraccions lleus</strong>: Fins a 10 milions d'euros o, en el cas d'una empresa, fins al 2% del volum de negoci anual global.</li>
+<li><strong>Infraccions greus</strong>: Fins a 20 milions d'euros o, en el cas d'una empresa, fins al 4% del volum de negoci anual global. </li>
+</ul>
+<p><strong>Exemples d'incompliments:</strong></p>
+<ul>
+<li>No obtindre el consentiment adequat per a tractar dades.</li>
+<li>No informar correctament als titulars sobre el tractament.</li>
+<li>No aplicar mesures de seguretat adequades.</li>
+<li>No respectar els drets d'accés, supressió o portabilitat.</li>
+<li>Conservar dades més temps del necessari.</li>
+</ul>
+<h3 id="64-implicacions-per-a-bases-de-dades">6.4 Implicacions per a bases de dades</h3>
+<p>Les organitzacions que gestionen bases de dades amb dades personals han de:</p>
+<ul>
+<li><strong>Documentar</strong> el tractament de dades (registre d'activitats de tractament).</li>
+<li><strong>Implementar privadesa des del disseny</strong> (<em>privacy by design</em>) i per defecte (<em>privacy by default</em>).</li>
+<li><strong>Realitzar anàlisis d'impacte</strong> quan el tractament supose un alt risc.</li>
+<li><strong>Notificar violacions de seguretat</strong> a l'AEPD en 72 hores.</li>
+<li><strong>Nomenar un DPD</strong> si el tractament és a gran escala o de categories especials de dades.</li>
+<li><strong>Garantir els drets</strong> dels titulars (terminis màxims de 30 dies per a respondre).</li>
+</ul>
+<hr>
+<h2 id="7-big-data-introduccio-analisi-de-dades-i-intelligencia-de-negocis">7. Big Data: introducció, anàlisi de dades i intel·ligència de negocis</h2>
+<h3 id="71-introduccio-al-big-data">7.1 Introducció al Big Data</h3>
+<p>El terme <strong>Big Data</strong> fa referència al <strong>conjunt d'estratègies, tecnologies i sistemes per a l'emmagatzematge, processament, anàlisi i visualització de conjunts de dades complexes</strong>, que freqüentment estan definits per tres característiques fonamentals (les <strong>3 V</strong>):</p>
+<ul>
+<li><strong>Volum</strong>: Quantitats massives de dades (terabytes, petabytes o més) que superen la capacitat dels sistemes tradicionals de bases de dades.</li>
+<li><strong>Velocitat</strong>: La rapidesa amb què es generen i han de ser processades les dades (ex.: dades en temps real de sensors, xarxes socials, transaccions).</li>
+<li><strong>Varietat</strong>: Diversitat de formats i tipus de dades (estructurades, semiestructurades i no estructurades: text, imatges, vídeo, àudio, logs, etc.).</li>
+</ul>
+<p>Posteriorment, s'han afegit més característiques (les <strong>5 V</strong>):</p>
+<ul>
+<li><strong>Veracitat</strong>: Qualitat i fiabilitat de les dades (dades netes vs. sorolloses).</li>
+<li><strong>Valor</strong>: La capacitat d'extreure informació útil i accionable de les dades. </li>
+</ul>
+<p><strong>Diferències amb les bases de dades tradicionals:</strong></p>
+<p>Les bases de dades tradicionals gestionen dades estructurades en taules amb esquemes definits. El Big Data gestiona dades massives, heterogènies i en temps real, sovint sense esquema fix.</p>
+<p>L'anàlisi de Big Data difereix de les anàlisis tradicionals perquè analitza <strong>totes les dades</strong> de diferents fonts de manera integrada, no mostres representatives.</p>
+<p><strong>Exemples de fonts de Big Data:</strong></p>
+<ul>
+<li>Xarxes socials (publicacions, comentaris, likes).</li>
+<li>Sensors IoT (Internet de les Coses).</li>
+<li>Registres de servidors web (<em>logs</em>).</li>
+<li>Transaccions financeres.</li>
+<li>Dades de dispositius mòbils (GPS, aplicacions).</li>
+<li>Imatges mèdiques, vídeos de vigilància.</li>
+</ul>
+<p>Empreses com Amazon o Netflix utilitzen Big Data per a analitzar el comportament de compra o visualització de milions d'usuaris, identificar patrons i recomanar productes o continguts personalitzats en temps real.</p>
+<h3 id="72-analisi-de-dades-data-analytics">7.2 Anàlisi de dades (Data Analytics)</h3>
+<p>L'<strong>anàlisi de dades</strong> és el <strong>procés de recopilar, netejar, transformar i analitzar dades per a extreure informació, identificar patrons i prendre decisions basades en evidències</strong>. En el context del Big Data, l'anàlisi es realitza sobre volums massius de dades utilitzant tècniques i eines especialitzades.</p>
+<div class="admonition example">
+<p class="admonition-title">Tipus d'anàlisi de dades:</p>
+<table>
+<thead>
+<tr>
+<th>Tipus</th>
+<th>Descripció</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Descriptiva</strong></td>
+<td>Què ha passat? Resumeix dades històriques per a comprendre el passat.</td>
+<td>Informes de vendes mensuals, dashboards de mètriques.</td>
+</tr>
+<tr>
+<td><strong>Diagnòstica</strong></td>
+<td>Per què ha passat? Identifica causes i relacions.</td>
+<td>Anàlisi de per què van caure les vendes en un trimestre.</td>
+</tr>
+<tr>
+<td><strong>Predictiva</strong></td>
+<td>Què pot passar? Utilitza models estadístics i <em>machine learning</em> per a predir el futur.</td>
+<td>Predicció de demanda, detecció de frau, recomanacions.</td>
+</tr>
+<tr>
+<td><strong>Prescriptiva</strong></td>
+<td>Què hauríem de fer? Recomanacions d'accions basades en prediccions.</td>
+<td>Optimització de rutes de repartiment, preus dinàmics.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Processos típics en anàlisi de Big Data:</strong></p>
+<ol>
+<li><strong>Recollida</strong>: Capturar dades de múltiples fonts (APIs, sensors, fitxers).</li>
+<li><strong>Emmagatzematge</strong>: Guardar dades en sistemes escalables (HDFS, núvol).</li>
+<li><strong>Neteja</strong>: Eliminar dades errònies, duplicades o incompletes.</li>
+<li><strong>Transformació</strong>: Convertir dades a formats adequats per a l'anàlisi.</li>
+<li><strong>Anàlisi</strong>: Aplicar algoritmes estadístics, <em>machine learning</em> o IA.</li>
+<li><strong>Visualització</strong>: Presentar resultats de manera comprensible (gràfics, informes). </li>
+</ol>
+<h3 id="73-intelligencia-de-negocis-business-intelligence-bi">7.3 Intel·ligència de negocis (Business Intelligence, BI)</h3>
+<p>La <strong>intel·ligència de negocis (BI)</strong> és el <strong>conjunt de metodologies, aplicacions i tecnologies que permeten transformar dades en informació significativa per a donar suport a la presa de decisions empresarials</strong>. El BI se centra en l'anàlisi de dades històriques i actuals per a comprendre el rendiment de l'organització i identificar oportunitats de millora.</p>
+<p><strong>Components principals del BI:</strong></p>
+<ul>
+<li><strong>Recollida de dades</strong>: Integració de dades de múltiples fonts (bases de dades, fitxers, APIs).</li>
+<li><strong>Emmagatzematge</strong>: <em>Data warehouses</em> (magatzems de dades) i <em>data marts</em> (subconjunts temàtics).</li>
+<li><strong>Anàlisi</strong>: Consultes, informes, <em>dashboards</em>, anàlisi multidimensional (OLAP).</li>
+<li><strong>Visualització</strong>: Representació gràfica de dades per a facilitar la comprensió.</li>
+<li><strong>Difusió</strong>: Distribució d'informes i alertes als usuaris. </li>
+</ul>
+<p><strong>Diferències entre Big Data i BI:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Aspecte</th>
+<th>Big Data</th>
+<th>Business Intelligence (BI)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipus de dades</strong></td>
+<td>Estructurades, semiestructurades i no estructurades.</td>
+<td>Principalment dades estructurades.</td>
+</tr>
+<tr>
+<td><strong>Volum</strong></td>
+<td>Massiu (terabytes a petabytes).</td>
+<td>Mitjà a gran (gigabytes a terabytes).</td>
+</tr>
+<tr>
+<td><strong>Objectiu</strong></td>
+<td>Descobrir patrons ocults, predicció, innovació.</td>
+<td>Informes, monitoratge, presa de decisions operatives.</td>
+</tr>
+<tr>
+<td><strong>Tecnologies</strong></td>
+<td>Hadoop, Spark, NoSQL, <em>machine learning</em>.</td>
+<td>Data warehouses, ETL, OLAP, eines de reporting.</td>
+</tr>
+<tr>
+<td><strong>Usuaris</strong></td>
+<td>Científics de dades, analistes avançats.</td>
+<td>Directius, gestors, usuaris de negoci.</td>
+</tr>
+<tr>
+<td><strong>Temporalitat</strong></td>
+<td>Temps real o quasi real.</td>
+<td>Històric, periòdic (diari, setmanal, mensual).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemples d'aplicacions de BI:</strong></p>
+<ul>
+<li><strong>Dashboards executius</strong>: Visualització de KPIs (indicadors clau de rendiment) en temps real.</li>
+<li><strong>Informes de vendes</strong>: Anàlisi de vendes per regió, producte, període.</li>
+<li><strong>Anàlisi de clients</strong>: Segmentació, comportament de compra, fidelització.</li>
+</ul>
+<p>Un exemple de BI comercial és <strong>Microsoft Power BI</strong>, que permet crear informes interactius i visualitzacions a partir de múltiples fonts de dades. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/dashboards-en-power-bi.png" data-title="Exemple de dashboard de Power BI" data-desc-position="bottom"><img alt="Exemple de dashboard de Power BI" src="../images/dashboards-en-power-bi.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercici pràctic</p>
+<p>Investiga i descriu una eina comercial de Business Intelligence (BI) diferent de Power BI. Explica les seues característiques principals, tipus de visualitzacions que ofereix, integració amb diferents fonts de dades i casos d'ús típics en empreses.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
