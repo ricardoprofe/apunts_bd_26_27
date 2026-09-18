@@ -1,0 +1,1120 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../UD2.1/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 2.2. Model Entitat-Relació Extès (EER) - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-22-model-entitat-relacio-estes-eer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 2.2. Model Entitat-Relació Extès (EER)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-entitats-fortes-i-debils" class="md-nav__link">
+    1 Entitats fortes i dèbils
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Entitats fortes i dèbils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-restriccions-dexistencia-i-didentificacio" class="md-nav__link">
+    1.2. Restriccions d'existència i d'identificació
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Restriccions d'existència i d'identificació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-restriccio-dexistencia" class="md-nav__link">
+    1.2.1 Restricció d'existència
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-restriccio-didentificacio" class="md-nav__link">
+    1.2.2 Restricció d'identificació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-altres-restriccions-dintegritat" class="md-nav__link">
+    2. Altres restriccions d'integritat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-especialitzacions-i-generalitzacions" class="md-nav__link">
+    3. Especialitzacions i generalitzacions
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Especialitzacions i generalitzacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tipus-despecialitzacio" class="md-nav__link">
+    3.1. Tipus d'especialització
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Tipus d'especialització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-total-o-parcial" class="md-nav__link">
+    3.1.1. Total o parcial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-disjunta-o-superposada" class="md-nav__link">
+    3.1.2 Disjunta o superposada
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-agregacions" class="md-nav__link">
+    3.2. Agregacions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33passos-per-construir-lesquema-eer" class="md-nav__link">
+    3.3.Passos per construir l'esquema EER
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.Passos per construir l'esquema EER">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-anotar-altres-restriccions-dintegritat" class="md-nav__link">
+    3.3.1 Anotar altres restriccions d'integritat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-anotar-les-suposicions" class="md-nav__link">
+    3.3.2 Anotar les suposicions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-opcions-de-disseny" class="md-nav__link">
+    3.4 Opcions de disseny
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Opcions de disseny">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-atribut-entitat-o-relacio" class="md-nav__link">
+    3.4.1 Atribut, entitat o relació?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-com-relacionar-tres-entitats" class="md-nav__link">
+    3.4.2 Com relacionar tres entitats?
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 Com relacionar tres entitats?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacio-ternaria" class="md-nav__link">
+    Relació ternària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-binaries" class="md-nav__link">
+    Relacions binàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregacio" class="md-nav__link">
+    Agregació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-relacio-amb-molts-atributs-o-una-altra-entitat" class="md-nav__link">
+    3.4.3 Relació amb molts atributs o una altra entitat?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-generalitzacio-o-atribut-discriminador" class="md-nav__link">
+    3.4.4 Generalització o atribut discriminador?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#345-eliminar-relacions-redundants" class="md-nav__link">
+    3.4.5 Eliminar relacions redundants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-entitats-fortes-i-debils" class="md-nav__link">
+    1 Entitats fortes i dèbils
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Entitats fortes i dèbils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-restriccions-dexistencia-i-didentificacio" class="md-nav__link">
+    1.2. Restriccions d'existència i d'identificació
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Restriccions d'existència i d'identificació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-restriccio-dexistencia" class="md-nav__link">
+    1.2.1 Restricció d'existència
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-restriccio-didentificacio" class="md-nav__link">
+    1.2.2 Restricció d'identificació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-altres-restriccions-dintegritat" class="md-nav__link">
+    2. Altres restriccions d'integritat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-especialitzacions-i-generalitzacions" class="md-nav__link">
+    3. Especialitzacions i generalitzacions
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Especialitzacions i generalitzacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tipus-despecialitzacio" class="md-nav__link">
+    3.1. Tipus d'especialització
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Tipus d'especialització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-total-o-parcial" class="md-nav__link">
+    3.1.1. Total o parcial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-disjunta-o-superposada" class="md-nav__link">
+    3.1.2 Disjunta o superposada
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-agregacions" class="md-nav__link">
+    3.2. Agregacions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33passos-per-construir-lesquema-eer" class="md-nav__link">
+    3.3.Passos per construir l'esquema EER
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.Passos per construir l'esquema EER">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-anotar-altres-restriccions-dintegritat" class="md-nav__link">
+    3.3.1 Anotar altres restriccions d'integritat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-anotar-les-suposicions" class="md-nav__link">
+    3.3.2 Anotar les suposicions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-opcions-de-disseny" class="md-nav__link">
+    3.4 Opcions de disseny
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Opcions de disseny">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-atribut-entitat-o-relacio" class="md-nav__link">
+    3.4.1 Atribut, entitat o relació?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-com-relacionar-tres-entitats" class="md-nav__link">
+    3.4.2 Com relacionar tres entitats?
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 Com relacionar tres entitats?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacio-ternaria" class="md-nav__link">
+    Relació ternària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-binaries" class="md-nav__link">
+    Relacions binàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregacio" class="md-nav__link">
+    Agregació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-relacio-amb-molts-atributs-o-una-altra-entitat" class="md-nav__link">
+    3.4.3 Relació amb molts atributs o una altra entitat?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-generalitzacio-o-atribut-discriminador" class="md-nav__link">
+    3.4.4 Generalització o atribut discriminador?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#345-eliminar-relacions-redundants" class="md-nav__link">
+    3.4.5 Eliminar relacions redundants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-22-model-entitat-relacio-estes-eer">Unitat 2.2. Model Entitat-Relació Estès (EER)</h1>
+<p>El model Entitat-Relació Extés (EER) és una ampliació del model Entitat-Relació (E-R) que permet representar aspectes més complexos de la realitat. En particular, inclou les <strong>especialitzacions o generalitzacions</strong> i les <strong>agregacions</strong> així com les <strong>entitats dèbils</strong>.</p>
+<h2 id="1-entitats-fortes-i-debils">1 Entitats fortes i dèbils</h2>
+<p>Hi ha dos tipus d'entitats:</p>
+<ul>
+<li><strong>Entitat forta</strong>: pot existir sense dependre d'una altra entitat. Per exemple, una <strong>FACTURA</strong> pot existir encara que no s'indiquen els productes o serveis (<em>línies</em>) que conté.</li>
+<li><strong>Entitat dèbil</strong>: no pot existir sense estar relacionada amb una altra entitat. Per exemple, una <strong>LÍNIA</strong> (producte, preu, quantitat) d'una <strong>FACTURA</strong> sempre dependrà d'una ocurrència concreta de <strong>FACTURA</strong>. Si desapareix la factura, també desapareixen les seues línies.</li>
+</ul>
+<p>Les entitats dèbils es representen amb un doble requadre.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er02.png" data-title="Exemple d'entitat forta i dèbil" data-desc-position="bottom"><img alt="Exemple d'entitat forta i dèbil" src="../images/er02.png"></a></p>
+<p>Les relacions entre entitats fortes i dèbils es representen amb les mateixes convencions que les relacions entre entitats fortes, però amb un doble requadre per a l'entitat dèbil.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er25.png" data-title="Exemple de relació entre entitat forta i dèbil" data-desc-position="bottom"><img alt="Exemple de relació entre entitat forta i dèbil" src="../images/er25.png"></a></p>
+<h3 id="12-restriccions-dexistencia-i-didentificacio">1.2. Restriccions d'existència i d'identificació</h3>
+<p>Quan una entitat dèbil depén d'una entitat forta, pot tindre una <strong>restricció d'existència</strong> i/o una <strong>restricció d'identificació</strong>.</p>
+<h4 id="121-restriccio-dexistencia">1.2.1 Restricció d'existència</h4>
+<p>Una entitat té una restricció d'existència respecte d'una relació quan cadascuna de les seues ocurrències no pot existir sense estar relacionada amb una ocurrència de l'altra entitat.</p>
+<p>Si desapareix una ocurrència de l'entitat forta, també poden desaparèixer les ocurrències de l'entitat dèbil que en depenen.</p>
+<p>Es representa amb un doble requadre per a l'entitat dèbil i una <code>E</code> sobre l'arc de la relació.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er26.png" data-title="Exemple de restricció d'existència" data-desc-position="bottom"><img alt="Exemple de restricció d'existència" src="../images/er26.png"></a></p>
+<h4 id="122-restriccio-didentificacio">1.2.2 Restricció d'identificació</h4>
+<p>Una entitat té una restricció d'identificació quan, a més de dependre existencialment d'una altra entitat, no es pot identificar només amb la seua pròpia clau. També necessita la clau de l'entitat forta de la qual depén.</p>
+<p>Es representa amb un doble requadre i una <code>ID</code> sobre l'arc de la relació.</p>
+<p>Si una entitat té una restricció d'identificació, també té una restricció d'existència.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er27.png" data-title="Exemple de restricció d'identificació" data-desc-position="bottom"><img alt="Exemple de restricció d'identificació" src="../images/er27.png"></a></p>
+<p>Al nostre exemple, la clau de <strong>LÍNIA</strong> serà la combinació de <code>num_factura</code> i de <code>num_linia</code>. Si desapareix la factura, també desapareixen les línies que en depenen, per tant <strong>LÍNIA</strong> té restriccions d'existència i d'identificació respecte de <strong>FACTURA</strong>. </p>
+<div class="admonition question">
+<p class="admonition-title">Exercici</p>
+<p><strong>Exercici 1:</strong> Identifica en cada apartat quina seria l'entitat dèbil i quina la forta. Indica també si hi ha restricció d'existència i/o d'identificació:</p>
+<ul>
+<li>Factures / Clients.</li>
+<li>Notes / Alumnes.</li>
+<li>Ciutats / Països.</li>
+</ul>
+</div>
+<h2 id="2-altres-restriccions-dintegritat">2. Altres restriccions d'integritat</h2>
+<p>Les restriccions d'integritat són limitacions que han de complir les dades.</p>
+<p><strong>Restriccions en un atribut:</strong></p>
+<ul>
+<li><strong>Unicitat</strong>: Si <code>DNI</code> és la clau de <code>PERSONES</code>, dos persones no poden tindre el mateix DNI.</li>
+<li><strong>Valor no nuls</strong>: Si <code>nom</code> és un atribut obligatori de <code>PERSONES</code>, no pot haver-hi cap persona sense nom.</li>
+<li><strong>Dominis</strong>: Si <code>estat_civil</code> té el domini <code>{solter, casat, divorciat, vidu}</code>, no pot prendre altres valors.<br>
+Un altre exemple seria un atribut <em>edat</em>, l'edat d'una persona no pot ser negativa.</li>
+<li><strong>Restriccions de integritat referencial</strong>: Asseguren que les relacions entre entitats siguin consistents. Per exemple, si una entitat <code>ORDINADOR</code> té un atribut <code>codi_aula</code> que fa referència a l'entitat <code>AULA</code>, no pot haver-hi cap ordinador amb un codi d'aula que no existeix.<br>
+  Una altra restricció de integritat seria que passaria si esborrem un registre d'una entitat que està sent referenciat per una altra entitat. Per exemple, si esborrem un registre de l'entitat <code>AULA</code> que està sent referenciat per un registre de l'entitat <code>ORDINADOR</code>, això podria provocar una inconsistència en les dades. Per evitar-ho, es poden establir accions com la restricció de no permetre l'esborrat, l'actualització en cascada o l'esborrat en cascada.<br>
+  Aquest tipus de restriccions le veurem quan treballem amb SQL.</li>
+<li><strong>Restriccions de integritat de dades</strong>: Són restriccions que garanteixen la qualitat i la coherència de les dades. Per exemple, un camp de tipus data no pot tenir valors futurs si no es permet.</li>
+</ul>
+<p><strong>Restriccions en una relació:</strong></p>
+<p>Si la relació <code>PRÈSTEC</code>, entre <code>USUARI</code> i <code>LLIBRE</code> d'una biblioteca, té multiplicitat <code>0:3</code>, cada usuari no pot tenir més de tres llibres prestats, encara que siga una relació de 1 a molts.</p>
+<p><strong>Altres restriccions</strong></p>
+<p>De vegades apareixen altres restriccions que no es poden representar directament en l'E-R. En aquests casos s'especifiquen en llenguatge natural en un apartat d'<strong>Altres restriccions</strong>.</p>
+<p>Exemple:</p>
+<blockquote>
+<p><strong>Altres restriccions:</strong><br>
+  - Un alumne no pot matricular-se de 2n si no té acabat el 1r curs.<br>
+  - La suma de les hores que cada professor impartix en cada assignatura no pot superar 20 hores.<br>
+  - Un professor no podrà ser cap de departament i tutor al mateix temps.</p>
+</blockquote>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>Exercici 2:</strong> Suposa les entitats <code>ALUMNES</code> i <code>ORDINADORS</code> i la relació <code>ASSIGNAR</code>. Un alumne només pot tindre un ordinador, però un ordinador es pot assignar a diferents alumnes. Fes un esquema E-R per a cada cas:</p>
+<ul>
+<li>No pot haver-hi cap alumne sense ordinador.</li>
+<li>No pot haver-hi cap ordinador sense assignar.</li>
+<li>Tots els alumnes han de tindre un ordinador i cada ordinador ha d'estar assignat almenys a un alumne.</li>
+</ul>
+<p><strong>Exercici 3:</strong> En un institut es vol guardar informació de les aules i els ordinadors, incloent-hi la ubicació de cada ordinador. Analitza aquests casos:</p>
+<ul>
+<li>L'etiqueta de cada ordinador conté un codi únic per a tot l'institut.</li>
+<li>L'etiqueta conté el codi de l'aula i un codi únic dins d'aquella aula.</li>
+</ul>
+</div>
+<h2 id="3-especialitzacions-i-generalitzacions">3. Especialitzacions i generalitzacions</h2>
+<p>Una <strong>especialització</strong> o <strong>generalització</strong> permet representar una jerarquia entre una entitat general i diverses entitats específiques.</p>
+<p>Per exemple, <code>PERSONA</code> pot ser una <strong>generalització</strong> de <code>ALUMNE</code>, <code>PROFESSOR</code> i <code>NETEJADOR</code>, perquè cada alumne, professor o netejador <strong>ÉS</strong> també una persona. Així mateix, <code>ALUMNE</code>, <code>PROFESSOR</code> i <code>NETEJADOR</code> són <strong>especialitzacions</strong> de <code>PERSONA</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer01.png" data-title="Exemple d'especialització" data-desc-position="bottom"><img alt="Exemple d'especialització" src="../images/eer01.png"></a></p>
+<p>Les entitats filles hereten els atributs i les relacions de l'entitat mare. Per tant, la clau de les entitats filles és la clau de l'entitat genèrica. En aquest exemple, la clau de <code>ALUMNE</code>, <code>PROFESSOR</code> i <code>NETEJADOR</code> és el <strong><code>dni</code></strong> de <code>PERSONA</code>. Les entitats filles també hereten els atributs i relacions de l'entitat mare, en aquest cas també hereten el <strong><code>nom</code></strong>.</p>
+<p>Les entitats filles poden tindre atributs i relacions pròpies, que no afecten a les altres entitats filles ni a l'entitat mare. En aquest cas, <code>ALUMNE</code> té l'atribut <code>data_naixement</code>, <code>PROFESSOR</code> té l'atribut <code>especialitat</code>, i <code>NETEJADOR</code> té l'atribut <code>torn</code>.</p>
+<p><strong>Quan usar una especialització?</strong></p>
+<p>S'utilitza quan algunes ocurrències d'una entitat tenen atributs diferents o participen en relacions que no afecten totes les ocurrències.</p>
+<p>Exemple: <code>PERSONES</code> es pot especialitzar en <code>ALUMNES</code>, <code>PROFESSORS</code> i <code>NETEJADORS</code> si cada grup té dades o relacions pròpies.</p>
+<p><strong>Quan usar una generalització?</strong></p>
+<p>S'utilitza quan tenim dues o més entitats amb atributs o relacions comunes i volem crear una entitat mare que les agrupe.</p>
+<p>Per exemple, si tenim les entitats <code>LIBRE</code> i <code>REVISTA</code>, amb atributs comuns com <code>codi</code>, <code>títol</code> i <code>preu</code>, podem crear una entitat mare <code>PUBLICACIÓ</code> que els agrupe.</p>
+<p>Generalització i especialització són el mateix concepte, només que es refereixen a diferents perspectives. La diferència és que la generalització parteix de les entitats filles per a crear l'entitat mare, mentre que l'especialització parteix de l'entitat mare per a crear les entitats filles.</p>
+<h3 id="31-tipus-despecialitzacio">3.1. Tipus d'especialització</h3>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer02.png" data-title="Exemples d'especialització" data-desc-position="bottom"><img alt="Exemples d'especialització" src="../images/eer02.png"></a></p>
+<h4 id="311-total-o-parcial">3.1.1. Total o parcial</h4>
+<ul>
+<li><strong>Total</strong>: totes les ocurrències de l'entitat mare pertanyen a alguna entitat filla. En l'exemple, totes les persones són home o dona.</li>
+<li><strong>Parcial</strong>: només algunes ocurrències de l'entitat mare pertanyen a les entitats filles. En l'exemple, podem tenir altres vehicles que no siguen cotxes ni motos.</li>
+</ul>
+<p>Una especialització total es pot representar amb un cercle entre l'entitat mare i les entitats filles.</p>
+<h4 id="312-disjunta-o-superposada">3.1.2 Disjunta o superposada</h4>
+<ul>
+<li><strong>Disjunta o exclusiva</strong>: una ocurrència d'una entitat filla no pot pertànyer a cap altra entitat filla del mateix grup. En l'exemple, una infecció no pot ser vírica ni bacteriana al mateix temps.</li>
+<li><strong>Superposada o solapada</strong>: una ocurrència pot pertànyer a més d'una entitat filla. En l'exemple, un participant pot ser parat i afiliat a la vegada.</li>
+</ul>
+<p>Una especialització disjunta es sol representar amb una línia curvada entre l'especialització i les entitats filles.</p>
+<p><strong>Altres exemples</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer03.png" data-title="Exemples d'especialització" data-desc-position="bottom"><img alt="Exemples d'especialització" src="../images/eer03.png"></a></p>
+<ul>
+<li><strong>Total i disjunta</strong>: <code>AUTORS</code> es divideix en <code>VIUS</code> i <code>MORTS</code>. Tot autor és viu o mort, però no les dues coses alhora.</li>
+<li><strong>Parcial i disjunta</strong>: <code>PERSONES</code> es divideix en <code>SOLTERES</code> i <code>CASADES</code>. Hi ha persones separades o vídues que no pertanyen a cap de les dues filles.</li>
+<li><strong>Parcial i superposada</strong>: <code>ALUMNES</code> es divideix en <code>DE_CICLES</code> i <code>REPETIDORS</code>. Un alumne pot pertànyer a les dues filles, a una sola o a cap.</li>
+<li><strong>Total i superposada</strong>: totes les ocurrències d'<code>AUTORS</code> són <code>VIUS</code> o <code>MORTS</code>, però també poden pertànyer a una altra categoria, com <code>EUROPEUS</code>.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Una entitat filla pot ser mare d’altra especialització (jerarquia filles, nétes, ...)</li>
+<li>Una entitat pot ser mare de distints "grups de germanes". És a dir: una entitat pot ser genèrica de diverses especialitzacions (3 filles per un costat, 2 per altre...)</li>
+<li>Poden haver relacions entre les entitats filles o entre una mare i una filla, etc.</li>
+</ul>
+<p>Una especialització no és adequada quan les entitats filles no són un tipus de l'entitat mare. Per exemple, un home i una dona no són matrimonis; un matrimoni està format per un home i una dona. En este cas caldria utilitzar una relació o una agregació.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercici</p>
+<p><strong>Exercici 4:</strong> En un institut es vol saber:</p>
+<ul>
+<li>El DNI, nom i data de naixement dels alumnes.</li>
+<li>El DNI, nom, titulació i carrera dels professors.</li>
+<li>El DNI, nom i torn del personal de neteja.</li>
+<li>El codi, nombre d'ordinadors i projector de les aules.</li>
+<li>Quins professors donen classe en cada aula.</li>
+</ul>
+<p>Fes l'esquema EER corresponent.</p>
+</div>
+<h3 id="32-agregacions">3.2. Agregacions</h3>
+<p>Una <strong>agregació</strong> permet considerar una relació entre entitats com una entitat més complexa, amb la finalitat de relacionar-la amb una altra entitat. La necessitat d'una agregació apareix quan volem relacionar 2 o més relacions entre sí.</p>
+<p>Per exemple, en el següent esqiema tenim molts empleats treballant en diferents projectes, però depenent del treball que realitza cada empleat en cada projecte, pot usar diferents màquines.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer04.gif" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer04.gif"></a></p>
+<p>Per tant, la relació <code>TREBALLA</code> entre <code>EMPLEATS</code> i <code>PROJECTES</code> depén de la relació <code>USA</code> entre <code>EMPLEATS</code> i <code>MÀQUINES</code>. En aquest cas, caldrà crear una agregació de les dues relacions per a poder relacionar-les amb l'entitat <code>MÀQUINES</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer05.gif" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer05.gif"></a></p>
+<p><strong>Quan utilitzar una agregació?</strong></p>
+<p>Normalment es crea quan necessitem una relació entre una entitat i una altra relació.</p>
+<p><strong>Diferència entre generalització i agregació</strong></p>
+<ul>
+<li>La <strong>generalització</strong> és una relació jeràrquica del tipus "B és A". Per exemple: "un solter és una persona".</li>
+<li>L'<strong>agregació</strong> és una relació de participació del tipus "A i B formen part de C". Per exemple: "un motor i un xassís formen part d'un cotxe".</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>Exercici 5:</strong> En una fàbrica es fabriquen peces per a automòbils. Es vol guardar:</p>
+<ul>
+<li>El codi i el nom de cada màquina.</li>
+<li>El codi i el nom dels operaris.</li>
+<li>El codi i el nom de cada tipus de peça.</li>
+<li>Les hores que cada operari ha treballat en cada màquina.</li>
+<li>Els tipus i la quantitat de peces que ha fabricat cada operari en cada màquina.</li>
+</ul>
+<p><strong>Exercici 6:</strong> Una agència matrimonial vol guardar:</p>
+<ul>
+<li>El DNI, nom i sexe de cada persona.</li>
+<li>L'històric de les persones emparellades i la data.</li>
+<li>Els llocs d'encontre, amb codi i adreça.</li>
+<li>Les parelles que s'han citat en cada lloc i si els ha anat bé o no.</li>
+</ul>
+<p><strong>Exercici 7:</strong> Un estudi de rodatge vol guardar:</p>
+<ul>
+<li>Els actors, amb DNI i nom.</li>
+<li>Les escenes d'una pel·lícula, amb codi, lloc, data, hora i descripció.</li>
+<li>Quins actors actuen en cada escena i si tenen diàlegs.</li>
+<li>El vestuari disponible, amb codi, tipus, color, talla i època.</li>
+<li>Quines peces de roba porta cada actor en cada escena.</li>
+</ul>
+</div>
+<h2 id="33passos-per-construir-lesquema-eer">3.3.Passos per construir l'esquema EER</h2>
+<p>Per a construir un esquema E-R a partir dels requeriments, es pot seguir el mateix procés que s'utilitza per a construir un esquema E-R, amb l'afegit de les especialitzacions i agregacions.</p>
+<ol>
+<li>Construir l'esquema E-R:</li>
+<li>Identificar entitats fortes i dèbils.</li>
+<li>Identificar atributs.</li>
+<li><strong>Identificar especialitzacions i generalitzacions.</strong></li>
+<li>Identificar relacions.</li>
+<li><strong>Identificar agregacions.</strong></li>
+<li>Assignar claus primàries.</li>
+<li>Anotar les altres restriccions d'integritat.</li>
+<li>Anotar les suposicions.</li>
+</ol>
+<p>Aquest procés és:</p>
+<ul>
+<li><strong>Iteratiu</strong>: una vegada completat, cal revisar-lo per si apareixen noves entitats, atributs o relacions.</li>
+<li><strong>Creatiu</strong>: no és un procés automàtic; depén de la imaginació, l'experiència i el coneixement del negoci.</li>
+</ul>
+<p><strong>Per què buscar especialitzacions abans que relacions?</strong></p>
+<p>Una relació pot afectar només una entitat específica i no tota l'entitat genèrica.</p>
+<p>Per exemple, en una agència de viatges, una relació pot correspondre només als clients que fan viatges de negocis, i no a tots els clients.</p>
+<p><strong>Per què buscar relacions abans que agregacions?</strong></p>
+<p>Una agregació està formada per una relació i les entitats que hi participen. Per tant, primer cal identificar les relacions i després comprovar si alguna d'elles s'ha de tractar com una entitat complexa.</p>
+<h3 id="331-anotar-altres-restriccions-dintegritat">3.3.1 Anotar altres restriccions d'integritat</h3>
+<p>L'esquema E-R pot representar claus, dominis, cardinalitats, restriccions d'existència i restriccions d'identificació. Tanmateix, hi ha altres restriccions que només es poden expressar en llenguatge natural.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Altres restriccions:
+- L'edat mitjana de totes les persones ha de superar els 20 anys.
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="332-anotar-les-suposicions">3.3.2 Anotar les suposicions</h3>
+<p>En aquest apartat s'especifiquen els aspectes que no apareixen als requeriments i que el dissenyador ha hagut de suposar.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Suposicions:
+- Un cotxe només pot tindre un propietari.
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="34-opcions-de-disseny">3.4 Opcions de disseny</h2>
+<p>A l'hora de fer l'esquema E-R, segons el cas, serà més convenient representar la realitat amb uns elements o amb uns altres.</p>
+<h3 id="341-atribut-entitat-o-relacio">3.4.1 Atribut, entitat o relació?</h3>
+<p>Per a representar les ciutats de cada país:</p>
+<ul>
+<li>Si només volem guardar el nom de la ciutat, pot ser un atribut multivaluat de <code>PAÍS</code>.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer06.png" data-title="Exemple d'atribut multivaluat" data-desc-position="bottom"><img alt="Exemple d'atribut multivaluat" src="../images/eer06.png"></a></p>
+<ul>
+<li>Si volem guardar dades de cada ciutat (codi, nom, país), <code>CIUTAT</code> ha de ser una entitat.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer07.png" data-title="Exemple d'entitat" data-desc-position="bottom"><img alt="Exemple d'entitat" src="../images/eer07.png"></a></p>
+<ul>
+<li>Si volem saber tant les dades dels països i ciutats com quines ciutats pertanyen a cada país, necessitem dues entitats i una relació entre elles.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer08.png" data-title="Exemple de relació" data-desc-position="bottom"><img alt="Exemple de relació" src="../images/eer08.png"></a></p>
+<h3 id="342-com-relacionar-tres-entitats">3.4.2 Com relacionar tres entitats?</h3>
+<h4 id="relacio-ternaria">Relació ternària</h4>
+<p>Triem una relació ternària quan una dada depén de les tres entitats alhora.</p>
+<p>Per exemple, podem guardar les hores que un professor imparteix d'una assignatura a un grup mitjançant una relació ternària entre <code>PROFESSORS</code>, <code>ASSIGNATURES</code> i <code>GRUPS</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er14.png" data-title="Exemple de relació ternària" data-desc-position="bottom"><img alt="Exemple de relació ternària" src="../images/er14.png"></a></p>
+<h4 id="relacions-binaries">Relacions binàries</h4>
+<p>Triem relacions binàries quan les dades depenen de parelles d'entitats diferents.</p>
+<p>Per exemple:</p>
+<ul>
+<li>Hores que un professor fa a un grup, independentment de l'assignatura.</li>
+<li>Assignatures que imparteix un professor, independentment del grup.</li>
+<li>Assignatures que s'imparteixen en un grup, independentment del professor.</li>
+<li>Si alguna relació té atributs que les altres no tenen.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer09.png" data-title="Exemple de relacions binàries" data-desc-position="bottom"><img alt="Exemple de relacions binàries" src="../images/eer09.png"></a></p>
+<p>No s'ha d'afegir una relació ternària junt amb relacions binàries si això provoca informació redundant.</p>
+<h4 id="agregacio">Agregació</h4>
+<p>Optarem per esta solució si, per exemple:</p>
+<ul>
+<li>Hi ha algun atribut que depén només de 2 entitats (grups i assignatures) i, per tant cal fer una relació entre les 2.</li>
+<li>A més, volem saber informació que involucra a les 3 entitats alhora.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer10.png" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer10.png"></a></p>
+<p>Per a este últim cas no ens serviria la binària
+pertànyer junt a una ternària entre les 3 entitats, ja
+que tindríem informació redundant (repetida).</p>
+<h3 id="343-relacio-amb-molts-atributs-o-una-altra-entitat">3.4.3 Relació amb molts atributs o una altra entitat?</h3>
+<p>Suposem que volem saber quins articles demana cada proveïdor, així com la data, l'adreça d'enviament i la quantitat demanada.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer11.png" data-title="Exemple de relació amb molts atributs" data-desc-position="bottom"><img alt="Exemple de relació amb molts atributs" src="../images/eer11.png"></a></p>
+<p>Si una mateixa parella <code>ARTICLE-PROVEÏDOR</code> pot aparéixer en moltes comandes (poden demanar el mateix article al mateix proveïdor vàries vegades), els atributs no haurien de pertànyer directament a la relació. En aquest cas, és millor crear l'entitat <code>COMANDES</code>, amb un codi únic, i relacionar-la amb <code>ARTICLES</code> i <code>PROVEÏDORS</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer12.png" data-title="Exemple d'entitat COMANDES" data-desc-position="bottom"><img alt="Exemple d'entitat COMANDES" src="../images/eer12.png"></a></p>
+<h3 id="344-generalitzacio-o-atribut-discriminador">3.4.4 Generalització o atribut discriminador?</h3>
+<p>Per a representar homes i dones:</p>
+<ul>
+<li>Utilitzarem un <strong>atribut discriminador</strong> si només volem guardar el sexe de les persones.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer13.png" data-title="Exemple d'atribut discriminador" data-desc-position="bottom"><img alt="Exemple d'atribut discriminador" src="../images/eer13.png"></a></p>
+<ul>
+<li>Utilitzarem <strong>entitats diferents</strong> si homes i dones tenen atributs o relacions completament diferents.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer14.png" data-title="Exemple d'entitats diferents" data-desc-position="bottom"><img alt="Exemple d'entitats diferents" src="../images/eer14.png"></a></p>
+<ul>
+<li>Utilitzarem una <strong>generalització</strong> si tenen atributs o relacions específiques i, a més, comparteixen atributs o relacions.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer15.png" data-title="Exemple de generalització" data-desc-position="bottom"><img alt="Exemple de generalització" src="../images/eer15.png"></a></p>
+<h3 id="345-eliminar-relacions-redundants">3.4.5 Eliminar relacions redundants</h3>
+<p>Tenim el següent diagrama ER:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer16.png" data-title="Exemple de relacions redundants" data-desc-position="bottom"><img alt="Exemple de relacions redundants" src="../images/eer16.png"></a></p>
+<p>Suposem que una persona treballa en un departament i que cada departament està en una empresa. A partir d'aquestes dues relacions ja podem saber a quina empresa pertany la persona.</p>
+<p>Per tant, una relació directa <code>PERTÀNYER</code> entre <code>PERSONES</code> i <code>EMPRESES</code> seria redundant i s'hauria d'eliminar.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer17.png" data-title="Exemple de relacions redundants" data-desc-position="bottom"><img alt="Exemple de relacions redundants" src="../images/eer17.png"></a></p>
+<p>No tots els circuits de relacions són redundants. Per exemple, si la relació entre <code>PERSONES</code> i <code>EMPRESSES</code> representara una informació diferent, com ara "empresa on voldria treballar", hauria de mantindre's.</p>
+<p>Així mateix, en l'esquema anterior, no podríem eliminar la relació <code>treballa</code> en compte de pertany, ja que si le'mpleat pertany a una empresa i eixa empresa té molts departaments, no podem saber en quin departament treballa l'empleat.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

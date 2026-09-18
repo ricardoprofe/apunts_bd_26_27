@@ -1,0 +1,1267 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/">
+      
+      
+        <link rel="next" href="../UD2.2/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 2.1. Model Entitat-Relació (E-R) - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-21-model-entitat-relacio-e-r" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 2.1. Model Entitat-Relació (E-R)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-fases-del-disseny-de-bases-de-dades" class="md-nav__link">
+    1.1 Fases del disseny de bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-del-model-e-r" class="md-nav__link">
+    2. Elements del model E-R
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements del model E-R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entitats" class="md-nav__link">
+    2.1. Entitats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-atributs" class="md-nav__link">
+    2.2. Atributs
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Atributs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-domini-dun-atribut" class="md-nav__link">
+    2.2.1 Domini d'un atribut
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-tipus-datributs" class="md-nav__link">
+    2.2.2 Tipus d'atributs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-relacions" class="md-nav__link">
+    2.3. Relacions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Relacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-nom-de-la-relacio" class="md-nav__link">
+    2.3.1 Nom de la relació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-atributs-de-la-relacio" class="md-nav__link">
+    2.3.2 Atributs de la relació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-grau-de-la-relacio" class="md-nav__link">
+    2.3.3 Grau de la relació
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.3 Grau de la relació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacions-unaries" class="md-nav__link">
+    Relacions unàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-binaries" class="md-nav__link">
+    Relacions binàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-ternaries" class="md-nav__link">
+    Relacions ternàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-n-aries" class="md-nav__link">
+    Relacions n-àries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-cardinalitat-de-les-relacions" class="md-nav__link">
+    2.3.4 Cardinalitat de les relacions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.4 Cardinalitat de les relacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-cardinalitat-binaria" class="md-nav__link">
+    Tipus de cardinalitat binària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardinalitat-unaria" class="md-nav__link">
+    Cardinalitat unària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardinalitat-ternaria" class="md-nav__link">
+    Cardinalitat ternària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notacio-amb-fletxes" class="md-nav__link">
+    Notació amb fletxes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-multiplicitat" class="md-nav__link">
+    2.3.5 Multiplicitat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-rols" class="md-nav__link">
+    2.3.6 Rols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-passos-per-a-crear-un-diagrama-er" class="md-nav__link">
+    2.4 Passos per a crear un diagrama ER
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-fases-del-disseny-de-bases-de-dades" class="md-nav__link">
+    1.1 Fases del disseny de bases de dades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-del-model-e-r" class="md-nav__link">
+    2. Elements del model E-R
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements del model E-R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entitats" class="md-nav__link">
+    2.1. Entitats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-atributs" class="md-nav__link">
+    2.2. Atributs
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Atributs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-domini-dun-atribut" class="md-nav__link">
+    2.2.1 Domini d'un atribut
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-tipus-datributs" class="md-nav__link">
+    2.2.2 Tipus d'atributs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-relacions" class="md-nav__link">
+    2.3. Relacions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Relacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-nom-de-la-relacio" class="md-nav__link">
+    2.3.1 Nom de la relació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-atributs-de-la-relacio" class="md-nav__link">
+    2.3.2 Atributs de la relació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-grau-de-la-relacio" class="md-nav__link">
+    2.3.3 Grau de la relació
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.3 Grau de la relació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacions-unaries" class="md-nav__link">
+    Relacions unàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-binaries" class="md-nav__link">
+    Relacions binàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-ternaries" class="md-nav__link">
+    Relacions ternàries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacions-n-aries" class="md-nav__link">
+    Relacions n-àries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-cardinalitat-de-les-relacions" class="md-nav__link">
+    2.3.4 Cardinalitat de les relacions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.4 Cardinalitat de les relacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-cardinalitat-binaria" class="md-nav__link">
+    Tipus de cardinalitat binària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardinalitat-unaria" class="md-nav__link">
+    Cardinalitat unària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardinalitat-ternaria" class="md-nav__link">
+    Cardinalitat ternària
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notacio-amb-fletxes" class="md-nav__link">
+    Notació amb fletxes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-multiplicitat" class="md-nav__link">
+    2.3.5 Multiplicitat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-rols" class="md-nav__link">
+    2.3.6 Rols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-passos-per-a-crear-un-diagrama-er" class="md-nav__link">
+    2.4 Passos per a crear un diagrama ER
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-21-model-entitat-relacio-e-r">Unitat 2.1. Model Entitat-Relació (E-R)</h1>
+<h2 id="1-introduccio">1. Introducció</h2>
+<p>Els objectius de l'<strong>anàlisi conceptual</strong> són:</p>
+<ul>
+<li>Identificar les entitats, els atributs i les relacions entre entitats.</li>
+<li>Obtenir un esquema E-R que represente la informació que es vol emmagatzemar en la base de dades.</li>
+<li>Tindre un diàleg amb l'usuari per a validar que l'esquema E-R reflecteix correctament els requeriments. En aquest sentit, l'esquema E-R és una eina de comunicació entre l'analista i l'usuari.</li>
+</ul>
+<p>En aquesta unitat veurem els elements bàsics del model E-R i com es representen gràficament. També veurem com es poden expressar les restriccions d'integritat que no es poden reflectir en l'esquema E-R.</p>
+<h3 id="11-fases-del-disseny-de-bases-de-dades">1.1 Fases del disseny de bases de dades</h3>
+<p>Les fases principals del disseny d'una base de dades són les següents:</p>
+<ol>
+<li><strong>Anàlisi conceptual</strong>: es defineixen les entitats, els atributs i les relacions entre entitats. El resultat és un esquema E-R.</li>
+<li><strong>Disseny lògic</strong>: es transforma l'esquema E-R en un esquema relacional, que és el que s'implementarà en un SGBD relacional. El model E-R es transforma en un conjunt de taules amb les seues claus primàries i foranes, les relacions entre elles i les restriccions d'integritat.</li>
+<li><strong>Disseny físic</strong>: es defineix com s'emmagatzemaran les dades en el disc dur, quins índexs es crearan, etc. El disseny físic depèn del SGBD que s'utilitze. Una mateixa dada es pot representar amb diferents estructures físiques segons el SGBD que s'utilitze. Per exemple, un SGBD pot emmagatzemar les dades en fitxers de text, mentre que un altre pot utilitzar fitxers binaris.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fase-disec3b1o-bd.png" data-title="Fases de disseny de bases de dades" data-desc-position="bottom"><img alt="Fases de disseny de bases de dades" src="../images/fase-disec3b1o-bd.png"></a></p>
+<p>En este tema veurem la fase d'<strong>anàlisi conceptual</strong> del cicle de vida del programari aplicat al disseny d'una BD per a una biblioteca. Partirem d'uns requeriments ja definits i, seguint les normes del model conceptual, obtindrem un esquema E-R i unes possibles restriccions d'integritat -condicions que han de complir les dades però que no s'han pogut reflectir en l'E-R-.</p>
+<h2 id="2-elements-del-model-e-r">2. Elements del model E-R</h2>
+<h3 id="21-entitats">2.1. Entitats</h3>
+<p>Una <strong>entitat</strong> representa un <strong>conjunt de <em>persones, llocs, coses, conceptes o successos (reals o abstractes), d'interès per a l'organització</em> </strong>. És aquell <strong>objecte</strong> sobre el qual volem emmagatzemar informació en la BD.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er01.png" data-title="Exemple d'entitats" data-desc-position="bottom"><img alt="Exemple d'entitats" src="../images/er01.png"></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Tradicionalment, els noms de les entitats es posen en majúscules i en singular.</p>
+</div>
+<p>Cal diferenciar entre una entitat i les seues <strong>ocurrències</strong>:</p>
+<ul>
+<li><strong>Entitat</strong>: estructura genèrica que descriu un tipus d'objecte.</li>
+<li><strong>Ocurrència d'entitat</strong>: cadascun dels objectes concrets que representa l'entitat.</li>
+</ul>
+<p>Per exemple:</p>
+<ul>
+<li>L'entitat <strong>Llibre</strong> es refereix a l'estructura que descriu les característiques dels llibres.</li>
+<li>Les ocurrències de <strong>Llibre</strong> són cadascun dels llibres concrets, com <em>La plaça del Diamant</em>, <em>Tirant lo Blanc</em> o <em>El Hobbit</em>.</li>
+</ul>
+<p>Les entitats es representen habitualment mitjançant un rectangle amb el seu nom.</p>
+<h3 id="22-atributs">2.2. Atributs</h3>
+<p>Un <strong>atribut</strong> és <strong>cadascuna de les propietats que té una entitat o una relació</strong>. En un diagrama E-R es representa mitjançant una el·lipse amb un nom, unida amb un arc a l'entitat o relació que descriu.</p>
+<p>Per exemple, <code>codi</code>, <code>nom</code> i <code>tipus</code> poden ser atributs de l'entitat <strong>LLIBRE</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er03.png" data-title="Exemple d'atributs" data-desc-position="bottom"><img alt="Exemple d'atributs" src="../images/er03.png"></a></p>
+<h4 id="221-domini-dun-atribut">2.2.1 Domini d'un atribut</h4>
+<p>El <strong>conjunt de possibles valors que pot prendre un atribut</strong> rep el nom de <strong>domini</strong>.</p>
+<p>Per exemple:</p>
+<ul>
+<li>d_codi_llib: número</li>
+<li>d_nom_llib: combinació de 50 caràcters alfabètics</li>
+<li>d_tipus_llib: P, F, I, H o A</li>
+</ul>
+<p>On:</p>
+<ul>
+<li><code>P</code> significa poesia.</li>
+<li><code>F</code> significa ficció.</li>
+<li><code>I</code> significa infantil.</li>
+<li><code>H</code> significa humor.</li>
+<li><code>A</code> significa assaig.</li>
+</ul>
+<p>En l'esquema E-R no sempre s'indica el domini de cada atribut. Normalment només s'especifiquen els valors possibles quan ho exigeixen els requeriments:</p>
+<p>Per exemple:</p>
+<p><em>"Els empleats tindran un DNI, un nom i un estat civil, que només podrà tindre els valors S, C, D o V".</em></p>
+<h4 id="222-tipus-datributs">2.2.2 Tipus d'atributs</h4>
+<p>Els atributs es poden classificar segons la seua <strong>funcionalitat</strong> i segons la seua <strong>estructura</strong>.</p>
+<h5 id="segons-la-funcionalitat">Segons la funcionalitat</h5>
+<ul>
+<li><strong>Atribut identificatiu</strong>: permet distingir les diferents ocurrències d'una entitat. També s'anomena <strong>clau</strong> de l'entitat i es representa subratllant el seu nom.</li>
+</ul>
+<p>Dos ocurrències d'una entitat no poden tindre el mateix valor en l'atribut identificatiu.</p>
+<p>Per exemple, en l'entitat <code>CLIENTS</code>, el DNI pot ser identificatiu, ja que no es poden repetir dos clients amb el mateix DNI.:</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>76.333.333H</td>
+<td>Pep</td>
+</tr>
+<tr>
+<td>87.333.445A</td>
+<td>Marta</td>
+</tr>
+<tr>
+<td>54.233.567C</td>
+<td>Neus</td>
+</tr>
+</tbody>
+</table>
+<p>No es podria repetir el DNI <code>76.333.333H</code> per a dos clients diferents.</p>
+<p>És recomanable que tota entitat tinga un atribut identificatiu.</p>
+<p>Dins dels atributs identificatius, podem distingir entre <strong>claus primàries</strong> i <strong>claus candidates</strong>:</p>
+<ul>
+<li><strong>Clau primària</strong>: és l'atribut identificatiu que s'ha triat per a identificar les ocurrències d'una entitat. Només hi pot haver una clau primària per a cada entitat.</li>
+<li><strong>Clau candidata</strong>: és un atribut identificatiu que podria ser clau primària, però no s'ha triat com a tal. Una entitat pot tindre diverses claus candidates.</li>
+</ul>
+<p>Per exemple, en l'entitat Alumnes, el DNI i el NIA poden ser atributs identificatius. Si triem el DNI com a clau primària, el NIA serà una clau candidata.</p>
+<p>Les <strong>claus primàries</strong> poden ser:</p>
+<ul>
+<li><strong>Clau simple</strong>: formada per un únic atribut. Per exemple, el DNI d'un client.</li>
+<li><strong>Clau composta</strong>: formada per diversos atributs. Per exemple, el codi d'una línia de factura pot estar format pel codi de la factura i el número de línia.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er05.png" data-title="Exemple de clau composta" data-desc-position="bottom"><img alt="Exemple de clau composta" src="../images/er05.png"></a></p>
+<ul>
+<li><strong>Atribut descriptiu</strong>: descriu alguna característica de l'entitat, però no la identifica de manera única.</li>
+</ul>
+<p>Per exemple, dos clients poden tindre el mateix nom o haver nascut el mateix dia.</p>
+<ul>
+<li>
+<p><strong>Atribut obligatori</strong>: ha de tindre sempre un valor. Per exemple, un client pot estar obligatòriament identificat per un DNI.</p>
+</li>
+<li>
+<p><strong>Atribut opcional</strong>: pot no tindre valor. Per exemple, potser no es coneix la data de naixement d'un client. </p>
+</li>
+</ul>
+<h5 id="segons-lestructura">Segons l'estructura</h5>
+<ul>
+<li><strong>Atribut simple</strong>: pren un únic valor atòmic per a cada ocurrència.</li>
+</ul>
+<p>Exemple:</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Data de naixement</th>
+<th>Adreça</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>08/07/1970</td>
+<td>C/ Mur, 13 (Sueca)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>04/03/1970</td>
+<td>C/ Sequial, 45 (Algemesí)</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er06.png" data-title="Exemple d'atributs simples" data-desc-position="bottom"><img alt="Exemple d'atributs simples" src="../images/er06.png"></a></p>
+<ul>
+<li><strong>Atribut multivalent</strong>: pot prendre diversos valors per a una mateixa ocurrència.</li>
+</ul>
+<p>Exemple: un client pot tindre diversos telèfons.</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Telèfons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>96-170-33-44</td>
+</tr>
+<tr>
+<td>2</td>
+<td>96-171-33-46; 96-171-33-47; 636-092-555</td>
+</tr>
+<tr>
+<td>3</td>
+<td>96-170-44-64; 699-076-433</td>
+</tr>
+</tbody>
+</table>
+<p>Es sol representar amb una doble el·lipse.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er07.png" data-title="Exemple d'atributs multivalents" data-desc-position="bottom"><img alt="Exemple d'atributs multivalents" src="../images/er07.png"></a></p>
+<ul>
+<li><strong>Atribut compost</strong>: està format per diversos subatributs.</li>
+</ul>
+<p>Exemple: <code>adreça</code> pot estar formada per <code>carrer</code>, <code>número</code> i <code>població</code>.</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Carrer</th>
+<th>Número</th>
+<th>Població</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>C/ Mur</td>
+<td>13</td>
+<td>Sueca</td>
+</tr>
+<tr>
+<td>2</td>
+<td>C/ Sequial</td>
+<td>45</td>
+<td>Algemesí</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C/ Mur</td>
+<td>13</td>
+<td>Alginet</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er08.png" data-title="Exemple d'atributs compostos" data-desc-position="bottom"><img alt="Exemple d'atributs compostos" src="../images/er08.png"></a></p>
+<ul>
+<li><strong>Atribut compost multivalent</strong>: pot prendre diversos valors i cadascun està format per diversos subatributs.</li>
+</ul>
+<p>Exemple: un client pot tindre diverses adreces, i cada adreça està formada per carrer, número i població.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er09.png" data-title="Exemple d'atributs compostos multivalents" data-desc-position="bottom"><img alt="Exemple d'atributs compostos multivalents" src="../images/er09.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>Exercici 1:</strong> Dels elements següents, identifica tres entitats i posa'ls els atributs corresponents segons el model E-R. Indica les claus, els atributs obligatoris i els atributs multivalents.</p>
+<blockquote>
+<p>edat, ordinador, metres_quadrats, cognoms, quantitat_finestres, aula, alumne, planta, mem_disc_dur, telèfons, DNI, codi_ord, num_aula, velocitat_cpu</p>
+</blockquote>
+<p><strong>Exercici 2:</strong> En un hipermercat volen tindre informació dels productes a la venda:</p>
+<ul>
+<li>Pensa els atributs possibles de l'entitat <code>Producte</code>.</li>
+<li>Classifica'ls com a identificadors, descriptors, obligatoris, simples, multivalents o compostos.</li>
+<li>Busca altres entitats de l'hipermercat i els seus atributs.</li>
+<li>Indica dues o tres ocurrències de cada entitat.</li>
+</ul>
+</div>
+<h2 id="23-relacions">2.3. Relacions</h2>
+<p>Una <strong>relació</strong> és l'associació o correspondència entre entitats. Anomenem relació l'estructura que relaciona dues o més entitats, mentre que una <strong>ocurrència d'una relació</strong> és la relació concreta entre ocurrències de les entitats participants.</p>
+<p>Per exemple:</p>
+<ul>
+<li>La relació <code>ESCRIURE</code> descriu la relació entre les entitats <code>AUTOR</code> i <code>LLIBRE</code>.</li>
+<li>Ocurrències de la relació poden ser: <code>Joanot Martorell - Tirant lo Blanc</code>, <code>Miguel de Cervantes - Don Quijote</code>.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er10.png" data-title="Exemple de relació" data-desc-position="bottom"><img alt="Exemple de relació" src="../images/er10.png"></a></p>
+<p>Les relacions es representen mitjançant un rombe amb el nom de la relació, unit amb arcs a les entitats que associa.</p>
+<p>Una relació es caracteritza pel nom, els atributs, el grau i la cardinalitat.</p>
+<h3 id="231-nom-de-la-relacio">2.3.1 Nom de la relació</h3>
+<p>El nom identifica la relació i apareix dins del rombe. En un diagrama E-R no hi pot haver dues relacions amb el mateix nom.</p>
+<p>Exemple: <code>CASAT</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er11.png" data-title="Exemple de relació" data-desc-position="bottom"><img alt="Exemple de relació" src="../images/er11.png"></a></p>
+<h3 id="232-atributs-de-la-relacio">2.3.2 Atributs de la relació</h3>
+<p>Una relació pot tindre atributs propis. Aquests es representen com les el·lipses, però connectades a la relació.</p>
+<p>Per exemple, la <code>data</code> d'un casament no és un atribut de l'entitat <code>HOMES</code> ni de l'entitat <code>DONES</code>, sinó de la relació <code>CASAT</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er12.png" data-title="Exemple d'atributs de relació" data-desc-position="bottom"><img alt="Exemple d'atributs de relació" src="../images/er12.png"></a></p>
+<h3 id="233-grau-de-la-relacio">2.3.3 Grau de la relació</h3>
+<p>El grau és la quantitat d'entitats que participen en la relació.</p>
+<ul>
+<li><strong>Unària o reflexiva</strong>: participa una única entitat.</li>
+<li><strong>Binària</strong>: participen dues entitats.</li>
+<li><strong>Ternària</strong>: participen tres entitats.</li>
+<li><strong>N-ària</strong>: participen més de tres entitats.</li>
+</ul>
+<h4 id="relacions-unaries">Relacions unàries</h4>
+<p>Una relació unària és aquella en què una mateixa entitat participa en dos papers diferents.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er13.png" data-title="Exemple de relació unària" data-desc-position="bottom"><img alt="Exemple de relació unària" src="../images/er13.png"></a></p>
+<p>En aquest exemple una persona pot estar casada amb una altra persona. La relació <code>CASAT</code> és un exemple de relació unària, ja que només hi participa l'entitat <code>PERSONA</code>.</p>
+<h4 id="relacions-binaries">Relacions binàries</h4>
+<p>Relacionen dues entitats.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er10.png" data-title="Exemple de relació binària" data-desc-position="bottom"><img alt="Exemple de relació binària" src="../images/er10.png"></a></p>
+<p>Aquest tipus de relació és el més habitual. Per exemple, la relació <code>ESCRIURE</code> entre <code>AUTOR</code> i <code>LLIBRE</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Opcionalment, es pot indicar el sentit de la relació amb una fletxa. Per exemple, en la relació <code>ESCRIURE</code>, l'autor escriu el llibre, però el llibre no escriu l'autor.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er16.png" data-title="Exemple de relació binària amb sentit" data-desc-position="bottom"><img alt="Exemple de relació binària amb sentit" src="../images/er16.png"></a></p>
+</div>
+<h4 id="relacions-ternaries">Relacions ternàries</h4>
+<p>Relacionen tres entitats alhora.</p>
+<p>Exemple: la relació <code>IMPARTIR</code> entre <code>PROFESSORS</code>, <code>GRUPS</code> i <code>ASSIGNATURES</code>, amb l'atribut <code>hores</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er14.png" data-title="Exemple de relació ternària" data-desc-position="bottom"><img alt="Exemple de relació ternària" src="../images/er14.png"></a></p>
+<p>Una ocurrència podria ser:</p>
+<table>
+<thead>
+<tr>
+<th>Professor</th>
+<th>Grup</th>
+<th>Assignatura</th>
+<th style="text-align: right;">Hores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ricardo</td>
+<td>1DAM-SP</td>
+<td>BD</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>Ricardo</td>
+<td>1DAM</td>
+<td>PRG</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>Ricardo</td>
+<td>1DAM</td>
+<td>LMI</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Germán</td>
+<td>1DAM-SP</td>
+<td>PRG</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="relacions-n-aries">Relacions n-àries</h4>
+<p>Relacionen més de tres entitats, però no són habituals i solen evitar-se si el mateix problema es pot modelar amb relacions binàries o ternàries.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>Exercici 3:</strong> Fes el diagrama entitat-relació per a representar banc i sucursals, amb els atributs mínims següents:
+- Banc: nom, adreça.
+- Sucursal: adreça, població.</p>
+<p>Afegeix els atribuits que consideres necessaris i indica les claus i els atributs obligatoris.</p>
+<p><strong>Exercici 4:</strong> Afegeix a l'esquema anterior una entitat per a representar els directos de cada sucursal, amb els atributs que consideres necessaris. </p>
+<p><strong>Exercici 5:</strong> Tenim les entitats <code>PRODUCTE</code>, <code>PROVEÏDOR</code> i <code>CLIENT</code>. Inventa dos o tres atributs per a cadascuna -un ha de ser la clau- i dibuixa les relacions necessàries per a guardar:</p>
+<ul>
+<li>Quins productes ven cada proveïdor i a quin preu.</li>
+<li>Quins productes compra cada client i a quin preu.</li>
+<li>Quins productes ven cada proveïdor a cada client i a quin preu.</li>
+</ul>
+</div>
+<h3 id="234-cardinalitat-de-les-relacions">2.3.4 Cardinalitat de les relacions</h3>
+<p>La <strong>cardinalitat</strong> indica la <strong>quantitat màxima d'ocurrències d'una entitat que poden estar relacionades amb una ocurrència de l'altra entitat</strong>.</p>
+<p>Per a determinar-la, cal fer preguntes partint d'una única ocurrència:</p>
+<ul>
+<li>Donat <strong>un professor</strong>, de quants alumnes pot ser tutor?</li>
+<li>Donat <strong>un alumne</strong>, per quants professors pot estar tutoritzat?</li>
+</ul>
+<p>Si un professor pot ser tutor de molts alumnes i cada alumne només pot tindre un tutor, la cardinalitat és <code>1:N</code>.</p>
+<h4 id="tipus-de-cardinalitat-binaria">Tipus de cardinalitat binària</h4>
+<ul>
+<li><strong>1:1</strong>: cada ocurrència d'A es relaciona amb una única ocurrència de B, i viceversa.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er15.png" data-title="Exemple de relació 1:1" data-desc-position="bottom"><img alt="Exemple de relació 1:1" src="../images/er15.png"></a></p>
+<p>En aquest exemple, cada cotxe només pot estar aparcat en una única plaça, i cada plaça només pot tindre un cotxe.</p>
+<ul>
+<li><strong>1:N</strong>: una ocurrència d'A es pot relacionar amb moltes de B, però cada B només es relaciona amb una A.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er17.png" data-title="Exemple de relació 1:N" data-desc-position="bottom"><img alt="Exemple de relació 1:N" src="../images/er17.png"></a></p>
+<p>En aquest exemple, cada professor pot ser tutor de molts alumnes, però cada alumne només pot tindre un tutor.</p>
+<ul>
+<li><strong>N:1</strong>: una ocurrència d'B es pot relacionar amb moltes d'A, però cada A només es relaciona amb una B. És equivalent a <code>1:N</code> canviant l'ordre de les entitats.</li>
+<li><strong>N:M</strong>: cada ocurrència d'A es pot relacionar amb moltes de B, i cada ocurrència de B amb moltes d'A.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er18.png" data-title="Exemple de relació N:M" data-desc-position="bottom"><img alt="Exemple de relació N:M" src="../images/er18.png"></a></p>
+<p>En aquest exemple, cada professor pot impartir molts mòduls, i cada mòdul pot ser impartit per molts professors.</p>
+<p>Altra notació per a la cardinalitat de <code>varis</code> és <code>*</code>, com en <code>1:*</code> o <code>*:*</code>.</p>
+<h4 id="cardinalitat-unaria">Cardinalitat unària</h4>
+<p>En una relació unària, una mateixa entitat participa en dos papers diferents.</p>
+<p>Les cardinalitats possibles continuen sent <code>1:1</code>, <code>1:N</code> i <code>N:M</code>.</p>
+<p>Exemple: la relació <code>SER_PARE</code> entre ocurrències de l'entitat <code>PERSONES</code>.</p>
+<ul>
+<li>Una persona pot ser pare de moltes persones.</li>
+<li>Una persona pot ser filla d'una o més persones, segons els requeriments del sistema.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er19.png" data-title="Exemple de relació unària" data-desc-position="bottom"><img alt="Exemple de relació unària" src="../images/er19.png"></a></p>
+<p>En un altre exemple, una persona pot estar casada amb una altra persona. La relació <code>CASAT</code> és un exemple de relació unària amb cardinalitat <code>1:1</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er20.png" data-title="Exemple de relació unària" data-desc-position="bottom"><img alt="Exemple de relació unària" src="../images/er20.png"></a></p>
+<p>Per últim, com a exemple de relació unària 1:N, un empleat pot supervisar molts empleats, però cada empleat només pot tindre un supervisor.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er21.png" data-title="Exemple de relació unària" data-desc-position="bottom"><img alt="Exemple de relació unària" src="../images/er21.png"></a></p>
+<h4 id="cardinalitat-ternaria">Cardinalitat ternària</h4>
+<p>En una relació ternària, la cardinalitat s'expressa amb tres valors, un per cada entitat: <code>(1:1:N)</code>, <code>(1:N:M)</code>, <code>(N:M:M)</code>, <code>(1:1:1)</code> etc.</p>
+<p>Per exemple, en la relació <code>IMPARTIR</code> entre professors, grups i assignatures, formulem preguntes agrupant les entitats de dues en dues:</p>
+<ul>
+<li>Donat un <strong>professor</strong> i un <strong>grup</strong>, quantes assignatures pot impartir?: moltes.</li>
+<li>Donat un <strong>professor</strong> i una <strong>assignatura</strong>, a quants grups pot impartir-la?: molts.</li>
+<li>Donat un <strong>grup</strong> i una <strong>assignatura</strong>, quants professors poden impartir-la?: un.</li>
+</ul>
+<p>La cardinalitat seria <code>(N:M:1)</code> segons l'ordre en què s'enumeren les entitats.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er22.png" data-title="Exemple de relació ternària" data-desc-position="bottom"><img alt="Exemple de relació ternària" src="../images/er22.png"></a></p>
+<h4 id="notacio-amb-fletxes">Notació amb fletxes</h4>
+<p>Una altra manera de representar la cardinalitat és amb fletxes, posant una fletxa en l'extrem de la relació que representa el "molts" i deixant sense fletxa l'extrem que representa "un".</p>
+<p>Per exemple:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er28.png" data-title="Exemple de notació amb fletxes" data-desc-position="bottom"><img alt="Exemple de notació amb fletxes" src="../images/er28.png"></a></p>
+<h3 id="235-multiplicitat">2.3.5 Multiplicitat</h3>
+<p>La multiplicitat és la quantitat mínima i màxima d'ocurrències d'una entitat que poden estar relacionades amb una ocurrència de l'altra entitat. Es representa com una parella <code>(mínim, màxim)</code>:</p>
+<ul>
+<li><code>(0,1)</code>: participació opcional, com a màxim una ocurrència.</li>
+<li><code>(1,1)</code>: participació obligatòria i única.</li>
+<li><code>(0,N)</code>: participació opcional i múltiple.</li>
+<li><code>(1,N)</code>: participació obligatòria i múltiple.</li>
+</ul>
+<p>A més, tant la multiplicitat mínima com la màxima poden ser <code>0</code> o <code>1</code>, o un nombre enter positiu. Per exemple <code>(0, 2)</code> significa que una ocurrència d'una entitat pot estar relacionada amb cap, una, o dues ocurrències de l'altra entitat. <code>(5, N)</code> significa que una ocurrència d'una entitat ha d'estar relacionada amb almenys cinc ocurrències de l'altra entitat, i pot estar relacionada amb moltes més.</p>
+<p>Una altra notació per a la multiplicitat de varis és l'asterisc <code>*</code>, com en <code>(0,*)</code>, <code>(1,*)</code>, <code>(*,*)</code>, <code>(2,*)</code> etc.</p>
+<p>Per exemple, en la relació <code>ESCRIURE</code>:</p>
+<ul>
+<li>Un autor pot escriure com a mínim un llibre i com a màxim molts: <code>(1,N)</code>.</li>
+<li>Un llibre pot tindre cap autor -si és anònim- o varis: <code>(0,N)</code>.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er23.png" data-title="Exemple de multiplicitat" data-desc-position="bottom"><img alt="Exemple de multiplicitat" src="../images/er23.png"></a></p>
+<h3 id="236-rols">2.3.6 Rols</h3>
+<p>Els rols són etiquetes que s'assignen a les entitats participants en una relació per a indicar la seua funció en ella. Es representen amb un text sobre l'arc que uneix l'entitat amb la relació. Només s'utilitzen quan és necessari per a entendre la relació.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er24.png" data-title="Exemple de rols" data-desc-position="bottom"><img alt="Exemple de rols" src="../images/er24.png"></a></p>
+<p>En aquest exemple, una persona pot ser pare o mare de 0 o més fills, mentres que pot ser fill o filla (biològicament) de 2 persones.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>Exercici 6:</strong> Afegeix als esquemes E-R dels exercicis 3, 4 i 5 els atributs de les relacions, la cardinalitat i la multiplicitat. Afegeix també els rols quan siga necessari.</p>
+</div>
+<h2 id="24-passos-per-a-crear-un-diagrama-er">2.4 Passos per a crear un diagrama ER</h2>
+<p>Crear un diagrama d'entitat-relació (ER) implica seguir diversos passos que permeten identificar les entitats, els seus atributs i relacions, representant visualment l'estructura lògica d'una base de dades:</p>
+<p><strong>1. Identificar les entitats</strong></p>
+<p>Comprendre el domini del problema o el sistema que s'està modelant per a determinar les <strong>entitats rellevants</strong>. Aquestes són els objectes o conceptes del món real que es volen representar en la base de dades. Per exemple, en un sistema de gestió d'una escola, les entitats podrien incloure "Estudiant", "Professor" i "Curs".</p>
+<p><strong>2. Definir els atributs de cada entitat</strong></p>
+<p>Per a cada entitat identificada, determinar els atributs o característiques que descriuen eixa entitat. <strong>És important representar només els atributs que s'emmagatzemaran en la base de dades</strong>. Per exemple, per a l'entitat "Estudiant", els atributs podrien ser "Nom", "Cognom", "Número d'Estudiant", etc.</p>
+<p><strong>3. Establir les relacions entre les entitats</strong></p>
+<p>Analitzar com les entitats identificades estan relacionades entre si. Determinar la naturalesa i el tipus de relació (1;N, N;M, etc.) entre les entitats. Per exemple, un estudiant pot estar inscrit en un o diversos cursos, la qual cosa estableix una relació "u a molts" entre "Estudiant" i "Curs".</p>
+<p><strong>4. Assignar claus primàries</strong></p>
+<p>Identificar les claus primàries per a cada entitat, que són els atributs únics que identifiquen de manera exclusiva cada instància d'eixa entitat. </p>
+<p><strong>5. Dibuixar el diagrama ER</strong></p>
+<p>Utilitzar un software especialitzat de modelatge de bases de dades o simplement paper i llapis per a representar visualment les entitats, els seus atributs i les relacions entre elles. <strong>Es recomana sempre començar amb un esbós fet a ma</strong>, i després passar a un diagrama més formal.</p>
+<p><strong>6. Revisar i refinar el diagrama</strong></p>
+<p>Revisar el diagrama per a assegurar-se que reflecteix amb precisió l'estructura lògica de la base de dades. Realitzar ajustos o modificacions segons calga per a millorar la claredat i la precisió del model.</p>
+<p><strong>7. Documentar el diagrama</strong></p>
+<p>Afegir descripcions, restriccions i anotacions o notes addicionals al diagrama per a explicar conceptes o detalls més complexos que puguen ser importants per a comprendre el model de dades. Es pot fer en el propi diagrama o en un document separat.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
