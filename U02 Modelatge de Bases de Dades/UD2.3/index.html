@@ -1,0 +1,1563 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../UD2.2/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 2.3. Disseny de bases de dades, el model relacional - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-23-disseny-de-bases-de-dades-el-model-relacional" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 2.3. Disseny de bases de dades, el model relacional
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptes-basics-del-model-relacional" class="md-nav__link">
+    2. Conceptes bàsics del model relacional
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Conceptes bàsics del model relacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-models-i-esquemes" class="md-nav__link">
+    2.1. Models i esquemes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-elements-del-model-relacional" class="md-nav__link">
+    2.2. Elements del model relacional
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Elements del model relacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-claus-de-les-taules" class="md-nav__link">
+    2.2.1 Claus de les taules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-restriccio-de-valor-no-nul" class="md-nav__link">
+    2.2.2. Restricció de valor no nul
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-restriccions-dintegritat-implicites" class="md-nav__link">
+    2.2.3. Restriccions d'integritat implícites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-model-relacional-transformacio-de-le-r-a-taules" class="md-nav__link">
+    3. Model relacional: transformació de l'E-R a taules
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Model relacional: transformació de l'E-R a taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-entitats-i-atributs" class="md-nav__link">
+    3.1. Entitats i atributs
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Entitats i atributs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-entitats-amb-atributs-simples" class="md-nav__link">
+    3.1.1. Entitats amb atributs simples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-entitats-amb-atributs-compostos" class="md-nav__link">
+    3.1.2. Entitats amb atributs compostos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-relacions-binaries" class="md-nav__link">
+    3.2. Relacions binàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Relacions binàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-relacio-binaria-nm" class="md-nav__link">
+    3.2.1. Relació binària N:M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-relacio-binaria-1n" class="md-nav__link">
+    3.2.2. Relació binària 1:N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-relacio-binaria-11" class="md-nav__link">
+    3.2.3. Relació binària 1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-relacions-unaries" class="md-nav__link">
+    3.3. Relacions unàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Relacions unàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-relacio-unaria-nm" class="md-nav__link">
+    3.3.1. Relació unària N:M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-relacio-unaria-1n" class="md-nav__link">
+    3.3.2. Relació unària 1:N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-relacio-unaria-11" class="md-nav__link">
+    3.3.3. Relació unària 1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-relacions-ternaries" class="md-nav__link">
+    3.4. Relacions ternàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4. Relacions ternàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-relacio-ternaria-nmp" class="md-nav__link">
+    3.4.1. Relació ternària N:M:P
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-relacio-ternaria-nm1" class="md-nav__link">
+    3.4.2. Relació ternària N:M:1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-relacio-ternaria-n11" class="md-nav__link">
+    3.4.3. Relació ternària N:1:1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-relacio-ternaria-111" class="md-nav__link">
+    3.4.4. Relació ternària 1:1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-atributs-multivalents" class="md-nav__link">
+    3.5. Atributs multivalents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-atributs-compostos" class="md-nav__link">
+    3.6. Atributs compostos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-entitats-debils" class="md-nav__link">
+    3.7. Entitats dèbils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-especialitzacions-i-generalitzacions" class="md-nav__link">
+    3.8. Especialitzacions i generalitzacions
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8. Especialitzacions i generalitzacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#381-cas-1-eliminacio-de-subclasses" class="md-nav__link">
+    3.8.1. Cas 1. Eliminació de subclasses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#382-cas-2-taula-per-a-la-superclasse-i-taules-per-a-les-subclasses" class="md-nav__link">
+    3.8.2. Cas 2. Taula per a la superclasse i taules per a les subclasses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#383-cas-3-eliminacio-de-la-superclasse-i-taules-per-a-les-subclasses" class="md-nav__link">
+    3.8.3. Cas 3. Eliminació de la superclasse i taules per a les subclasses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-agregacions" class="md-nav__link">
+    3.9. Agregacions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    1. Introducció
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptes-basics-del-model-relacional" class="md-nav__link">
+    2. Conceptes bàsics del model relacional
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Conceptes bàsics del model relacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-models-i-esquemes" class="md-nav__link">
+    2.1. Models i esquemes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-elements-del-model-relacional" class="md-nav__link">
+    2.2. Elements del model relacional
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Elements del model relacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-claus-de-les-taules" class="md-nav__link">
+    2.2.1 Claus de les taules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-restriccio-de-valor-no-nul" class="md-nav__link">
+    2.2.2. Restricció de valor no nul
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-restriccions-dintegritat-implicites" class="md-nav__link">
+    2.2.3. Restriccions d'integritat implícites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-model-relacional-transformacio-de-le-r-a-taules" class="md-nav__link">
+    3. Model relacional: transformació de l'E-R a taules
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Model relacional: transformació de l'E-R a taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-entitats-i-atributs" class="md-nav__link">
+    3.1. Entitats i atributs
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Entitats i atributs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-entitats-amb-atributs-simples" class="md-nav__link">
+    3.1.1. Entitats amb atributs simples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-entitats-amb-atributs-compostos" class="md-nav__link">
+    3.1.2. Entitats amb atributs compostos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-relacions-binaries" class="md-nav__link">
+    3.2. Relacions binàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Relacions binàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-relacio-binaria-nm" class="md-nav__link">
+    3.2.1. Relació binària N:M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-relacio-binaria-1n" class="md-nav__link">
+    3.2.2. Relació binària 1:N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-relacio-binaria-11" class="md-nav__link">
+    3.2.3. Relació binària 1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-relacions-unaries" class="md-nav__link">
+    3.3. Relacions unàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Relacions unàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-relacio-unaria-nm" class="md-nav__link">
+    3.3.1. Relació unària N:M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-relacio-unaria-1n" class="md-nav__link">
+    3.3.2. Relació unària 1:N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-relacio-unaria-11" class="md-nav__link">
+    3.3.3. Relació unària 1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-relacions-ternaries" class="md-nav__link">
+    3.4. Relacions ternàries
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4. Relacions ternàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-relacio-ternaria-nmp" class="md-nav__link">
+    3.4.1. Relació ternària N:M:P
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-relacio-ternaria-nm1" class="md-nav__link">
+    3.4.2. Relació ternària N:M:1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-relacio-ternaria-n11" class="md-nav__link">
+    3.4.3. Relació ternària N:1:1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-relacio-ternaria-111" class="md-nav__link">
+    3.4.4. Relació ternària 1:1:1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-atributs-multivalents" class="md-nav__link">
+    3.5. Atributs multivalents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-atributs-compostos" class="md-nav__link">
+    3.6. Atributs compostos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-entitats-debils" class="md-nav__link">
+    3.7. Entitats dèbils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-especialitzacions-i-generalitzacions" class="md-nav__link">
+    3.8. Especialitzacions i generalitzacions
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8. Especialitzacions i generalitzacions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#381-cas-1-eliminacio-de-subclasses" class="md-nav__link">
+    3.8.1. Cas 1. Eliminació de subclasses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#382-cas-2-taula-per-a-la-superclasse-i-taules-per-a-les-subclasses" class="md-nav__link">
+    3.8.2. Cas 2. Taula per a la superclasse i taules per a les subclasses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#383-cas-3-eliminacio-de-la-superclasse-i-taules-per-a-les-subclasses" class="md-nav__link">
+    3.8.3. Cas 3. Eliminació de la superclasse i taules per a les subclasses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-agregacions" class="md-nav__link">
+    3.9. Agregacions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-23-disseny-de-bases-de-dades-el-model-relacional">Unitat 2.3. Disseny de bases de dades: el model relacional</h1>
+<h2 id="1-introduccio">1. Introducció</h2>
+<p>L'objectiu del <strong>model relacional</strong> és obtindre un conjunt de relacions —o taules— sense redundàncies i que satisfacen els requeriments de l'organització. Això s'aconsegueix transformant l'esquema E-R en taules. Si no s'ha creat prèviament l'esquema E-R i es parteix d'unes taules mal definides, aquestes es poden corregir aplicant la teoria de la <strong>normalització</strong>.</p>
+<p>Durant el cicle de vida d'una base de dades podem distingir diverses fases:</p>
+<ul>
+<li><strong>Anàlisi conceptual</strong>:<ul>
+<li>Esquema conceptual E-R.</li>
+<li>Restriccions d'integritat.</li>
+</ul>
+</li>
+<li><strong>Disseny lògic relacional</strong>:<ul>
+<li>Esquema relacional, que inclou el pas a taules i la normalització.</li>
+<li>Restriccions d'integritat.</li>
+</ul>
+</li>
+<li><strong>Implementació física</strong>:<ul>
+<li>Creació de les taules mitjançant SQL.</li>
+</ul>
+</li>
+<li><strong>Manteniment</strong> de la base de dades.</li>
+</ul>
+<p>El procés parteix de la realitat i de l'obtenció de requeriments. En l'anàlisi conceptual es treballa amb la perspectiva estàtica de les dades i s'obté un model conceptual. Posteriorment, en el disseny lògic, aquest model es transforma en un esquema relacional.</p>
+<p><strong>Exemple de transformació:</strong></p>
+<p>En el model conceptual podem tindre les entitats <code>SOCIS</code> i <code>LLIBRES</code>, relacionades mitjançant <code>PRESTAR</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Soci = (numero, nom, data_naix, ...)
+Llibre = (codi, títol, ...)
+Prestar = (soci, llibre, data, ...)
+</code></pre></div></td></tr></tbody></table></div>
+<p>En la fase d'implementació, aquestes estructures es poden convertir en taules SQL:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">soci</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">numero</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_naix</span><span class="w"> </span><span class="nb">DATE</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">llibre</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">titol</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="2-conceptes-basics-del-model-relacional">2. Conceptes bàsics del model relacional</h2>
+<h3 id="21-models-i-esquemes">2.1. Models i esquemes</h3>
+<p>Durant la fase de disseny lògic transformarem l'esquema conceptual —el diagrama Entitat-Relació— en un esquema lògic. Aquesta transformació es pot fer utilitzant diversos models lògics.</p>
+<p>Cal diferenciar entre <strong>model</strong> i <strong>esquema</strong>:</p>
+<ul>
+<li><strong>Model de dades</strong>: eina intel·lectual formada per un conjunt de conceptes i regles que permet representar els aspectes estàtics i dinàmics de la part del món real que volem estudiar.</li>
+<li><strong>Esquema</strong>: representació concreta d'una part del món real utilitzant un model de dades.</li>
+</ul>
+<p>El procés es pot resumir així:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Esquema conceptual E-R] --&gt; B[Model lògic relacional]
+    B --&gt; C[Esquema lògic relacional:&lt;br/&gt;pas a taules i normalització]</code></pre>
+<h3 id="22-elements-del-model-relacional">2.2. Elements del model relacional</h3>
+<p>Els elements del model E-R reben noms diferents segons la fase del cicle de vida:</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Anàlisi</th>
+<th>Disseny</th>
+<th>Implementació</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td>E-R</td>
+<td>Relacional</td>
+<td>Físic</td>
+</tr>
+<tr>
+<td>Objectes</td>
+<td>Entitats i relacions</td>
+<td>Relacions</td>
+<td>Taules</td>
+</tr>
+<tr>
+<td>Característiques</td>
+<td>Atributs</td>
+<td>Camps</td>
+<td>Columnes</td>
+</tr>
+<tr>
+<td>Dades</td>
+<td>Ocurrències</td>
+<td>Registres o tuples</td>
+<td>Files</td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>model relacional</strong>, proposat per Edgar Codd el 1970, representa una base de dades com un conjunt de <strong>relacions</strong>.</p>
+<p>Per exemple, la relació <code>EMPLEATS</code> podria ser:</p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nom</th>
+<th>Cognoms</th>
+<th>Adreça</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27456363Z</td>
+<td>Pep</td>
+<td>Garcia</td>
+<td>C/ Sequial, 3</td>
+</tr>
+<tr>
+<td>32456783X</td>
+<td>Marta</td>
+<td>Pineda</td>
+<td>C/ Nou, 17, 3a</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>Manel</td>
+<td>Meseguer</td>
+<td>C/ Niu, 33</td>
+</tr>
+<tr>
+<td>98765432Y</td>
+<td>Joan</td>
+<td>Roda</td>
+<td>C/ Roda, 12</td>
+</tr>
+</tbody>
+</table>
+<p>En aquesta taula:</p>
+<ul>
+<li>Els <strong>camps</strong>, atributs o columnes són <code>DNI</code>, <code>Nom</code>, <code>Cognoms</code> i <code>Adreça</code>.</li>
+<li>Els <strong>registres</strong>, ocurrències, tuples o files són cadascuna de les files de dades.</li>
+</ul>
+<p>Una relació està formada per camps i registres i compleix aquestes condicions:</p>
+<ol>
+<li>No hi ha tuples duplicades.</li>
+<li>No hi ha un ordre determinat entre les tuples.</li>
+<li>L'ordre dels camps és irellevant.</li>
+</ol>
+<p>No és exactament el mateix una taula que una relació. Una taula és la implementació d'una relació, i les files i columnes hi tenen un ordre concret. Tanmateix, en aquest tema utilitzarem indistintament els termes <strong>taula</strong> i <strong>relació</strong> per a evitar confondre les relacions del disseny —les taules— amb les relacions de l'anàlisi —els rombes del model E-R—.</p>
+<h4 id="221-claus-de-les-taules">2.2.1 Claus de les taules</h4>
+<p>En el model relacional les tuples no poden estar duplicades. Per a garantir-ho s'utilitzen les <strong>claus (keys)</strong>.</p>
+<p>Una <strong>clau</strong> és un <strong>atribut o conjunt d'atributs</strong> d'una taula que compleix dues condicions:</p>
+<ul>
+<li><strong>Unicitat</strong>: no hi pot haver dos registres amb el mateix valor per al conjunt d'atributs de la clau.</li>
+<li><strong>Minimalitat</strong>: no sobra cap atribut de la clau. Si se n'elimina qualsevol, el conjunt resultant deixa de complir la propietat d'unicitat.</li>
+</ul>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>PROFESSOR = (dni, nif, departament)
+</code></pre></div></td></tr></tbody></table></div>
+<p><code>dni + nif</code> no seria una bona clau si <code>dni</code> per si sol ja identifica unívocament cada professor. En aquest cas, <code>nif</code> sobraria i la clau no seria mínima.</p>
+<h5 id="clau-candidata">Clau candidata</h5>
+<p>Una <strong>clau candidata</strong> és cadascuna de les claus possibles d'una taula.</p>
+<p>Hi ha dos tipus de claus candidates:</p>
+<ul>
+<li><strong>Clau primària (primary key, PK)</strong>: és la clau candidata que s'escull com a identificador principal de la taula. No pot contindre valors nuls.</li>
+<li><strong>Clau alternativa (alternative key, AK)</strong>: qualsevol altra clau candidata que no ha estat seleccionada com a primària. </li>
+</ul>
+<h5 id="clau-aliena-o-externa">Clau aliena o externa</h5>
+<p>Una <strong>clau aliena (foreign key, FK)</strong> és un atribut o conjunt d'atributs d'una taula que ha de coincidir amb la clau primària d'una altra taula a la qual fa referència.</p>
+<p>Les claus alienes permeten representar les relacions entre entitats del model E-R.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom, codi_dep[FK])
+Departament = (codi[PK], nom_departament)
+</code></pre></div></td></tr></tbody></table></div>
+<p>Ací <code>codi_dep</code> és una clau aliena que fa referència a la clau primària codi de la taula <code>Departament</code>. Això significa que els valors de <code>codi_dep</code> que apareixen en <code>Professor</code> han d'existir també en el camp <code>codi</code> de <code>Departament</code>.</p>
+<p>Aquesta regla és un cas d'<strong>integritat referencial</strong>: una clau aliena no nul·la ha de coincidir amb algun valor de la clau primària referenciada.</p>
+<h4 id="222-restriccio-de-valor-no-nul">2.2.2. Restricció de valor no nul</h4>
+<p>Si un atribut té una restricció de valor no nul, cap registre pot tindre un valor nul en eixe atribut.</p>
+<p>En l'esquema lògic ho indicarem amb <code>NN</code> o <code>NOT NULL</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom(NN), codi_dep[FK])
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="223-restriccions-dintegritat-implicites">2.2.3. Restriccions d'integritat implícites</h4>
+<p>Algunes restriccions no cal indicar-les perquè ja formen part del model relacional:</p>
+<ul>
+<li><strong>Integritat de claus</strong>: cap atribut de la clau primària pot tindre un valor nul.</li>
+<li><strong>Integritat referencial</strong>: si una clau aliena no és nul·la, el seu valor ha de coincidir amb un valor de la clau primària de la taula referenciada.</li>
+</ul>
+<p>Per a indicar una clau primària, subratllarem el camp corresponent o escrivim [PK]. Les claus alienes s'indiquen amb <code>[FK]</code>.</p>
+<h2 id="3-model-relacional-transformacio-de-le-r-a-taules">3. Model relacional: transformació de l'E-R a taules</h2>
+<p>Hi ha dues tècniques principals per a dissenyar bases de dades relacionals, segons el punt de partida:</p>
+<ul>
+<li><strong>Transformació de l'E-R a taules</strong>: Aquesta tècnica s'utilitza quan partim d'un esquema E-R. Aplicant unes regles de transformació obtindrem el conjunt de taules corresponent.</li>
+</ul>
+<p>També cal intentar transformar en restriccions de les taules les altres restriccions que no es podien representar en el model E-R. Les que no es puguen expressar en les taules quedaran com a <strong>altres restriccions d'integritat</strong>.</p>
+<ul>
+<li><strong>Normalització</strong>: La normalització s'utilitza quan partim d'un esquema de taules creat sense aplicar un disseny conceptual adequat. Mitjançant unes regles transformarem aquestes taules en un conjunt de taules normalitzades.</li>
+</ul>
+<p>Ambdues tècniques pretenen aconseguir els objectius següents:</p>
+<ul>
+<li>Conservar les restriccions de clau, connectivitat i cardinalitat.</li>
+<li>Evitar la duplicació de dades.</li>
+<li>Evitar valors nuls quan no corresponga posar-los.</li>
+</ul>
+<p>En aquest apartat estudiarem la transformació del model E-R a taules: veurem com obtindre les relacions o taules equivalents a les entitats i relacions del model Entitat-Relació.</p>
+<h3 id="31-entitats-i-atributs">3.1. Entitats i atributs</h3>
+<h4 id="311-entitats-amb-atributs-simples">3.1.1. Entitats amb atributs simples</h4>
+<p>S'apliquen les següents regles:</p>
+<ul>
+<li>Cada entitat del model E-R es transforma en una taula.</li>
+<li>Els atributs de l'entitat es converteixen en camps de la taula.</li>
+<li>L'atribut identificador es converteix en la clau primària.</li>
+</ul>
+<p>Exemple:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er03.png" data-title="Exemple d'entitat amb atributs simples" data-desc-position="bottom"><img alt="Exemple d'entitat amb atributs simples" src="../images/er03.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Llibre = (codi[PK], títol, tipus)
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="312-entitats-amb-atributs-compostos">3.1.2. Entitats amb atributs compostos</h4>
+<p>Els atributs compostos es descomponen en els seus components simples.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er08.png" data-title="Exemple d'entitat amb atributs compostos" data-desc-position="bottom"><img alt="Exemple d'entitat amb atributs compostos" src="../images/er08.png"></a></p>
+<p>Per exemple, l'atribut compost <code>adreça</code> es pot descompondre en:</p>
+<ul>
+<li><code>carrer</code>.</li>
+<li><code>número</code>.</li>
+<li><code>població</code>.</li>
+</ul>
+<p>L'esquema resultant seria:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Client = (dni[PK], carrer, número, població)
+</code></pre></div></td></tr></tbody></table></div>
+<p>Els atributs compostos no es mantenen com una única columna si els seus components es necessiten de manera independent.</p>
+<h3 id="32-relacions-binaries">3.2. Relacions binàries</h3>
+<h4 id="321-relacio-binaria-nm">3.2.1. Relació binària <code>N:M</code></h4>
+<p>Quan una relació binària és <code>N:M</code>, cal crear una taula nova per a la relació.</p>
+<p>Els atributs de la nova taula seran:</p>
+<ul>
+<li>Les claus primàries de les entitats participants, que formaran conjuntament la clau primària de la nova taula.</li>
+<li>Les mateixes claus com a claus alienes de les taules corresponents.</li>
+<li>Els atributs propis de la relació.</li>
+</ul>
+<p>Exemple:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny01.png" data-title="Exemple de relació binària N:M" data-desc-position="bottom"><img alt="Exemple de relació binària N:M" src="../images/disseny01.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom, departament)
+Module = (codi[PK], nom, hores)
+Imparteix = ((dni_professor[FK], codi_module[FK])[PK], curs_escolar)
+</code></pre></div></td></tr></tbody></table></div>
+<p>La clau de <code>Imparteix</code> estarà formada, habitualment, per <code>dni_professor + codi_module</code>.</p>
+<p>Si volem que un professor puga impartir el mateix mòdul en diversos cursos escolars, la clau de <code>Imparteix</code> hauria de ser <code>dni_professor + codi_module + curs_escolar</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom, departament)
+Module = (codi[PK], nom, hores)
+Imparteix = ((dni_professor[FK], codi_module[FK], curs_escolar)[PK])
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny01b.png" data-title="Pas a taules d'una relació binària N:M" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària N:M" src="../images/disseny01b.png"></a></p>
+<h4 id="322-relacio-binaria-1n">3.2.2. Relació binària <code>1:N</code></h4>
+<h5 id="cas-general">Cas general</h5>
+<p>En una relació <code>1:N</code>, la clau de l'entitat que està al costat <code>1</code> s'incorpora com a clau aliena en la taula de l'entitat que està al costat <code>N</code>. Aquesta tècnica s'anomena <strong>propagació de claus</strong>.</p>
+<p>Els atributs propis de la relació també s'incorporen a la taula del costat <code>N</code>.</p>
+<p>És important que la clau aliena no tinga valors nuls si la relació és obligatòria. Si la relació és opcional, la clau aliena pot tindre valors nuls.</p>
+<p>Exemple: un professor pot tutoritzar molts alumnes, però cada alumne només té un tutor.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny02.png" data-title="Exemple de relació binària 1:N" data-desc-position="bottom"><img alt="Exemple de relació binària 1:N" src="../images/disseny02.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom, departament)
+Alumne = (nia[PK], nom, dni_tutor[FK], informe)
+
+R.I: nul(dni_tutor) -&gt; nul(informe)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny02b.png" data-title="Pas a taules d'una relació binària 1:N" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:N" src="../images/disseny02b.png"></a></p>
+<p>Aquesta restricció indica que si un alumne no té tutor assignat, no pot tindre un informe de tutoria. Pot existir un alumne amb tutor però sense informe.</p>
+<p>Exemple de registres:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">NIA</th>
+<th>Nom</th>
+<th>DNI del tutor</th>
+<th>Informe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Josep</td>
+<td>33333333</td>
+<td>Es porta malament</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Pepa</td>
+<td>33333333</td>
+<td>No fa els deures</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Jaume</td>
+<td>55555555</td>
+<td>Molesta en classe</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Joana</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Alfons</td>
+<td>55555555</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Un registre que tinguera les dades següents seria incorrecte:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">NIA</th>
+<th>Nom</th>
+<th>DNI del tutor</th>
+<th>Informe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Pepito</td>
+<td></td>
+<td>No fa els deures</td>
+</tr>
+</tbody>
+</table>
+<h5 id="cas-2-taula-propia">Cas 2: Taula pròpia</h5>
+<p>Si en la relació podem tindre molts valor nuls en la clau propagada, és millor crear una taula pròpia per a la relació. Això permetrà que els alumnes sense tutor no tinguen cap registre en la taula de tutories.:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Professor = (dni[PK], nom, departament)
+Alumne = (nia[PK], nom)
+Tutoria = ((nia_alumne[FK], dni_tutor[FK][NN])PK, informe)  
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny02c.png" data-title="Pas a taules d'una relació binària 1:N amb taula pròpia" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:N amb taula pròpia" src="../images/disseny02c.png"></a></p>
+<p>En <code>Alumne</code> apareixeran tots els alumnes, mentre que en <code>Tutoria</code> només apareixeran els alumnes que tenen tutor. La restricció <code>NN: dni_tutor</code> evita que hi haja una tutoria sense professor.</p>
+<h4 id="323-relacio-binaria-11">3.2.3. Relació binària <code>1:1</code></h4>
+<p>Quan tenim 2 entitats amb una relació 1:1 la solució dependrà de la multiplicitat de les 2 entitats i de la obligatorietat de la relació.</p>
+<h5 id="cas-1-e111-e211">Cas 1 E1(1:1) E2(1:1)</h5>
+<p>En aquest cas es pot triar qualsevol de les dues entitats per a propagar la clau. El costat cap al qual es propaga la clau dependrà de la semàntica de la relació.</p>
+<p>Per exemple, si tenim les entitats <code>PERSONA</code> i <code>PASSAPORT</code> amb una relació 1:1, és més lògic propagar la clau de <code>PERSONA</code> cap a <code>PASSAPORT</code>, ja que un passaport no pot existir sense una persona.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny03.png" data-title="Exemple de relació binària 1:1" data-desc-position="bottom"><img alt="Exemple de relació binària 1:1" src="../images/disseny03.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, adreça)
+Passaport = (num_passaport[PK], dni_persona[FK][NN], data_expedició)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny03b.png" data-title="Pas a taules d'una relació binària 1:1" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:1" src="../images/disseny03b.png"></a></p>
+<p>Una altra opció sería fusionar les dues entitats en una sola taula. En aquest cas, passariem els camps de <code>PASSAPORT</code> a la taula <code>PERSONA</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, adreça, num_passaport, data_expedició)
+</code></pre></div></td></tr></tbody></table></div>
+<h5 id="cas-2-e111-e201">Cas 2 E1(1:1) E2(0:1)</h5>
+<p>En aquest cas, la clau de l'entitat amb multiplicitat 1:1 es propaga a l'entitat amb multiplicitat 0:1, però no al revés. Això vol dir que cada registre de <code>E2</code> ha de tenir un valor corresponent en <code>E1</code>, però no necessàriament el contrari.</p>
+<p>Si la relació té atributs propis, aquests es propaguen en el mateix sentit que la clau.</p>
+<p>Per exemple, si tenim les entitats <code>PERSONA</code> i <code>CARNET_CONDUIR</code> amb una relació 1:1, és més lògic propagar la clau de <code>PERSONA</code> cap a <code>CARNET_CONDUIR</code>, ja que un carnet de conduir no pot existir sense una persona. Tanmateix, una persona pot no tindre carnet de conduir.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny04.png" data-title="Exemple de relació binària 1:1 amb una entitat opcional" data-desc-position="bottom"><img alt="Exemple de relació binària 1:1 amb una entitat opcional" src="../images/disseny04.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, adreça)
+CarnetConduir = (num_carnet[PK], dni_persona[FK][NN], data_expedició)
+</code></pre></div></td></tr></tbody></table></div>
+<h5 id="cas3-e101-e201">Cas3 E1(0:1) E2(0:1)</h5>
+<p>En aquest cas, ni <code>E1</code> ni <code>E2</code> tenen una relació obligatòria amb l'altre. Això vol dir que poden existir registres en ambdues taules sense tenir un registre corresponent a l'altre.</p>
+<p>Ací crearem una taula nova per a la relació, que contindrà les claus de les dues entitats i els atributs propis de la relació. Amb això evitem que es generen valors nuls en les claus propagades.</p>
+<p>En el següent exemple, una persona pot tindre una casa en propietat, però no és obligatori. Una casa pot tindre un propietari, però tampoc és obligatori.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny05.png" data-title="Exemple de relació binària 1:1 amb ambdues entitats opcionals" data-desc-position="bottom"><img alt="Exemple de relació binària 1:1 amb ambdues entitats opcionals" src="../images/disseny05.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom)
+Casa = (num_registre[PK], adreça, codi_postal)
+Propietat = (dni[FK], num_registre[FK], data_inici)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny05b.png" data-title="Pas a taules d'una relació binària 1:1 amb ambdues entitats opcionals" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:1 amb ambdues entitats opcionals" src="../images/disseny05b.png"></a></p>
+<h3 id="33-relacions-unaries">3.3. Relacions unàries</h3>
+<p>Una relació unària o reflexiva és una relació en què les dues participacions corresponen a la mateixa entitat.</p>
+<p>Cal imaginar-la com una relació binària en què les dues entitats són realment la mateixa taula. Per això, la clau de l'entitat apareixerà dues vegades i caldrà utilitzar noms diferents per als dos papers.</p>
+<p>Si les dues participacions tenen el mateix significat, els noms poden ser genèrics, com <code>conjuge1</code> i <code>conjuge2</code>. Si tenen papers diferents, els noms han de ser significatius, com <code>pare</code> i <code>fill</code>, o <code>supervisor</code> i <code>empleat</code>.</p>
+<h4 id="331-relacio-unaria-nm">3.3.1. Relació unària <code>N:M</code></h4>
+<p>Es crea una taula nova amb dues claus alienes que apunten a la mateixa taula:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny06.png" data-title="Exemple de relació unària N:M" data-desc-position="bottom"><img alt="Exemple de relació unària N:M" src="../images/disseny06.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Equip = (codi[PK], nom)
+Partit = ((codi_equip_local[FK], codi_equip_visitant[FK], data)[PK], resultat)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny06b.png" data-title="Pas a taules d'una relació unària N:M" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària N:M" src="../images/disseny06b.png"></a></p>
+<h4 id="332-relacio-unaria-1n">3.3.2. Relació unària <code>1:N</code></h4>
+<p>La clau de l'entitat apareix en la mateixa taula com a clau aliena.</p>
+<p>Exemple: cada empleat pot tindre un supervisor, però un supervisor pot supervisar molts empleats.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny07.png" data-title="Exemple de relació unària 1:N" data-desc-position="bottom"><img alt="Exemple de relació unària 1:N" src="../images/disseny07.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Empleat = (dni[PK], nom, supervisor[FK])
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny07b.png" data-title="Pas a taules d'una relació unària 1:N" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària 1:N" src="../images/disseny07b.png"></a></p>
+<p>També es pot donar el cas en que tinguem molts valors nuls en la clau propagada. En aquest cas, és millor crear una taula pròpia per a la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Empleat = (dni[PK], nom)
+Supervisió = ((dni_empleat[FK], dni_supervisor[FK])[PK])
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny07c.png" data-title="Pas a taules d'una relació unària 1:N amb taula pròpia" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària 1:N amb taula pròpia" src="../images/disseny07c.png"></a></p>
+<h4 id="333-relacio-unaria-11">3.3.3. Relació unària <code>1:1</code></h4>
+<p>Es resol com una relació <code>1:1</code>, però les dues claus corresponen a la mateixa taula. Es pot propagar la clau de l'entitat cap a la mateixa taula, o bé crear una taula nova per a la relació.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny08.png" data-title="Exemple de relació unària 1:1" data-desc-position="bottom"><img alt="Exemple de relació unària 1:1" src="../images/disseny08.png"></a></p>
+<p>En aquest cas suposem que totes les persones tenen un cònjuge, i que cada persona només pot tindre un cònjuge. Per això, la clau de <code>Persona</code> es propaga cap a la mateixa taula:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, conjuge[FK], data_boda)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny08b.png" data-title="Pas a taules d'una relació unària 1:1" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària 1:1" src="../images/disseny08b.png"></a></p>
+<p>En el cas que la relació no siga obligatòria, és millor crear una taula nova per a la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom)
+Matrimoni = ((dni_conjuge1[FK], dni_conjuge2[FK])[PK], data_boda)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny08c.png" data-title="Pas a taules d'una relació unària 1:1 amb taula pròpia" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària 1:1 amb taula pròpia" src="../images/disseny08c.png"></a></p>
+<h3 id="34-relacions-ternaries">3.4. Relacions ternàries</h3>
+<p>Totes les relacions ternàries generen una taula nova per a la relació.</p>
+<p>Els atributs de la nova taula són:</p>
+<ul>
+<li>Les claus de les tres entitats participants.</li>
+<li>Els atributs propis de la relació.</li>
+</ul>
+<p>La diferència entre els diversos tipus de relació ternària depèn de la cardinalitat de les tres participacions. Com a norma general, la clau primària de la taula de la relació ternària es forma amb les claus de les entitats que tenen cardinalitat <code>N</code>.</p>
+<h4 id="341-relacio-ternaria-nmp">3.4.1. Relació ternària <code>N:M:P</code></h4>
+<p>Si les tres cardinalitats són <code>N</code>, la clau estarà formada per les tres claus alienes:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09.png" data-title="Exemple de relació ternària N:M:P" data-desc-position="bottom"><img alt="Exemple de relació ternària N:M:P" src="../images/disseny09.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09b.png" data-title="Pas a taules d'una relació ternària N:M:P" data-desc-position="bottom"><img alt="Pas a taules d'una relació ternària N:M:P" src="../images/disseny09b.png"></a></p>
+<h4 id="342-relacio-ternaria-nm1">3.4.2. Relació ternària <code>N:M:1</code></h4>
+<p>Si hi ha una connectivitat <code>1</code>, la clau estarà formada per les claus de les dues entitats situades al costat <code>N</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09c.png" data-title="Exemple de relació ternària N:M:1" data-desc-position="bottom"><img alt="Exemple de relació ternària N:M:1" src="../images/disseny09c.png"></a></p>
+<h4 id="343-relacio-ternaria-n11">3.4.3. Relació ternària <code>N:1:1</code></h4>
+<p>Amb dues connectivitats a <code>1</code>, hi haurà més d'una clau candidata possible. Una d'elles serà la clau primària i les altres seran claus alternatives.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09d.png" data-title="Exemple de relació ternària N:1:1" data-desc-position="bottom"><img alt="Exemple de relació ternària N:1:1" src="../images/disseny09d.png"></a></p>
+<h4 id="344-relacio-ternaria-111">3.4.4. Relació ternària <code>1:1:1</code></h4>
+<p>La clau primària es pot triar entre diverses combinacions de dues claus. Les altres combinacions seran claus alternatives.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09e.png" data-title="Exemple de relació ternària 1:1:1" data-desc-position="bottom"><img alt="Exemple de relació ternària 1:1:1" src="../images/disseny09e.png"></a></p>
+<h3 id="35-atributs-multivalents">3.5. Atributs multivalents</h3>
+<p>Per a transformar un atribut multivalent tenim 2 possibilitats:</p>
+<p><strong>Cas 1:</strong> Si l'atribut multivalent pot prendre pocs valors, es pot crear un camp per a cada valor possible.</p>
+<p>Per exemple, si la entitat Client pot tindre un o dos emails, sent el primer email obligatori i el segon opcional, es poden crear els camps <code>email1</code> i <code>email2</code> en la taula <code>Client</code>.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Client = (dni[PK], nom, email1(NN), email2)
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>Cas 2:</strong> Si l'atribut multivalent pot tindre molts valors, es crea una taula nova per a l'atribut multivalent. Aquesta taula tindrà una relació <code>1:N</code> amb l'entitat original. Probablement també tindrà una <strong>dependència en existència</strong> amb l'entitat original, ja que no té sentit que un valor de l'atribut multivalent existeixi sense una ocurrència de l'entitat original.</p>
+<p>La nova taula contindrà:</p>
+<ul>
+<li>La clau de l'entitat original.</li>
+<li>L'atribut multivalent.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Client = (dni[PK], nom)
+Client_Telefon = (( dni_client[FK], telefon)[PK])
+</code></pre></div></td></tr></tbody></table></div>
+<p>Si un telèfon pot pertànyer a més d'un client, hauríem de crear una relació N:M entre clients i telèfons, amb una taula nova que continguera les claus de les dues entitats.</p>
+<p>Si un telèfon només pot pertànyer a un client, la clau de <code>CLI_TEL</code> podria ser només <code>tel</code>.</p>
+<h3 id="36-atributs-compostos">3.6. Atributs compostos</h3>
+<p>Un atribut compost es descompon en els seus components simples. Els components es converteixen en camps de la taula corresponent.</p>
+<p>Per exemple, si l'atribut compost <code>adreça</code> es descompon en <code>carrer</code>, <code>número</code> i <code>població</code>, la taula resultant seria:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er08.png" data-title="Exemple d'atribut compost" data-desc-position="bottom"><img alt="Exemple d'atribut compost" src="../images/er08.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Client = (dni[PK], carrer, número, població)
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="37-entitats-debils">3.7. Entitats dèbils</h3>
+<p>Per a transformar una entitat dèbil en taula, cal crear una taula nova amb els atributs de l'entitat dèbil i la clau de l'entitat forta. La clau de la taula serà la combinació de la clau de l'entitat forta i l'identificador parcial de l'entitat dèbil.</p>
+<p>Aquestes entitats tindran una relació 1:N amb l'entitat forta, i la clau de l'entitat forta es propagarà a la taula de l'entitat dèbil com a clau aliena.</p>
+<p>Per exemple, per a les entitats FACTURA i LINIA_FACTURA, la taula resultant seria:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/er25.png" data-title="Exemple d'entitat dèbil" data-desc-position="bottom"><img alt="Exemple d'entitat dèbil" src="../images/er25.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Factura = (num_factura[PK], data, codi_client[FK])
+LiniaFactura = ((num_factura[FK], num_linia)[PK], codi_producte[FK], quantitat, preu)
+</code></pre></div></td></tr></tbody></table></div>
+<p>A més, si existeix una <strong>dependència en existència</strong>, caldrà afegir una restricció d'integritat que indique que no pot existir cap línia de factura sense una factura corresponent. Això ho expressarem amb una restricció d'integritat del tipus:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>NOT NULL (num_factura)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+</code></pre></div></td></tr></tbody></table></div>
+<p>que veurem en un tema posterior.</p>
+<h3 id="38-especialitzacions-i-generalitzacions">3.8. Especialitzacions i generalitzacions</h3>
+<p>Les jerarquies d'entitats es poden transformar en taules de diverses maneres, depenent de la semàntica de l'especialització i de la generalització.</p>
+<h4 id="381-cas-1-eliminacio-de-subclasses">3.8.1. Cas 1. Eliminació de subclasses</h4>
+<p>Aquest cas implica una eliminació de les subclasses i la creació d'una taula per a la superclasse amb tots els atributs de les subclasses. Aquesta solució és vàlida quan no hi ha molts atributs en les subclasses i quan no hi ha moltes subclasses.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny10.png" data-title="Exemple d'especialització amb eliminació de subclasses" data-desc-position="bottom"><img alt="Exemple d'especialització amb eliminació de subclasses" src="../images/disseny10.png"></a></p>
+<p>En aquest cas podem veure que la superclasse Persona té la majoria d'atributs, i que les subclasses només tenen un atribut propi. Per això, és millor eliminar les subclasses i crear una taula amb tots els atributs.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, adreça, data_naixement, nia, especialitat, torn)
+</code></pre></div></td></tr></tbody></table></div>
+<p>Els atributs nia, especialitat i torn poden tindre valors nuls en els casos en què la persona no siga un alumne, un netejador o un professor, respectivament.</p>
+<p>Si alguna de les subclasses tinguera alguna relació amb una altra taula, aquesta passaria a la taula de la superclasse, i els atributs propis de la relació serien nuls en els casos en què la persona no pertanyera a la subclasse corresponent.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny10b.png" data-title="Pas a taules d'una especialització amb eliminació de subclasses" data-desc-position="bottom"><img alt="Pas a taules d'una especialització amb eliminació de subclasses" src="../images/disseny10b.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny10c.png" data-title="Exemple d'especialització amb eliminació de subclasses i relació amb una altra taula" data-desc-position="bottom"><img alt="Exemple d'especialització amb eliminació de subclasses i relació amb una altra taula" src="../images/disseny10c.png"></a></p>
+<h4 id="382-cas-2-taula-per-a-la-superclasse-i-taules-per-a-les-subclasses">3.8.2. Cas 2. Taula per a la superclasse i taules per a les subclasses</h4>
+<p>Aquesta transformació és vàlida quan hi ha moltes diferències entre les subclasses, quan hi ha moltes subclasses o quan les subclasses tenen moltes relacions amb altres entitats. És la tranformació que manté més fidelment la semàntica de l'especialització o generalització. Per contra, és la que genera més taules i, per tant, més complexitat en les consultes.</p>
+<p>Al nostre exemple anterior, si les subclasses tingueren molts atributs propis, seria millor crear una taula per a la superclasse i una taula per a cada subclasse.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Persona = (dni[PK], nom, adreça, data_naixement)
+Alumne = (dni[FK][PK], nia)
+Professor = (dni[FK][PK], especialitat)
+Netejador = (dni[FK][PK], torn, cif_empresa[FK])
+Empresa = (cif[PK], nom)
+</code></pre></div></td></tr></tbody></table></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny11.png" data-title="Pas a taules d'una especialització amb taula per a la superclasse i taules per a les subclasses" data-desc-position="bottom"><img alt="Pas a taules d'una especialització amb taula per a la superclasse i taules per a les subclasses" src="../images/disseny11.png"></a></p>
+<p>En aquest cas podem veure com les subclasses no tenen claus pròpies, sinó que utilitzen la clau de la superclasse com a clau primària.</p>
+<h4 id="383-cas-3-eliminacio-de-la-superclasse-i-taules-per-a-les-subclasses">3.8.3. Cas 3. Eliminació de la superclasse i taules per a les subclasses</h4>
+<p>En aquest cas, la superclasse desapareix i es creen taules per a les subclasses amb tots els atributs de la superclasse i de la subclasse. Aquesta solució és vàlida quan:</p>
+<ul>
+<li>No hi ha molts atributs en la superclasse</li>
+<li>Hi ha moltes diferències entre les subclasses, tant en atributs com en relacions amb altres entitats.</li>
+<li>La majoria de les consultes es fan sobre les subclasses i no sobre la superclasse.</li>
+</ul>
+<p>No és adequada quan tenim jerarquies solapades, ja que hi ha atributs comuns a diverses subclasses i s'ha de controlar la inconsistència que això pot provocar.</p>
+<p>No es pot dur a terme en jerarquies parcials, ja que hi ha entitats de la superclasse que no pertanyen a cap subclasse i, per tant, no tindrien cap registre en les taules de les subclasses.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Alumne = (dni[PK], nom, adreça, data_naixement, nia)
+Professor = (dni[PK], nom, adreça, data_naixement, especialitat)
+Netejador = (dni[PK], nom, adreça, data_naixement, torn)
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="39-agregacions">3.9. Agregacions</h3>
+<p>Per a transformar una agregació en taules cal seguir dos passos:</p>
+<ol>
+<li>Resoldre la relació que forma l'agregació sense tindre en compte la resta de l'esquema E-R. Sempre es crearà una taula nova per a aquesta relació, encara que siga <code>1:1</code> o <code>1:N</code>.</li>
+<li>Continuar el disseny de la resta de l'esquema considerant que l'agregació és la taula creada en el pas anterior.</li>
+</ol>
+<p>Això també s'aplica quan la relació de l'agregació és unària o ternària.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer05c.png" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer05c.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Empleado = (id[PK], nombre)
+Proyecto = (numero[PK])
+Trabajo = ((id_empleado[FK], numero_proyecto[FK])[PK], horas)
+Maquinaria = (id[PK])
+Requiere = ((id_maquinaria[FK], id_empleado[FK], numero_proyecto[FK])[PK])
+</code></pre></div></td></tr></tbody></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

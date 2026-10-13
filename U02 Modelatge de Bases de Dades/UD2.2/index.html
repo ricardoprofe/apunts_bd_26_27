@@ -11,6 +11,8 @@
         <link rel="prev" href="../UD2.1/">
       
       
+        <link rel="next" href="../UD2.3/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
@@ -556,6 +558,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -838,8 +860,8 @@
 <p>Les restriccions d'integritat són limitacions que han de complir les dades.</p>
 <p><strong>Restriccions en un atribut:</strong></p>
 <ul>
-<li><strong>Unicitat</strong>: Si <code>DNI</code> és la clau de <code>PERSONES</code>, dos persones no poden tindre el mateix DNI.</li>
-<li><strong>Valor no nuls</strong>: Si <code>nom</code> és un atribut obligatori de <code>PERSONES</code>, no pot haver-hi cap persona sense nom.</li>
+<li><strong>Unicitat</strong> (UNIQUE): Si <code>DNI</code> és la clau de <code>PERSONES</code>, dos persones no poden tindre el mateix DNI.</li>
+<li><strong>Valors no nuls</strong> (NOT NULL): Si <code>nom</code> és un atribut obligatori de <code>PERSONES</code>, no pot haver-hi cap persona sense nom.</li>
 <li><strong>Dominis</strong>: Si <code>estat_civil</code> té el domini <code>{solter, casat, divorciat, vidu}</code>, no pot prendre altres valors.<br>
 Un altre exemple seria un atribut <em>edat</em>, l'edat d'una persona no pot ser negativa.</li>
 <li><strong>Restriccions de integritat referencial</strong>: Asseguren que les relacions entre entitats siguin consistents. Per exemple, si una entitat <code>ORDINADOR</code> té un atribut <code>codi_aula</code> que fa referència a l'entitat <code>AULA</code>, no pot haver-hi cap ordinador amb un codi d'aula que no existeix.<br>
@@ -890,12 +912,12 @@ Un altre exemple seria un atribut <em>edat</em>, l'edat d'una persona no pot ser
 <h4 id="311-total-o-parcial">3.1.1. Total o parcial</h4>
 <ul>
 <li><strong>Total</strong>: totes les ocurrències de l'entitat mare pertanyen a alguna entitat filla. En l'exemple, totes les persones són home o dona.</li>
-<li><strong>Parcial</strong>: només algunes ocurrències de l'entitat mare pertanyen a les entitats filles. En l'exemple, podem tenir altres vehicles que no siguen cotxes ni motos.</li>
+<li><strong>Parcial</strong>: només algunes ocurrències de l'entitat mare pertanyen a les entitats filles. En l'exemple, podem tenir altres vehicles que no siguen cotxes ni camions.</li>
 </ul>
 <p>Una especialització total es pot representar amb un cercle entre l'entitat mare i les entitats filles.</p>
 <h4 id="312-disjunta-o-superposada">3.1.2 Disjunta o superposada</h4>
 <ul>
-<li><strong>Disjunta o exclusiva</strong>: una ocurrència d'una entitat filla no pot pertànyer a cap altra entitat filla del mateix grup. En l'exemple, una infecció no pot ser vírica ni bacteriana al mateix temps.</li>
+<li><strong>Disjunta o exclusiva</strong>: una ocurrència d'una entitat filla no pot pertànyer a cap altra entitat filla del mateix grup. En l'exemple, una persona no pots ser home i dona al mateix temps.</li>
 <li><strong>Superposada o solapada</strong>: una ocurrència pot pertànyer a més d'una entitat filla. En l'exemple, un participant pot ser parat i afiliat a la vegada.</li>
 </ul>
 <p>Una especialització disjunta es sol representar amb una línia curvada entre l'especialització i les entitats filles.</p>
@@ -928,12 +950,14 @@ Un altre exemple seria un atribut <em>edat</em>, l'edat d'una persona no pot ser
 </div>
 <h3 id="32-agregacions">3.2. Agregacions</h3>
 <p>Una <strong>agregació</strong> permet considerar una relació entre entitats com una entitat més complexa, amb la finalitat de relacionar-la amb una altra entitat. La necessitat d'una agregació apareix quan volem relacionar 2 o més relacions entre sí.</p>
-<p>Per exemple, en el següent esqiema tenim molts empleats treballant en diferents projectes, però depenent del treball que realitza cada empleat en cada projecte, pot usar diferents màquines.</p>
+<p>Per exemple, en el següent esquema tenim molts empleats treballant en diferents projectes, però depenent del treball que realitza cada empleat en cada projecte, pot usar diferents màquines.</p>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer04.gif" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer04.gif"></a></p>
 <p>Per tant, la relació <code>TREBALLA</code> entre <code>EMPLEATS</code> i <code>PROJECTES</code> depén de la relació <code>USA</code> entre <code>EMPLEATS</code> i <code>MÀQUINES</code>. En aquest cas, caldrà crear una agregació de les dues relacions per a poder relacionar-les amb l'entitat <code>MÀQUINES</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer05.gif" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer05.gif"></a></p>
+<p>Com noes poden relacionar 2 relacions directament, cal representar l'aqgregació com a una entitat (que enrealitat està composada per les dues entitats relacionades) i relacionar-la amb l'entitat que ens interessa. Resultaria el diagrama següent:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer05c.png" data-title="Exemple d'agregació" data-desc-position="bottom"><img alt="Exemple d'agregació" src="../images/eer05c.png"></a></p>
 <p><strong>Quan utilitzar una agregació?</strong></p>
-<p>Normalment es crea quan necessitem una relació entre una entitat i una altra relació.</p>
+<p>Normalment es crea quan necessitem una relació entre dues relacions.</p>
 <p><strong>Diferència entre generalització i agregació</strong></p>
 <ul>
 <li>La <strong>generalització</strong> és una relació jeràrquica del tipus "B és A". Per exemple: "un solter és una persona".</li>
