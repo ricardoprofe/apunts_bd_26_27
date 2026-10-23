@@ -1230,6 +1230,13 @@ Module = (codi[PK], nom, hores)
 Imparteix = ((dni_professor[FK], codi_module[FK], curs_escolar)[PK])
 </code></pre></div></td></tr></tbody></table></div>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny01b.png" data-title="Pas a taules d'una relació binària N:M" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària N:M" src="../images/disseny01b.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<ol>
+<li>Transformar a taules la següent relació binària N:M:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny12.png" data-title="Exercici 1" data-desc-position="bottom"><img alt="Exercici 1" src="../images/disseny12.png"></a></li>
+</ol>
+</div>
 <h4 id="322-relacio-binaria-1n">3.2.2. Relació binària <code>1:N</code></h4>
 <h5 id="cas-general">Cas general</h5>
 <p>En una relació <code>1:N</code>, la clau de l'entitat que està al costat <code>1</code> s'incorpora com a clau aliena en la taula de l'entitat que està al costat <code>N</code>. Aquesta tècnica s'anomena <strong>propagació de claus</strong>.</p>
@@ -1319,6 +1326,13 @@ Tutoria = ((nia_alumne[FK], dni_tutor[FK][NN])PK, informe)
 </code></pre></div></td></tr></tbody></table></div>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny02c.png" data-title="Pas a taules d'una relació binària 1:N amb taula pròpia" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:N amb taula pròpia" src="../images/disseny02c.png"></a></p>
 <p>En <code>Alumne</code> apareixeran tots els alumnes, mentre que en <code>Tutoria</code> només apareixeran els alumnes que tenen tutor. La restricció <code>NN: dni_tutor</code> evita que hi haja una tutoria sense professor.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>2:</strong> Transformar a taules la següent relació binària 1:N:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny13.png" data-title="Exercici 2" data-desc-position="bottom"><img alt="Exercici 2" src="../images/disseny13.png"></a>
+<strong>3:</strong> Transformar a taules la següent relació binària 1:N, tenint en compte que un empleat pot no tindre assignada cap zona i que el nombre de empleats sense zona pot ser molt gran:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny14.png" data-title="Exercici 3" data-desc-position="bottom"><img alt="Exercici 3" src="../images/disseny14.png"></a></p>
+</div>
 <h4 id="323-relacio-binaria-11">3.2.3. Relació binària <code>1:1</code></h4>
 <p>Quan tenim 2 entitats amb una relació 1:1 la solució dependrà de la multiplicitat de les 2 entitats i de la obligatorietat de la relació.</p>
 <h5 id="cas-1-e111-e211">Cas 1 E1(1:1) E2(1:1)</h5>
@@ -1354,6 +1368,16 @@ Casa = (num_registre[PK], adreça, codi_postal)
 Propietat = (dni[FK], num_registre[FK], data_inici)
 </code></pre></div></td></tr></tbody></table></div>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny05b.png" data-title="Pas a taules d'una relació binària 1:1 amb ambdues entitats opcionals" data-desc-position="bottom"><img alt="Pas a taules d'una relació binària 1:1 amb ambdues entitats opcionals" src="../images/disseny05b.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>4:</strong> Transformar a taules la següent relació binària 1:1:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny15.png" data-title="Exercici 5" data-desc-position="bottom"><img alt="Exercici 5" src="../images/disseny15.png"></a>
+Considerar els següents casos:
+      - Cada advocat té assignat un client i cada client té assignat un advocat.
+      - Cada advocat té assignat un client, però un client pot no tindre advocat.
+      - Un advocat pot no tindre cap client, i un client pot no tindre advocat.</p>
+<p><strong>5:</strong> Repetir l'exercici anterior, però considerant que la relació té un atribut propi: <code>data_assignació</code>.</p>
+</div>
 <h3 id="33-relacions-unaries">3.3. Relacions unàries</h3>
 <p>Una relació unària o reflexiva és una relació en què les dues participacions corresponen a la mateixa entitat.</p>
 <p>Cal imaginar-la com una relació binària en què les dues entitats són realment la mateixa taula. Per això, la clau de l'entitat apareixerà dues vegades i caldrà utilitzar noms diferents per als dos papers.</p>
@@ -1392,6 +1416,17 @@ Supervisió = ((dni_empleat[FK], dni_supervisor[FK])[PK])
 Matrimoni = ((dni_conjuge1[FK], dni_conjuge2[FK])[PK], data_boda)
 </code></pre></div></td></tr></tbody></table></div>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny08c.png" data-title="Pas a taules d'una relació unària 1:1 amb taula pròpia" data-desc-position="bottom"><img alt="Pas a taules d'una relació unària 1:1 amb taula pròpia" src="../images/disseny08c.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>6:</strong> Transformar a taules la següent relació unària:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny16.png" data-title="Exercici 6" data-desc-position="bottom"><img alt="Exercici 6" src="../images/disseny16.png"></a>
+Considerar els següents casos:
+      - Cada peça té sempre associada una peça compatible.
+      - Cada peça té associades diverses peces compatibles.
+      - Cada peça té associades diverses peces compatibles però aquesta relació no és freqüent.</p>
+<p><strong>7:</strong> Transformar a taules la següent relació unària:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny17.png" data-title="Exercici 7" data-desc-position="bottom"><img alt="Exercici 7" src="../images/disseny17.png"></a></p>
+</div>
 <h3 id="34-relacions-ternaries">3.4. Relacions ternàries</h3>
 <p>Totes les relacions ternàries generen una taula nova per a la relació.</p>
 <p>Els atributs de la nova taula són:</p>
@@ -1413,6 +1448,18 @@ Matrimoni = ((dni_conjuge1[FK], dni_conjuge2[FK])[PK], data_boda)
 <h4 id="344-relacio-ternaria-111">3.4.4. Relació ternària <code>1:1:1</code></h4>
 <p>La clau primària es pot triar entre diverses combinacions de dues claus. Les altres combinacions seran claus alternatives.</p>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny09e.png" data-title="Exemple de relació ternària 1:1:1" data-desc-position="bottom"><img alt="Exemple de relació ternària 1:1:1" src="../images/disseny09e.png"></a></p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>8:</strong> Transformar a taules la següent relació ternària:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny18.png" data-title="Exercici 8" data-desc-position="bottom"><img alt="Exercici 8" src="../images/disseny18.png"></a>
+Considerar els següents casos:</p>
+<ul>
+<li>Cada professor pot impartir diferents assignatures a diferents grups.</li>
+<li>Cada professor pot donar classe adiferents grups, però sempre la mateixa assignatura.</li>
+<li>Cada professor imparteix sempre la mateixa assignatura, que només pot ser impartida per un professor, però pot donar classe a diferents grups.</li>
+<li>Cada professor imparteix sempre la mateixa assignatura, que només pot ser impartida per un professor, sempre al mateix grup.</li>
+</ul>
+</div>
 <h3 id="35-atributs-multivalents">3.5. Atributs multivalents</h3>
 <p>Per a transformar un atribut multivalent tenim 2 possibilitats:</p>
 <p><strong>Cas 1:</strong> Si l'atribut multivalent pot prendre pocs valors, es pot crear un camp per a cada valor possible.</p>
@@ -1431,6 +1478,16 @@ Client_Telefon = (( dni_client[FK], telefon)[PK])
 </code></pre></div></td></tr></tbody></table></div>
 <p>Si un telèfon pot pertànyer a més d'un client, hauríem de crear una relació N:M entre clients i telèfons, amb una taula nova que continguera les claus de les dues entitats.</p>
 <p>Si un telèfon només pot pertànyer a un client, la clau de <code>CLI_TEL</code> podria ser només <code>tel</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>9:</strong> Transformar a taules el següent diagrama:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny19.png" data-title="Exercici 9" data-desc-position="bottom"><img alt="Exercici 9" src="../images/disseny19.png"></a>
+Considerar els següents casos:</p>
+<ul>
+<li>Cada client pot tindre com a màxim 3 adreces, sent la primera obligatòria i les altres opcionals.</li>
+<li>Cada client pot tindre moltes adreces, sent la primera obligatòria i les altres opcionals.</li>
+</ul>
+</div>
 <h3 id="36-atributs-compostos">3.6. Atributs compostos</h3>
 <p>Un atribut compost es descompon en els seus components simples. Els components es converteixen en camps de la taula corresponent.</p>
 <p>Per exemple, si l'atribut compost <code>adreça</code> es descompon en <code>carrer</code>, <code>número</code> i <code>població</code>, la taula resultant seria:</p>
@@ -1454,6 +1511,16 @@ ON DELETE CASCADE
 ON UPDATE CASCADE
 </code></pre></div></td></tr></tbody></table></div>
 <p>que veurem en un tema posterior.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>10:</strong> Transformar a taules el següent diagrama:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny20.png" data-title="Exercici 10" data-desc-position="bottom"><img alt="Exercici 10" src="../images/disseny20.png"></a> )
+Considerar els següents casos:</p>
+<ul>
+<li>Cada client pot tindre com a màxim 3 adreces, sent la primera obligatòria i les altres opcionals.</li>
+<li>Cada client pot tindre moltes adreces, sent la primera obligatòria i les altres opcionals.</li>
+</ul>
+</div>
 <h3 id="38-especialitzacions-i-generalitzacions">3.8. Especialitzacions i generalitzacions</h3>
 <p>Les jerarquies d'entitats es poden transformar en taules de diverses maneres, depenent de la semàntica de l'especialització i de la generalització.</p>
 <h4 id="381-cas-1-eliminacio-de-subclasses">3.8.1. Cas 1. Eliminació de subclasses</h4>
@@ -1496,6 +1563,29 @@ Empresa = (cif[PK], nom)
 Professor = (dni[PK], nom, adreça, data_naixement, especialitat)
 Netejador = (dni[PK], nom, adreça, data_naixement, torn)
 </code></pre></div></td></tr></tbody></table></div>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>11:</strong> Transformar a taules els següents diagrames:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/eer02.png" data-title="Exercici 11" data-desc-position="bottom"><img alt="Exercici 11" src="../images/eer02.png"></a>
+Considerar els següents atributs per a les entitats:</p>
+<ul>
+<li>Vehículo: matrícula, marca, model, color.<ul>
+<li>Coche: num_plazas, num_puertas.</li>
+<li>Camión: carga_maxima, num_ejes.</li>
+</ul>
+</li>
+<li>Infección: nombre, fecha_diagnóstico.<ul>
+<li>Bacteria: resistencia_antibióticos, frecuencia_infección, facilidad_transmisión.</li>
+<li>Virus: periodo_incubación, arn_o_adn.</li>
+</ul>
+</li>
+<li>Participante: dni, nom, adreça, data_naixement.<ul>
+<li>Parado: fecha_inscripción, fecha_baja.</li>
+<li>Afiliado: fecha_afiliación, cuota.</li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="39-agregacions">3.9. Agregacions</h3>
 <p>Per a transformar una agregació en taules cal seguir dos passos:</p>
 <ol>
@@ -1514,6 +1604,11 @@ Trabajo = ((id_empleado[FK], numero_proyecto[FK])[PK], horas)
 Maquinaria = (id[PK])
 Requiere = ((id_maquinaria[FK], id_empleado[FK], numero_proyecto[FK])[PK])
 </code></pre></div></td></tr></tbody></table></div>
+<div class="admonition question">
+<p class="admonition-title">Exercicis</p>
+<p><strong>12:</strong> Transformar a taules el següent diagrama:
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/disseny_agr.webp" data-title="Exercici 12" data-desc-position="bottom"><img alt="Exercici 12" src="../images/disseny_agr.webp"></a></p>
+</div>
 
 
 
