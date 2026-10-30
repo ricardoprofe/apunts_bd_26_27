@@ -1,0 +1,1930 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../UD2.4/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 2.5. Normalització de bases de dades - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-25-normalitzacio-de-bases-de-dades" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 2.5. Normalització de bases de dades
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD2.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.4. Diagrama de Martin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 2.5. Normalització de bases de dades
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.5. Normalització de bases de dades
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-dependencies-funcionals" class="md-nav__link">
+    1. Dependències funcionals
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Dependències funcionals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-definicio-de-dependencia-funcional" class="md-nav__link">
+    1.2. Definició de dependència funcional
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-formes-normals" class="md-nav__link">
+    2. Formes normals
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Formes normals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-primera-forma-normal-1fn" class="md-nav__link">
+    2.1. primera forma normal (1FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. primera forma normal (1FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-11-eliminar-atributs-multivalents" class="md-nav__link">
+    Fase 1.1: eliminar atributs multivalents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-12-optimitzar-claus" class="md-nav__link">
+    Fase 1.2: optimitzar claus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-segona-forma-normal-2fn" class="md-nav__link">
+    2.2 segona forma normal (2FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 segona forma normal (2FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicio" class="md-nav__link">
+    Definició
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-passar-a-2fn" class="md-nav__link">
+    Com passar a 2FN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-notes-dalumnes" class="md-nav__link">
+    Exemple: notes d'alumnes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-tercera-forma-normal-3fn" class="md-nav__link">
+    2.3 tercera forma normal (3FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 tercera forma normal (3FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicio_1" class="md-nav__link">
+    Definició
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-passar-a-3fn" class="md-nav__link">
+    Com passar a 3FN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-poblacions-i-codis-postals" class="md-nav__link">
+    Exemple: poblacions i codis postals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-eliminar-altres-redundancies" class="md-nav__link">
+    3. Eliminar altres redundàncies
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Eliminar altres redundàncies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-eliminar-redundancies-intrataula" class="md-nav__link">
+    3.1. Eliminar redundàncies intrataula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-eliminar-redundancies-intertaula" class="md-nav__link">
+    3.2. Eliminar redundàncies intertaula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-fusionar-taules-amb-la-mateixa-clau" class="md-nav__link">
+    3.3. Fusionar taules amb la mateixa clau
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-esquema-resum-de-com-normalitzar" class="md-nav__link">
+    4. Esquema resum de com normalitzar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-desnormalitzacio" class="md-nav__link">
+    5. Desnormalització
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemple-de-normalitzacio" class="md-nav__link">
+    6. Exemple de normalització
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemple de normalització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-factures-i-articles" class="md-nav__link">
+    Exemple: factures i articles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-1-establir-suposicions" class="md-nav__link">
+    Pas 1: establir suposicions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-2-detectar-dependencies-funcionals" class="md-nav__link">
+    Pas 2: detectar dependències funcionals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-3-normalitzar-cada-taula" class="md-nav__link">
+    Pas 3: normalitzar cada taula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-4-obtindre-lesquema-integrat-final" class="md-nav__link">
+    Pas 4: obtindre l'esquema integrat final
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-5-dibuixar-el-graf-de-dependencies-entre-taules" class="md-nav__link">
+    Pas 5: dibuixar el graf de dependències entre taules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-dependencies-funcionals" class="md-nav__link">
+    1. Dependències funcionals
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Dependències funcionals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-definicio-de-dependencia-funcional" class="md-nav__link">
+    1.2. Definició de dependència funcional
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-formes-normals" class="md-nav__link">
+    2. Formes normals
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Formes normals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-primera-forma-normal-1fn" class="md-nav__link">
+    2.1. primera forma normal (1FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. primera forma normal (1FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-11-eliminar-atributs-multivalents" class="md-nav__link">
+    Fase 1.1: eliminar atributs multivalents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-12-optimitzar-claus" class="md-nav__link">
+    Fase 1.2: optimitzar claus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-segona-forma-normal-2fn" class="md-nav__link">
+    2.2 segona forma normal (2FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 segona forma normal (2FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicio" class="md-nav__link">
+    Definició
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-passar-a-2fn" class="md-nav__link">
+    Com passar a 2FN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-notes-dalumnes" class="md-nav__link">
+    Exemple: notes d'alumnes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-tercera-forma-normal-3fn" class="md-nav__link">
+    2.3 tercera forma normal (3FN)
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 tercera forma normal (3FN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicio_1" class="md-nav__link">
+    Definició
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-passar-a-3fn" class="md-nav__link">
+    Com passar a 3FN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-poblacions-i-codis-postals" class="md-nav__link">
+    Exemple: poblacions i codis postals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-eliminar-altres-redundancies" class="md-nav__link">
+    3. Eliminar altres redundàncies
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Eliminar altres redundàncies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-eliminar-redundancies-intrataula" class="md-nav__link">
+    3.1. Eliminar redundàncies intrataula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-eliminar-redundancies-intertaula" class="md-nav__link">
+    3.2. Eliminar redundàncies intertaula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-fusionar-taules-amb-la-mateixa-clau" class="md-nav__link">
+    3.3. Fusionar taules amb la mateixa clau
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-esquema-resum-de-com-normalitzar" class="md-nav__link">
+    4. Esquema resum de com normalitzar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-desnormalitzacio" class="md-nav__link">
+    5. Desnormalització
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exemple-de-normalitzacio" class="md-nav__link">
+    6. Exemple de normalització
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Exemple de normalització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-factures-i-articles" class="md-nav__link">
+    Exemple: factures i articles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-1-establir-suposicions" class="md-nav__link">
+    Pas 1: establir suposicions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-2-detectar-dependencies-funcionals" class="md-nav__link">
+    Pas 2: detectar dependències funcionals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-3-normalitzar-cada-taula" class="md-nav__link">
+    Pas 3: normalitzar cada taula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-4-obtindre-lesquema-integrat-final" class="md-nav__link">
+    Pas 4: obtindre l'esquema integrat final
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-5-dibuixar-el-graf-de-dependencies-entre-taules" class="md-nav__link">
+    Pas 5: dibuixar el graf de dependències entre taules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-25-normalitzacio-de-bases-de-dades">Unitat 2.5. Normalització de bases de dades</h1>
+<p>El model relacional consisteix a disposar d'un conjunt de taules de qualitat: han de respectar els requeriments inicials i evitar redundàncies innecessàries. La manera ideal d'aconseguir-ho és partir d'un esquema Entitat-Relació (E-R) correcte.</p>
+<p>Tanmateix, de vegades l'analista no elabora un diagrama E-R, sinó que crea directament uns primers esbossos de les taules. Aquestes taules poden contindre redundàncies i altres problemes de disseny. En aquest cas, cal aplicar la <strong>normalització</strong>: un conjunt de tècniques per a transformar taules mal dissenyades en taules de qualitat.</p>
+<p>Aquest problema també es dona quan es parteix d'una importació de dades d'una altra aplicació, que no ha estat dissenyada amb el model relacional, com per exemple fulls de càlcul, fitxers de text, etc.</p>
+<p>La normalització és la tècnica del model relacional que augmenta gradualment la qualitat de les taules.</p>
+<p>La normalització permet determinar:</p>
+<ul>
+<li>Quines taules falten o sobren.</li>
+<li>Quines claus i atributs ha de tindre cada taula.</li>
+<li>Quines relacions hi ha entre les taules, representades mitjançant claus alienes.</li>
+</ul>
+<h2 id="1-dependencies-funcionals">1. Dependències funcionals</h2>
+<p>Suposem que un analista ha de dissenyar una base de dades per a una biblioteca. Entre els requeriments s'indica el següent:</p>
+<blockquote>
+<p>«Necessitem un llistat de llibres on aparega el codi del llibre, el títol, el nombre de pàgines, el codi de l'autor, el nom de l'autor i la seua data de naixement.»</p>
+</blockquote>
+<p>L'analista no ha elaborat l'esquema E-R i ha creat directament la taula següent:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>LLIBRES = codi + títol + num_pàgines + codi_autor + nom_autor + data_naix_autor
+</code></pre></div></td></tr></tbody></table></div>
+<p>Aquest disseny presenta un problema: totes les ocurrències de <code>LLIBRES</code> que tinguen el mateix <code>codi_autor</code> també tindran el mateix <code>nom_autor</code> i la mateixa <code>data_naix_autor</code>. Per tant, aquestes dades es repetiran en molts registres.</p>
+<p>Això ocorre perquè, donat un <code>codi_autor</code>, només hi ha un <code>nom_autor</code> i una <code>data_naix_autor</code>. En altres paraules:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>codi_autor -&gt; nom_autor, data_naix_autor
+</code></pre></div></td></tr></tbody></table></div>
+<p>Es diu que <code>codi_autor</code> <strong>determina</strong> <code>nom_autor</code> i <code>data_naix_autor</code>, o que aquests dos atributs <strong>depenen funcionalment</strong> de <code>codi_autor</code>.</p>
+<p>Per a evitar la redundància, podem separar les dades dels autors en una altra taula:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>LLIBRES = codi[PK] + títol + num_pàgines + codi_autor[FK]
+C. Ali: codi_autor -&gt; AUTORS(codi)
+
+AUTORS = codi[PK] + nom + data_naix
+</code></pre></div></td></tr></tbody></table></div>
+<p>Sense haver desenvolupat encara tota la teoria, en aquest exemple ja s'ha aplicat un pas de normalització.</p>
+<h3 id="12-definicio-de-dependencia-funcional">1.2. Definició de dependència funcional</h3>
+<p>Siga la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>T = A[PK] + B + C + ...
+</code></pre></div></td></tr></tbody></table></div>
+<p>Es diu que un atribut <code>X</code> depén funcionalment d'un altre <code>A</code>, quan cada valor de <code>A</code> té associat un únic valor de <code>X</code> en la taula <code>T</code>.</p>
+<p>Es representa així:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>A -&gt; X
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>Exemple: préstecs de biblioteca</strong></p>
+<p>Suposem que es vol guardar informació sobre préstecs de biblioteca amb aquesta taula:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>PRÉSTECS = (codi_llibre + num_soci)[PK] + data + títol + nom_soci
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>Codi de llibre</th>
+<th style="text-align: right;">Núm. de soci</th>
+<th>Data</th>
+<th>Títol</th>
+<th>Nom del soci</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOMMAN</td>
+<td style="text-align: right;">111</td>
+<td>11-03-2017</td>
+<td>L'home manuscrit</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>DONQUI</td>
+<td style="text-align: right;">111</td>
+<td>11-03-2017</td>
+<td>Don Quijote de la Mancha</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>HOMMAN</td>
+<td style="text-align: right;">222</td>
+<td>09-04-2017</td>
+<td>L'home manuscrit</td>
+<td>Maria Burguera</td>
+</tr>
+<tr>
+<td>DONQUI</td>
+<td style="text-align: right;">111</td>
+<td>07-04-2017</td>
+<td>Don Quijote de la Mancha</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>DONQUI</td>
+<td style="text-align: right;">222</td>
+<td>08-04-2017</td>
+<td>Don Quijote de la Mancha</td>
+<td>Maria Burguera</td>
+</tr>
+</tbody>
+</table>
+<p>Si s'introdueixen dades amb aquest disseny, el títol es repetirà sempre que aparega un mateix codi de llibre, i el nom del soci es repetirà sempre que aparega un mateix número de soci.</p>
+<p>Les dependències funcionals serien:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>codi_llibre -&gt; títol
+num_soci -&gt; nom_soci
+(codi_llibre + num_soci) -&gt; data
+</code></pre></div></td></tr></tbody></table></div>
+<p>Després de normalitzar, podem obtindre les taules següents:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>PRÉSTECS = (codi_llibre + num_soci)[PK] + data
+FKs:
+- codi_llibre -&gt; LLIBRES(codi)
+- num_soci -&gt; SOCIS(codi)
+
+LLIBRES = codi[PK] + títol
+SOCIS = codi[PK] + nom
+</code></pre></div></td></tr></tbody></table></div>
+<p>Dades després de normalitzar:</p>
+<table>
+<thead>
+<tr>
+<th>Codi</th>
+<th>Títol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOMMAN</td>
+<td>L'home manuscrit</td>
+</tr>
+<tr>
+<td>NOSVAL</td>
+<td>Nosaltres els valencians</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Codi</th>
+<th>Nom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">111</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>Maria Burguera</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Codi de llibre</th>
+<th style="text-align: right;">Núm. de soci</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOMMAN</td>
+<td style="text-align: right;">111</td>
+<td>11-03-2017</td>
+</tr>
+<tr>
+<td>NOSVAL</td>
+<td style="text-align: right;">111</td>
+<td>11-03-2017</td>
+</tr>
+<tr>
+<td>HOMMAN</td>
+<td style="text-align: right;">222</td>
+<td>09-04-2017</td>
+</tr>
+<tr>
+<td>NOSVAL</td>
+<td style="text-align: right;">111</td>
+<td>07-04-2017</td>
+</tr>
+<tr>
+<td>NOSVAL</td>
+<td style="text-align: right;">222</td>
+<td>08-04-2017</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-formes-normals">2. Formes normals</h2>
+<p>Les <strong>formes normals</strong> són les propietats que han de complir les relacions o taules. El procés de normalitzar una relació consta de les fases següents, en aquest ordre:</p>
+<ol>
+<li>Passar la relació a <strong>primera forma normal (1FN)</strong> i, si cal, optimitzar les claus.</li>
+<li>Passar la relació a <strong>segona forma normal (2FN)</strong>.</li>
+<li>Passar la relació a <strong>tercera forma normal (3FN)</strong>.</li>
+<li>Passar la relació a <strong>forma normal de Boyce-Codd (FNBC)</strong>.</li>
+<li>Passar la relació a <strong>quarta forma normal (4FN)</strong>.</li>
+<li>Passar la relació a <strong>cinquena forma normal (5FN)</strong>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/normal_forms.jpg" data-title="Formes normals" data-desc-position="bottom"><img alt="Formes normals" src="../images/normal_forms.jpg"></a></p>
+<p>Si una relació està en 3FN, també compleix 1FN i 2FN. En aquest tema es treballarà principalment fins a la 3FN. La resta són menys freqüents.</p>
+<h3 id="21-primera-forma-normal-1fn">2.1. primera forma normal (1FN)</h3>
+<p>Una taula està en <strong>1FN</strong> si no té atributs multivalents ni dependències funcionals entre els components de la clau.</p>
+<p>De manera informal, una taula està en 1FN si:</p>
+<ul>
+<li>No té grups repetitius, representats com <code>{...}</code>.</li>
+<li>No té dependències funcionals de dins a dins de la clau composta.</li>
+</ul>
+<h4 id="fase-11-eliminar-atributs-multivalents">Fase 1.1: eliminar atributs multivalents</h4>
+<p>Una relació no està en 1FN si té un atribut multivalent. Per exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>PERSONES = dni + nom + data_naix + {telèfon}
+</code></pre></div></td></tr></tbody></table></div>
+<p>El problema és que una persona pot tindre un nombre variable de telèfons, de manera que no es pot reservar un nombre fix de columnes per a aquests valors.</p>
+<p>Exemple de disseny no normalitzat:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">DNI</th>
+<th>Nom</th>
+<th>Data de naixement</th>
+<th>Telèfon 1</th>
+<th>Telèfon 2</th>
+<th>Telèfon 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">111</td>
+<td>Pep</td>
+<td>04-03-1970</td>
+<td>555111222</td>
+<td>555111333</td>
+<td>555111777</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>Pepa</td>
+<td>05-06-1979</td>
+<td>555222555</td>
+<td>555222666</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>La solució és separar els telèfons en una altra taula:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>PERSONES = (dni[PK] + nom + data_naix)
+
+TELEFONS = ((telèfon + dni[FK])[PK])
+</code></pre></div></td></tr></tbody></table></div>
+<p>La clau primària de <code>TELEFONS</code> estarà formada inicialment per <code>dni + telèfon</code>.</p>
+<p>Exemple de dades normalitzades:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">DNI</th>
+<th>Nom</th>
+<th>Data de naixement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">111</td>
+<td>Pep</td>
+<td>04-03-1970</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>Pepa</td>
+<td>05-06-1979</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">DNI</th>
+<th>Telèfon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">111</td>
+<td>555111222</td>
+</tr>
+<tr>
+<td style="text-align: right;">111</td>
+<td>555111333</td>
+</tr>
+<tr>
+<td style="text-align: right;">111</td>
+<td>555111777</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>555222555</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>555222666</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fase-12-optimitzar-claus">Fase 1.2: optimitzar claus</h4>
+<p>Si una relació té una clau composta, s'ha de comprovar si és possible reduir el nombre de camps que formen la clau. Per a això s'han d'eliminar les dependències funcionals entre els camps de la clau composta.</p>
+<p>En l'exemple anterior:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TELEFONS = dni + telèfon
+</code></pre></div></td></tr></tbody></table></div>
+<p>La clau composta <code>dni + telèfon</code> significa inicialment que:</p>
+<ul>
+<li>Una persona pot tindre molts telèfons.</li>
+<li>Un telèfon pot correspondre a moltes persones.</li>
+</ul>
+<p>Però si els requeriments indiquen que un telèfon només pot pertànyer a una persona, tenim la dependència funcional:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>telèfon -&gt; dni
+</code></pre></div></td></tr></tbody></table></div>
+<p>Aquesta és una fletxa de dins a dins de la clau. Això indica que la relació encara no està realment en 1FN: s'havia definit una relació <code>N:M</code> quan en realitat era <code>1:N</code>.</p>
+<p>La clau s'ha d'optimitzar i el resultat és:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TELEFONS = (telèfon[PK] + dni[FK])
+</code></pre></div></td></tr></tbody></table></div>
+<p>On <code>telèfon</code> passa a ser la clau primària.</p>
+<div class="admonition question">
+<p class="admonition-title">Exercicis sobre la 1FN</p>
+<p>1: Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CLIENTS = codi + nom + {tel}
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>codi</th>
+<th>nom</th>
+<th>tel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>John</td>
+<td>123456, 789654</td>
+</tr>
+<tr>
+<td>002</td>
+<td>Jane</td>
+<td>456345</td>
+</tr>
+<tr>
+<td>003</td>
+<td>Bob</td>
+<td>789123, 321546, 897678</td>
+</tr>
+</tbody>
+</table>
+<p>2: Normalitza la relació anterior si un telèfon només pertany a un client.</p>
+<p>3: Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CLIENTS = codi + nom + {tel + operadora}
+</code></pre></div></td></tr></tbody></table></div>
+<p>| codi | nom | tel + operadora |
+|------|-----|-----|-----------|
+| 001  | John| 123456 + Movistar, 789654 + Vodafone |
+| 002  | Jane| 456345 + Orange |
+| 003  | Bob | 789123 + Movistar, 321546 + Vodafone, 897678 + Orange |</p>
+<p>Restricció d'integritat: un telèfon només treballa en una operadora.</p>
+<p>4: Normalitza la relació anterior si un telèfon només pertany a un client i només treballa en una operadora.</p>
+</div>
+<h3 id="22-segona-forma-normal-2fn">2.2 segona forma normal (2FN)</h3>
+<h4 id="definicio">Definició</h4>
+<p>Una taula està en <strong>2FN</strong> si està en 1FN i tot atribut no clau depén de tota la clau, i no només d'una part.</p>
+<p>Per tant, només són sospitoses de no estar en 2FN les taules amb una clau principal composta.</p>
+<p>Exemple general d'una relació que no està en 2FN:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn01.png" data-title="Exemple de relació que no està en 2FN" data-desc-position="bottom"><img alt="Exemple de relació que no està en 2FN" src="../images/fn01.png"></a></p>
+<p>Aquesta relació no està en 2FN perquè té una dependència <code>y -&gt; b</code> que ix d'una part de la clau composta i arriba a un atribut que no forma part de la clau.</p>
+<h4 id="com-passar-a-2fn">Com passar a 2FN</h4>
+<p>La solució és igual que en el cas d'optimització de claus de 1FN:</p>
+<ol>
+<li>Eliminar de la relació original el destí de la fletxa.</li>
+<li>Crear una nova relació amb l'origen i el destí de la fletxa.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>A = ((x + y)[PK] + a)
+
+B = (y[PK] + b)
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="exemple-notes-dalumnes">Exemple: notes d'alumnes</h4>
+<p>Taula inicial:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn02.png" data-title="Exemple de relació que no està en 2FN" data-desc-position="bottom"><img alt="Exemple de relació que no està en 2FN" src="../images/fn02.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>codi_assig</th>
+<th>n_exp</th>
+<th>nota</th>
+<th>nom_alumne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD</td>
+<td>111</td>
+<td>7</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>PRG</td>
+<td>111</td>
+<td>8</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>BD</td>
+<td>222</td>
+<td>9</td>
+<td>Maria Burguera</td>
+</tr>
+<tr>
+<td>FOL</td>
+<td>111</td>
+<td>7</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>PRG</td>
+<td>222</td>
+<td>8</td>
+<td>Maria Burguera</td>
+</tr>
+</tbody>
+</table>
+<p>La clau està formada per <code>codi_assignatura + num_expedient</code>, però <code>nom_alumne</code> depén només de <code>num_expedient</code>:</p>
+<p>Això genera redundància, ja que el nom d'un alumne es repeteix en totes les seues notes. També podria generar incoherències si, per error, s'escriuen noms diferents per al mateix expedient.</p>
+<p>Solució:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>NOTES = ((codi_assignatura + num_expedient[FK])[PK] + nota)
+
+ALUMNES = (num_expedient[PK] + nom_alumne)
+</code></pre></div></td></tr></tbody></table></div>
+<p>Exemple de resultats:</p>
+<table>
+<thead>
+<tr>
+<th>Codi d'assignatura</th>
+<th style="text-align: right;">Núm. d'expedient</th>
+<th style="text-align: right;">Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>PRG</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>BD</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>FOL</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>PRG</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Núm. d'expedient</th>
+<th>Nom de l'alumne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">111</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td style="text-align: right;">222</td>
+<td>Maria Burguera</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Exercicis sobre 2FN</p>
+<ol>
+<li>
+<p>Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>COMPRES = ((article + data)[PK] + preu + proveïdor)
+</code></pre></div></td></tr></tbody></table></div>
+<p>Restricció d'integritat: un article només es pot comprar a un proveïdor.      </p>
+</li>
+<li>
+<p>Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R = ((a + b + c)[PK] + d)
+</code></pre></div></td></tr></tbody></table></div>
+<p>L'atribut <code>d</code> depén només de <code>b + c</code>.</p>
+</li>
+<li>
+<p>Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ESCRIURE = ((codi_autor + codi_llibre)[PK] + editorial + data_pub + nom_autor + nom_llibre)
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>codi_autor</th>
+<th>codi_llibre</th>
+<th>editorial</th>
+<th>data_pub</th>
+<th>nom_autor</th>
+<th>nom_llibre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>111</td>
+<td>Planeta</td>
+<td>01-01-2020</td>
+<td>Cervantes</td>
+<td>Don Quijote</td>
+</tr>
+<tr>
+<td>001</td>
+<td>112</td>
+<td>Plaza&amp;Janes</td>
+<td>01-01-1998</td>
+<td>Cervantes</td>
+<td>Don Quijote</td>
+</tr>
+<tr>
+<td>003</td>
+<td>222</td>
+<td>Planeta</td>
+<td>01-01-2020</td>
+<td>Orwell</td>
+<td>1984</td>
+</tr>
+<tr>
+<td>003</td>
+<td>333</td>
+<td>Planeta</td>
+<td>01-01-2015</td>
+<td>Orwell</td>
+<td>Animal Farm</td>
+</tr>
+<tr>
+<td>002</td>
+<td>444</td>
+<td>Crítica</td>
+<td>01-01-2012</td>
+<td>Shakespeare</td>
+<td>Hamlet</td>
+</tr>
+<tr>
+<td>003</td>
+<td>335</td>
+<td>Planeta</td>
+<td>01-01-1987</td>
+<td>Orwell</td>
+<td>Animal Farm</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<h3 id="23-tercera-forma-normal-3fn">2.3 tercera forma normal (3FN)</h3>
+<h4 id="definicio_1">Definició</h4>
+<p>Una taula està en <strong>3FN</strong> si està en 2FN i cap atribut no clau —ni principal ni alternatiu— depén d'un altre atribut no clau.</p>
+<p>De manera informal, una taula està en 3FN si està en 2FN i no té fletxes de fora a fora de la clau.</p>
+<p>Exemple general:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn03.png" data-title="Exemple de relació que no està en 3FN" data-desc-position="bottom"><img alt="Exemple de relació que no està en 3FN" src="../images/fn03.png"></a></p>
+<p>La relació no està en 3FN perquè <code>b</code> i <code>c</code> són atributs que no formen part de la clau, i <code>c</code> depén de <code>b</code>.</p>
+<h4 id="com-passar-a-3fn">Com passar a 3FN</h4>
+<ol>
+<li>Eliminar de la relació original el destí de la fletxa.</li>
+<li>Crear una nova relació amb l'origen i el destí de la fletxa.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>A = x + a + b
+B = b + c
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="exemple-poblacions-i-codis-postals">Exemple: poblacions i codis postals</h4>
+<p>Taula inicial:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>PERSONES = (dni[PK] + nom + codi_postal + població)
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>dni</th>
+<th>nom</th>
+<th>codi_postal</th>
+<th>població</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>Pep Garcia</td>
+<td>46701</td>
+<td>Gandia</td>
+</tr>
+<tr>
+<td>222</td>
+<td>Maria Burguera</td>
+<td>46720</td>
+<td>Bellreguard</td>
+</tr>
+<tr>
+<td>333</td>
+<td>Manolo Vendrell</td>
+<td>46701</td>
+<td>Gandia</td>
+</tr>
+<tr>
+<td>444</td>
+<td>Carles Ventura</td>
+<td>46701</td>
+<td>Gandia</td>
+</tr>
+<tr>
+<td>555</td>
+<td>Andreu Albors</td>
+<td>46430</td>
+<td>Sollana</td>
+</tr>
+</tbody>
+</table>
+<p>La taula no està en 3FN perquè <code>població</code> depén de <code>codi_postal</code> i cap dels dos atributs és una clau alternativa:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>codi_postal -&gt; població
+</code></pre></div></td></tr></tbody></table></div>
+<p>Això genera redundància: cada vegada que apareix el codi postal <code>46410</code>, es repeteix que correspon a Sueca.</p>
+<p>Solució:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>PERSONES = (dni[PK] + nom + codi_postal[FK])
+POBLACIONS = (codi_postal[PK] + població)
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>dni</th>
+<th>nom</th>
+<th>codi_postal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>Pep Garcia</td>
+<td>46701</td>
+</tr>
+<tr>
+<td>222</td>
+<td>Maria Burguera</td>
+<td>46720</td>
+</tr>
+<tr>
+<td>333</td>
+<td>Manolo Vendrell</td>
+<td>46701</td>
+</tr>
+<tr>
+<td>444</td>
+<td>Carles Ventura</td>
+<td>46701</td>
+</tr>
+<tr>
+<td>555</td>
+<td>Andreu Albors</td>
+<td>46430</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Codi postal</th>
+<th>Població</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">46701</td>
+<td>Gandia</td>
+</tr>
+<tr>
+<td style="text-align: right;">46720</td>
+<td>Bellreguard</td>
+</tr>
+<tr>
+<td style="text-align: right;">46430</td>
+<td>Sollana</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Exercicis sobre 3FN</p>
+<ol>
+<li>
+<p>Normalitza la relació:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>R = (a[PK] + b + c + d)
+ - c depen de b
+ - d depen de c
+</code></pre></div></td></tr></tbody></table></div>
+</li>
+<li>
+<p>Normalitza la següent taula:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>codi_prod</th>
+<th>nom_producte</th>
+<th>preu</th>
+<th>id_categoria</th>
+<th>nom_cat</th>
+<th>descripcio_cat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>Llibreta</td>
+<td>1,50</td>
+<td>10</td>
+<td>Papereria</td>
+<td>Productes de paper</td>
+</tr>
+<tr>
+<td>002</td>
+<td>Bolígrafo</td>
+<td>0,80</td>
+<td>10</td>
+<td>Papereria</td>
+<td>Productes de paper</td>
+</tr>
+<tr>
+<td>003</td>
+<td>Grapadora</td>
+<td>5,00</td>
+<td>10</td>
+<td>Papereria</td>
+<td>Productes de paper</td>
+</tr>
+<tr>
+<td>004</td>
+<td>Ratolí</td>
+<td>15,00</td>
+<td>20</td>
+<td>Informàtica</td>
+<td>Productes informàtics</td>
+</tr>
+<tr>
+<td>005</td>
+<td>Teclat</td>
+<td>20,00</td>
+<td>20</td>
+<td>Informàtica</td>
+<td>Productes informàtics</td>
+</tr>
+<tr>
+<td>006</td>
+<td>Taula escriptori</td>
+<td>100,00</td>
+<td>30</td>
+<td>Mobles</td>
+<td>Productes de mobles</td>
+</tr>
+<tr>
+<td>007</td>
+<td>Cadira oficina</td>
+<td>50,00</td>
+<td>30</td>
+<td>Mobles</td>
+<td>Productes de mobles</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3-eliminar-altres-redundancies">3. Eliminar altres redundàncies</h2>
+<p>A més de les formes normals, cal revisar altres redundàncies que puguen aparéixer.</p>
+<h3 id="31-eliminar-redundancies-intrataula">3.1. Eliminar redundàncies intrataula</h3>
+<p>S'eliminen els camps que es poden obtindre a partir d'altres camps de la mateixa taula.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>NOTES = dni + assignatura + nota1 + nota2 + nota3 + nota_mitjana
+</code></pre></div></td></tr></tbody></table></div>
+<p>Es pot eliminar <code>nota_mitjana</code> perquè es pot calcular a partir de les altres notes:</p>
+<h3 id="32-eliminar-redundancies-intertaula">3.2. Eliminar redundàncies intertaula</h3>
+<p>S'eliminen els camps que es poden obtindre a partir de camps d'altres taules.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>NOTES = dni + assignatura + nota
+ALUMNES = dni + nom + nota_mitjana
+</code></pre></div></td></tr></tbody></table></div>
+<p><code>nota_mitjana</code> es pot calcular a partir de les notes de la taula <code>NOTES</code>, sumant-les i dividint el resultat pel nombre d'assignatures.</p>
+<p>Tanmateix, l'eliminació de redundàncies intertaula pot alentir les consultes. Per això cal trobar un equilibri entre la puresa del disseny i l'eficiència de l'aplicació.</p>
+<h3 id="33-fusionar-taules-amb-la-mateixa-clau">3.3. Fusionar taules amb la mateixa clau</h3>
+<p>Es poden fusionar taules que comparteixen la mateixa clau, sempre que no es perda la informació sobre opcionalitat o especialització obtinguda en les fases anteriors.</p>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ALUMNES_DADES_PERSONALS = codi_alumne + nom + data_naix + telèfon
+ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
+</code></pre></div></td></tr></tbody></table></div>
+<p>Es poden fusionar en:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ALUMNES = codi + nom + data_naix + telèfon + curs + grup + repetidor_sn
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="4-esquema-resum-de-com-normalitzar">4. Esquema resum de com normalitzar</h2>
+<table>
+<thead>
+<tr>
+<th>Forma normal</th>
+<th>No està en aquesta forma si té...</th>
+<th>Com es transforma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1FN</strong></td>
+<td>Atributs multivalents <code>{...}</code></td>
+<td>S'elimina el grup repetitiu i es crea una nova relació amb la clau de la taula original i l'atribut multivalent.</td>
+</tr>
+<tr>
+<td><strong>1FN</strong></td>
+<td>Fletxa de dins a dins de la clau</td>
+<td>S'optimitza la clau. Si la DF afecta tota la clau, el destí deixa de ser clau; si no l'afecta, se separen origen i destí en una nova taula.</td>
+</tr>
+<tr>
+<td><strong>2FN</strong></td>
+<td>Fletxa de dins a fora de la clau</td>
+<td>S'elimina el destí de la fletxa de la taula original i es crea una altra taula amb origen i destí.</td>
+</tr>
+<tr>
+<td><strong>3FN</strong></td>
+<td>Fletxa de fora a fora de la clau</td>
+<td>S'elimina el destí de la fletxa de la taula original i es crea una altra taula amb origen i destí.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-desnormalitzacio">5. Desnormalització</h2>
+<h2 id="6-exemple-de-normalitzacio">6. Exemple de normalització</h2>
+<p>A continuació es mostra un procediment general per a resoldre exercicis de normalització.</p>
+<h3 id="exemple-factures-i-articles">Exemple: factures i articles</h3>
+<p>Volem normalitzar les relacions:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + dni + nom + tel_client + data + {línia + article + descripció + preu + quantitat}
+
+ARTICLES = codi + descripció + família + descripció_família
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="pas-1-establir-suposicions">Pas 1: establir suposicions</h3>
+<ul>
+<li>En una factura no poden haver-hi dues línies amb el mateix article.</li>
+<li>El preu és sempre el mateix per a cada article.</li>
+<li>Es poden establir altres suposicions si els requeriments no ho especifiquen.</li>
+</ul>
+<h3 id="pas-2-detectar-dependencies-funcionals">Pas 2: detectar dependències funcionals</h3>
+<p>En <code>FACTURES</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>codi_client -&gt; dni, nom, tel_client
+article -&gt; descripció, preu
+num + línia -&gt; article, quantitat
+</code></pre></div></td></tr></tbody></table></div>
+<p>En <code>ARTICLES</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>família -&gt; descripció_família
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="pas-3-normalitzar-cada-taula">Pas 3: normalitzar cada taula</h3>
+<p>De <code>FACTURES</code> obtenim:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + data
+C. Ali: codi_client -&gt; CLIENTS(codi_client)
+
+LINIES_FACTURA = num + línia + article + quantitat
+C. Ali:
+- num -&gt; FACTURES(num)
+- article -&gt; ARTICLES(article)
+
+ARTICLES_1 = article + descripció + preu
+
+CLIENTS = codi_client + nom + telèfon
+</code></pre></div></td></tr></tbody></table></div>
+<p>De <code>ARTICLES</code> obtenim:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>ARTICLES = codi + descripció + família
+C. Ali: família -&gt; FAMILIES(família)
+
+FAMILIES = família + descripció
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="pas-4-obtindre-lesquema-integrat-final">Pas 4: obtindre l'esquema integrat final</h3>
+<p>Cal fusionar les taules que tinguen la mateixa clau, sempre que no representen una especialització, i establir noms coherents per a les taules i els atributs.</p>
+<p>L'esquema final seria:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + data
+C. Ali: codi_client -&gt; CLIENTS(codi_client)
+
+LINIES_FACTURA = num + línia + article + quantitat
+C. Ali:
+- num -&gt; FACTURES(num)
+- article -&gt; ARTICLES(article)
+
+ARTICLES = article + descripció + preu + família
+C. Ali: família -&gt; FAMILIES(família)
+
+CLIENTS = codi_client + nom + telèfon
+
+FAMILIES = família + descripció
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="pas-5-dibuixar-el-graf-de-dependencies-entre-taules">Pas 5: dibuixar el graf de dependències entre taules</h3>
+<p>El graf de dependències indica l'ordre en què s'haurien de crear les taules d'acord amb les claus alienes:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>FAMILIES -&gt; ARTICLES -&gt; LINIES_FACTURA
+CLIENTS -&gt; FACTURES -&gt; LINIES_FACTURA
+</code></pre></div></td></tr></tbody></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
