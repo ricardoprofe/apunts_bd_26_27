@@ -1288,11 +1288,32 @@ TELEFONS = ((telèfon + dni[FK])[PK])
 <p>3: Normalitza la relació:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CLIENTS = codi + nom + {tel + operadora}
 </code></pre></div></td></tr></tbody></table></div>
-<p>| codi | nom | tel + operadora |
-|------|-----|-----|-----------|
-| 001  | John| 123456 + Movistar, 789654 + Vodafone |
-| 002  | Jane| 456345 + Orange |
-| 003  | Bob | 789123 + Movistar, 321546 + Vodafone, 897678 + Orange |</p>
+<table>
+<thead>
+<tr>
+<th>codi</th>
+<th>nom</th>
+<th>tel + operadora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>John</td>
+<td>123456 + Movistar, 789654 + Vodafone</td>
+</tr>
+<tr>
+<td>002</td>
+<td>Jane</td>
+<td>456345 + Orange</td>
+</tr>
+<tr>
+<td>003</td>
+<td>Bob</td>
+<td>789123 + Movistar, 321546 + Vodafone, 897678 + Orange</td>
+</tr>
+</tbody>
+</table>
 <p>Restricció d'integritat: un telèfon només treballa en una operadora.</p>
 <p>4: Normalitza la relació anterior si un telèfon només pertany a un client i només treballa en una operadora.</p>
 </div>

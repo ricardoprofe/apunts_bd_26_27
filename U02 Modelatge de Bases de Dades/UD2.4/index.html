@@ -429,6 +429,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#24-fases-en-lelaboracio-dun-diagrama-de-martin" class="md-nav__link">
+    2.4. Fases en l'elaboració d'un diagrama de Martin
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -532,6 +539,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#24-fases-en-lelaboracio-dun-diagrama-de-martin" class="md-nav__link">
+    2.4. Fases en l'elaboració d'un diagrama de Martin
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -608,14 +622,23 @@
 <h3 id="23-representacio-de-les-relacions-com-a-taules">2.3. Representació de les relacions com a taules</h3>
 <p>En el diagrama de Martin, les relacions es poden representar com a taules. En aquest cas estaríem fent directament el disseny lògic, ja que estem representant les relacions com a taules amb els atributs i les claus primàries i foranes. Aquesta representació és útil per a la implementació directa en un sistema de gestió de bases de dades relacional.</p>
 <p>Cada relació es representa com una taula amb els atributs de la relació i les claus primàries i foranes.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/martin08.png" data-title="Diagrama de Martin amb relació com a taula" data-desc-position="bottom"><img alt="Diagrama de Martin amb relació com a taula" src="../images/martin08.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/martin09.png" data-title="Diagrama de Martin amb relació com a taula" data-desc-position="bottom"><img alt="Diagrama de Martin amb relació com a taula" src="../images/martin09.png"></a></p>
 <p>Si la relació és 1:N, podem crear una taula (igual que en l'exemple anterior) o podem propagar la clau primària de la part del costat 1 a la part del costat N com a clau forana. </p>
 <p>El següent diagrama mostra com es representaria la relació entre Autor i Llibre si cada llibre té un únic autor i cada autor pot escriure 1 o més llibres:</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/martin09.png" data-title="Diagrama de Martin amb relació 1:N" data-desc-position="bottom"><img alt="Diagrama de Martin amb relació 1:N" src="../images/martin09.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/martin11.png" data-title="Diagrama de Martin amb relació 1:N" data-desc-position="bottom"><img alt="Diagrama de Martin amb relació 1:N" src="../images/martin11.png"></a></p>
 <div class="admonition question">
 <p class="admonition-title">Exercicis</p>
-<p>Representa en notació Martin els diagramaes ER dels exercicis 2.1, 2.2 i 2.3.</p>
+<p>Representa en notació Martin els diagrames ER dels exercicis 2.1, 2.2 i 2.3.</p>
 </div>
+<h3 id="24-fases-en-lelaboracio-dun-diagrama-de-martin">2.4. Fases en l'elaboració d'un diagrama de Martin</h3>
+<p>Amb els diagrames de Martin es poden representar les mateixes fases que amb els diagrames ER tradicionals. En aquest apartat es mostra com es representaria cada fase amb la notació de Martin.</p>
+<ol>
+<li>Disseny conceptual: Representació de les entitats i les relacions entre elles.</li>
+<li>Definim les multiplicitats.</li>
+<li>Afegim els propis de cada entitat, indicant claus primàries, sense tindre en compte claus propagades, etc</li>
+<li>Afegim claus propagades i creem taules per a les relacions, si és necessari.</li>
+</ol>
+<p>D'aquesta manera podem anar refinant el diagrama fins a arribar a un disseny lògic que es puga implementar mes fàcilment en un sistema de gestió de bases de dades relacional.</p>
 
 
 
