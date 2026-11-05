@@ -585,6 +585,19 @@
     5. Desnormalització
   </a>
   
+    <nav class="md-nav" aria-label="5. Desnormalització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tecniques-de-desnormalitzacio" class="md-nav__link">
+    5.1 Tècniques de desnormalització
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -610,29 +623,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-2-detectar-dependencies-funcionals" class="md-nav__link">
-    Pas 2: detectar dependències funcionals
+  <a href="#pas-2-identificar-dependencies-funcionals" class="md-nav__link">
+    Pas 2: identificar dependències funcionals
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-3-normalitzar-cada-taula" class="md-nav__link">
-    Pas 3: normalitzar cada taula
+  <a href="#pas-2-1a-forma-normal-1fn" class="md-nav__link">
+    Pas 2: 1a forma normal (1FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-4-obtindre-lesquema-integrat-final" class="md-nav__link">
-    Pas 4: obtindre l'esquema integrat final
+  <a href="#pas-3-2a-forma-normal-2fn" class="md-nav__link">
+    Pas 3: 2a forma normal (2FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-5-dibuixar-el-graf-de-dependencies-entre-taules" class="md-nav__link">
-    Pas 5: dibuixar el graf de dependències entre taules
+  <a href="#pas-4-3a-forma-normal-3fn" class="md-nav__link">
+    Pas 4: 3a forma normal (3FN)
   </a>
   
 </li>
@@ -858,6 +871,19 @@
     5. Desnormalització
   </a>
   
+    <nav class="md-nav" aria-label="5. Desnormalització">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tecniques-de-desnormalitzacio" class="md-nav__link">
+    5.1 Tècniques de desnormalització
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -883,29 +909,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-2-detectar-dependencies-funcionals" class="md-nav__link">
-    Pas 2: detectar dependències funcionals
+  <a href="#pas-2-identificar-dependencies-funcionals" class="md-nav__link">
+    Pas 2: identificar dependències funcionals
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-3-normalitzar-cada-taula" class="md-nav__link">
-    Pas 3: normalitzar cada taula
+  <a href="#pas-2-1a-forma-normal-1fn" class="md-nav__link">
+    Pas 2: 1a forma normal (1FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-4-obtindre-lesquema-integrat-final" class="md-nav__link">
-    Pas 4: obtindre l'esquema integrat final
+  <a href="#pas-3-2a-forma-normal-2fn" class="md-nav__link">
+    Pas 3: 2a forma normal (2FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-5-dibuixar-el-graf-de-dependencies-entre-taules" class="md-nav__link">
-    Pas 5: dibuixar el graf de dependències entre taules
+  <a href="#pas-4-3a-forma-normal-3fn" class="md-nav__link">
+    Pas 4: 3a forma normal (3FN)
   </a>
   
 </li>
@@ -1805,103 +1831,467 @@ ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
 </tbody>
 </table>
 <h2 id="5-desnormalitzacio">5. Desnormalització</h2>
+<p>La <strong>desnormalització</strong> és l’acció deliberada d’<strong>afegir dades redundants a un esquema prèviament normalitzat per a accelerar les lectures i simplificar les consultes</strong>. Es tracta d’una optimització específica del rendiment, no d’una excusa per a prescindir d’un bon modelatge.</p>
+<p>Les <strong>dades normalitzades</strong> es divideixen en taules ben estructurades que minimitzen la redundància i protegeixen la integritat de les dades (vegeu 3FN/FNBC).</p>
+<p>En la <strong>desnormalització</strong>, es reintrodueix redundància de manera selectiva mitjançant columnes addicionals, valors precalculats o taules amb les unions ja fetes, com a complement del model normalitzat, per a accelerar les lectures habituals.</p>
+<p>Amb la desnormalització, es manté una única font de dades fiables —les taules normalitzades— i, a partir d’aquesta, es conserven una o diverses representacions que permeten accedir més ràpidament a la informació en els usos més freqüents, com ara quadres de comandament, llistats de productes, cerques, etc.</p>
+<p>S’intercanvien més espai d’emmagatzematge i més complexitat en les escriptures per més velocitat de lectura i consultes més senzilles.</p>
+<h3 id="51-tecniques-de-desnormalitzacio">5.1 Tècniques de desnormalització</h3>
+<p>Aquestes són les formes més habituals d’afegir <strong>redundància</strong> controlada a un model normalitzat.</p>
+<ol>
+<li>
+<p>Taules amb unions precalculades: Crea una taula que combine prèviament les columnes que necessites per a fer lectures ràpides, com ara un llistat de productes o un quadre de comandament de comandes.</p>
+</li>
+<li>
+<p>Columnes redundants: copiar alguns atributs.Duplica en una altra taula alguns atributs que es consulten amb freqüència per a evitar unions.</p>
+</li>
+<li>
+<p>Atributs derivats: emmagatzemar valors calculats. Emmagatzema de manera persistent els valors que, altrament, es calcularien en el moment de fer la consulta.</p>
+</li>
+<li>
+<p>Taules agregades o de resum. Precalcula resums, com ara els ingressos diaris, els usuaris actius per dia i les comandes per categoria.</p>
+</li>
+</ol>
 <h2 id="6-exemple-de-normalitzacio">6. Exemple de normalització</h2>
 <p>A continuació es mostra un procediment general per a resoldre exercicis de normalització.</p>
 <h3 id="exemple-factures-i-articles">Exemple: factures i articles</h3>
 <p>Volem normalitzar les relacions:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + dni + nom + tel_client + data + {línia + article + descripció + preu + quantitat}
-
-ARTICLES = codi + descripció + família + descripció_família
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + dni + nom_client + tel_client + data_fact + linia + cod_article + article + categoria_art + descripcio_cat + preu + quantitat
 </code></pre></div></td></tr></tbody></table></div>
+<p>Amb les següents dades:</p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>codi_client</th>
+<th>dni</th>
+<th>nom_client</th>
+<th>tel_client</th>
+<th>data_fact</th>
+<th>línia</th>
+<th>cod_article</th>
+<th>article</th>
+<th>categoria_art</th>
+<th>descripcio_cat</th>
+<th>preu</th>
+<th>quantitat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>111</td>
+<td>12345678A</td>
+<td>Pep Garcia</td>
+<td>555111222, 555111223</td>
+<td>01-01-2020</td>
+<td>1</td>
+<td>A001</td>
+<td>Llibreta</td>
+<td>Papereria</td>
+<td>Articles de paper</td>
+<td>1,50</td>
+<td>3</td>
+</tr>
+<tr>
+<td>001</td>
+<td>111</td>
+<td>12345678A</td>
+<td>Pep Garcia</td>
+<td>555111222, 555111223</td>
+<td>01-01-2020</td>
+<td>2</td>
+<td>A002</td>
+<td>Bolígrafo</td>
+<td>Utils d'escriptura</td>
+<td>Articles per a escriure</td>
+<td>0,80</td>
+<td>2</td>
+</tr>
+<tr>
+<td>002</td>
+<td>222</td>
+<td>87654321B</td>
+<td>Maria Burguera</td>
+<td>555222333</td>
+<td>02-01-2020</td>
+<td>1</td>
+<td>A001</td>
+<td>Llibreta</td>
+<td>Papereria</td>
+<td>Articles de paper</td>
+<td>1,50</td>
+<td>3</td>
+</tr>
+<tr>
+<td>002</td>
+<td>222</td>
+<td>87654321B</td>
+<td>Maria Burguera</td>
+<td>555222333</td>
+<td>02-01-2020</td>
+<td>2</td>
+<td>A003</td>
+<td>Grapadora</td>
+<td>Eines de oficina</td>
+<td>Articles d'oficina</td>
+<td>5,00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>003</td>
+<td>111</td>
+<td>12345678A</td>
+<td>Pep Garcia</td>
+<td>555111222, 555111223</td>
+<td>03-01-2020</td>
+<td>1</td>
+<td>A002</td>
+<td>Bolígrafo</td>
+<td>Utils d'escriptura</td>
+<td>Articles per a escriure</td>
+<td>0,80</td>
+<td>2</td>
+</tr>
+<tr>
+<td>003</td>
+<td>111</td>
+<td>12345678A</td>
+<td>Pep Garcia</td>
+<td>555111222, 555111223</td>
+<td>03-01-2020</td>
+<td>2</td>
+<td>A003</td>
+<td>Grapadora</td>
+<td>Eines de oficina</td>
+<td>Articles d'oficina</td>
+<td>5,00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004</td>
+<td>333</td>
+<td>56781234C</td>
+<td>Manolo Vendrell</td>
+<td>555333444</td>
+<td>04-01-2020</td>
+<td>1</td>
+<td>A001</td>
+<td>Llibreta</td>
+<td>Papereria</td>
+<td>Articles de paper</td>
+<td>1,50</td>
+<td>2</td>
+</tr>
+<tr>
+<td>004</td>
+<td>333</td>
+<td>56781234C</td>
+<td>Manolo Vendrell</td>
+<td>555333444</td>
+<td>04-01-2020</td>
+<td>2</td>
+<td>A002</td>
+<td>Bolígrafo</td>
+<td>Utils d'escriptura</td>
+<td>Articles per a escriure</td>
+<td>0,80</td>
+<td>2</td>
+</tr>
+<tr>
+<td>004</td>
+<td>333</td>
+<td>56781234C</td>
+<td>Manolo Vendrell</td>
+<td>555333444</td>
+<td>04-01-2020</td>
+<td>3</td>
+<td>A003</td>
+<td>Grapadora</td>
+<td>Eines de oficina</td>
+<td>Articles d'oficina</td>
+<td>5,00</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Podem veure que la clau primària és <code>(num + linia)</code>, ja que cada factura té un número i cada línia dins d'aquesta factura té un número de línia.</p>
 <h3 id="pas-1-establir-suposicions">Pas 1: establir suposicions</h3>
 <ul>
 <li>En una factura no poden haver-hi dues línies amb el mateix article.</li>
 <li>El preu és sempre el mateix per a cada article.</li>
 <li>Es poden establir altres suposicions si els requeriments no ho especifiquen.</li>
 </ul>
-<h3 id="pas-2-detectar-dependencies-funcionals">Pas 2: detectar dependències funcionals</h3>
-<p>En <code>FACTURES</code>:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>codi_client -&gt; dni, nom, tel_client
-article -&gt; descripció, preu
-num + línia -&gt; article, quantitat
+<h3 id="pas-2-identificar-dependencies-funcionals">Pas 2: identificar dependències funcionals</h3>
+<p>En un primer pas obtenim el següent graf de dependències funcionals:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn04.png" data-title="Graf de dependències funcionals" data-desc-position="bottom"><img alt="Graf de dependències funcionals" src="../images/fn04.png"></a></p>
+<h3 id="pas-2-1a-forma-normal-1fn">Pas 2: 1a forma normal (1FN)</h3>
+<p>En aquest pas, s'ha de garantir que cada atribut de la taula sigui un valor atòmic i que no hi hagi grups repetibles.</p>
+<p>Podem observar que el camp <code>tel_client</code> conté múltiples valors (telèfons separats per comes). Això indica que no està en 1FN. Per a normalitzar-ho, crearem una nova taula per als telèfons dels clients.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TELEFONS_CLIENTS = (codi_client[FK] + tel_client)[PK]
 </code></pre></div></td></tr></tbody></table></div>
-<p>En <code>ARTICLES</code>:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>família -&gt; descripció_família
+<p>També podria ser:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TELEFONS_CLIENTS = (tel_client[PK] + codi_client[FK])
 </code></pre></div></td></tr></tbody></table></div>
-<h3 id="pas-3-normalitzar-cada-taula">Pas 3: normalitzar cada taula</h3>
-<p>De <code>FACTURES</code> obtenim:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + data
-C. Ali: codi_client -&gt; CLIENTS(codi_client)
-
-LINIES_FACTURA = num + línia + article + quantitat
-C. Ali:
-- num -&gt; FACTURES(num)
-- article -&gt; ARTICLES(article)
-
-ARTICLES_1 = article + descripció + preu
-
-CLIENTS = codi_client + nom + telèfon
+<p>Això donaria la següent taula:</p>
+<table>
+<thead>
+<tr>
+<th>codi_client</th>
+<th>tel_client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>555111222</td>
+</tr>
+<tr>
+<td>111</td>
+<td>555111223</td>
+</tr>
+<tr>
+<td>222</td>
+<td>555222333</td>
+</tr>
+<tr>
+<td>333</td>
+<td>555333444</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pas-3-2a-forma-normal-2fn">Pas 3: 2a forma normal (2FN)</h3>
+<p>En aquest pas, hem de garantir que tots els atributs no clau depenen de tota la clau primària i no només d'una part d'ella.</p>
+<p>En la taula <code>FACTURES</code>, la clau primària és <code>(num + linia)</code>. Hem d'identificar les dependències funcionals que no compleixen aquesta condició.</p>
+<p><code>codi_client</code> depèn només de <code>num</code>, i no de <code>linia</code>. Això indica que la taula no està en 2FN. Per a normalitzar-ho, crearem una nova taula per als clients.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CLIENTS = (codi_client[PK] + dni + nom_client)
 </code></pre></div></td></tr></tbody></table></div>
-<p>De <code>ARTICLES</code> obtenim:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>ARTICLES = codi + descripció + família
-C. Ali: família -&gt; FAMILIES(família)
-
-FAMILIES = família + descripció
+<table>
+<thead>
+<tr>
+<th>codi_client</th>
+<th>dni</th>
+<th>nom_client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>12345678A</td>
+<td>Pep Garcia</td>
+</tr>
+<tr>
+<td>222</td>
+<td>87654321B</td>
+<td>Maria Burguera</td>
+</tr>
+<tr>
+<td>333</td>
+<td>11111111C</td>
+<td>Manolo Vendrell</td>
+</tr>
+</tbody>
+</table>
+<p>cod_article també depèn només de <code>linia</code>, així que crearem una taula per als articles.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ARTICLES = (cod_article[PK] + article + categoria_art + descripcio_cat + preu)
 </code></pre></div></td></tr></tbody></table></div>
-<h3 id="pas-4-obtindre-lesquema-integrat-final">Pas 4: obtindre l'esquema integrat final</h3>
-<p>Cal fusionar les taules que tinguen la mateixa clau, sempre que no representen una especialització, i establir noms coherents per a les taules i els atributs.</p>
-<p>L'esquema final seria:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = num + codi_client + data
-C. Ali: codi_client -&gt; CLIENTS(codi_client)
-
-LINIES_FACTURA = num + línia + article + quantitat
-C. Ali:
-- num -&gt; FACTURES(num)
-- article -&gt; ARTICLES(article)
-
-ARTICLES = article + descripció + preu + família
-C. Ali: família -&gt; FAMILIES(família)
-
-CLIENTS = codi_client + nom + telèfon
-
-FAMILIES = família + descripció
+<table>
+<thead>
+<tr>
+<th>cod_article</th>
+<th>article</th>
+<th>categoria_art</th>
+<th>descripcio_cat</th>
+<th>preu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A001</td>
+<td>Llibreta</td>
+<td>Papereria</td>
+<td>Articles de paper</td>
+<td>1,50</td>
+</tr>
+<tr>
+<td>A002</td>
+<td>Bolígrafo</td>
+<td>Utils d'escriptura</td>
+<td>Articles per a escriure</td>
+<td>0,80</td>
+</tr>
+<tr>
+<td>A003</td>
+<td>Grapadora</td>
+<td>Eines de oficina</td>
+<td>Articles d'oficina</td>
+<td>5,00</td>
+</tr>
+</tbody>
+</table>
+<p><code>data_fact</code> i <code>codi_client</code> depenen només de <code>num</code>, així que crearem una taula per a les factures.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>FACTURES = (num[PK] + codi_client[FK] + data_fact)
 </code></pre></div></td></tr></tbody></table></div>
-<h3 id="pas-5-dibuixar-el-graf-de-dependencies-entre-taules">Pas 5: dibuixar el graf de dependències entre taules</h3>
-<p>El graf de dependències indica l'ordre en què s'haurien de crear les taules d'acord amb les claus alienes:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>FAMILIES -&gt; ARTICLES -&gt; LINIES_FACTURA
-CLIENTS -&gt; FACTURES -&gt; LINIES_FACTURA
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>codi_client</th>
+<th>data_fact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>111</td>
+<td>01-01-2020</td>
+</tr>
+<tr>
+<td>002</td>
+<td>222</td>
+<td>02-01-2020</td>
+</tr>
+<tr>
+<td>003</td>
+<td>111</td>
+<td>03-01-2020</td>
+</tr>
+<tr>
+<td>004</td>
+<td>333</td>
+<td>04-01-2020</td>
+</tr>
+</tbody>
+</table>
+<p>Per últim, <code>quantitat</code> i <code>cod_article</code> depenen de <code>(num + linia)</code>, així que la taula de línies de factura serà:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>LINIA_FACTURA = ((num[FK] + linia)[PK] + cod_article[FK] + quantitat)
 </code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>linia</th>
+<th>cod_article</th>
+<th>quantitat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>1</td>
+<td>A001</td>
+<td>3</td>
+</tr>
+<tr>
+<td>001</td>
+<td>2</td>
+<td>A002</td>
+<td>2</td>
+</tr>
+<tr>
+<td>002</td>
+<td>1</td>
+<td>A001</td>
+<td>3</td>
+</tr>
+<tr>
+<td>002</td>
+<td>2</td>
+<td>A003</td>
+<td>1</td>
+</tr>
+<tr>
+<td>003</td>
+<td>1</td>
+<td>A002</td>
+<td>2</td>
+</tr>
+<tr>
+<td>003</td>
+<td>2</td>
+<td>A003</td>
+<td>1</td>
+</tr>
+<tr>
+<td>004</td>
+<td>1</td>
+<td>A001</td>
+<td>2</td>
+</tr>
+<tr>
+<td>004</td>
+<td>2</td>
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr>
+<td>004</td>
+<td>3</td>
+<td>A002</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pas-4-3a-forma-normal-3fn">Pas 4: 3a forma normal (3FN)</h3>
+<p>En aquest pas, hem de garantir que cap atribut no clau depenga d'un altre atribut no clau.</p>
+<p>En la taula <code>ARTICLES</code>, <code>categoria_art</code> depèn de <code>cod_article</code>, i <code>descripcio_cat</code> depèn de <code>categoria_art</code>. Això indica que la taula no està en 3FN. Per a normalitzar-ho, crearem una nova taula per a les categories.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CATEGORIES = (categoria_art[PK] + descripcio_cat)
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>categoria_art</th>
+<th>descripcio_cat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Papereria</td>
+<td>Articles de paper</td>
+</tr>
+<tr>
+<td>Utils d'escriptura</td>
+<td>Articles per a escriure</td>
+</tr>
+<tr>
+<td>Eines de oficina</td>
+<td>Articles d'oficina</td>
+</tr>
+</tbody>
+</table>
+<p>La taula <code>ARTICLES</code> quedarà així:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ARTICLES = (cod_article[PK] + article + categoria_art[FK] + preu)
+</code></pre></div></td></tr></tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>cod_article</th>
+<th>article</th>
+<th>categoria_art</th>
+<th>preu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A001</td>
+<td>Llibreta</td>
+<td>Papereria</td>
+<td>1,50</td>
+</tr>
+<tr>
+<td>A002</td>
+<td>Bolígrafo</td>
+<td>Utils d'escriptura</td>
+<td>0,80</td>
+</tr>
+<tr>
+<td>A003</td>
+<td>Grapadora</td>
+<td>Eines de oficina</td>
+<td>5,00</td>
+</tr>
+</tbody>
+</table>
 
 
 
