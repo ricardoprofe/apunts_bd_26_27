@@ -630,22 +630,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-2-1a-forma-normal-1fn" class="md-nav__link">
-    Pas 2: 1a forma normal (1FN)
+  <a href="#pas-3-1a-forma-normal-1fn" class="md-nav__link">
+    Pas 3: 1a forma normal (1FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-3-2a-forma-normal-2fn" class="md-nav__link">
-    Pas 3: 2a forma normal (2FN)
+  <a href="#pas-4-2a-forma-normal-2fn" class="md-nav__link">
+    Pas 4: 2a forma normal (2FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-4-3a-forma-normal-3fn" class="md-nav__link">
-    Pas 4: 3a forma normal (3FN)
+  <a href="#pas-5-3a-forma-normal-3fn" class="md-nav__link">
+    Pas 5: 3a forma normal (3FN)
   </a>
   
 </li>
@@ -916,22 +916,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-2-1a-forma-normal-1fn" class="md-nav__link">
-    Pas 2: 1a forma normal (1FN)
+  <a href="#pas-3-1a-forma-normal-1fn" class="md-nav__link">
+    Pas 3: 1a forma normal (1FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-3-2a-forma-normal-2fn" class="md-nav__link">
-    Pas 3: 2a forma normal (2FN)
+  <a href="#pas-4-2a-forma-normal-2fn" class="md-nav__link">
+    Pas 4: 2a forma normal (2FN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pas-4-3a-forma-normal-3fn" class="md-nav__link">
-    Pas 4: 3a forma normal (3FN)
+  <a href="#pas-5-3a-forma-normal-3fn" class="md-nav__link">
+    Pas 5: 3a forma normal (3FN)
   </a>
   
 </li>
@@ -2015,6 +2015,7 @@ ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
 </tr>
 </tbody>
 </table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn05.png" data-title="Exemple de relació que no està en 3FN" data-desc-position="bottom"><img alt="Exemple de relació que no està en 3FN" src="../images/fn05.png"></a></p>
 <p>Podem veure que la clau primària és <code>(num + linia)</code>, ja que cada factura té un número i cada línia dins d'aquesta factura té un número de línia.</p>
 <h3 id="pas-1-establir-suposicions">Pas 1: establir suposicions</h3>
 <ul>
@@ -2025,7 +2026,7 @@ ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
 <h3 id="pas-2-identificar-dependencies-funcionals">Pas 2: identificar dependències funcionals</h3>
 <p>En un primer pas obtenim el següent graf de dependències funcionals:</p>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/fn04.png" data-title="Graf de dependències funcionals" data-desc-position="bottom"><img alt="Graf de dependències funcionals" src="../images/fn04.png"></a></p>
-<h3 id="pas-2-1a-forma-normal-1fn">Pas 2: 1a forma normal (1FN)</h3>
+<h3 id="pas-3-1a-forma-normal-1fn">Pas 3: 1a forma normal (1FN)</h3>
 <p>En aquest pas, s'ha de garantir que cada atribut de la taula sigui un valor atòmic i que no hi hagi grups repetibles.</p>
 <p>Podem observar que el camp <code>tel_client</code> conté múltiples valors (telèfons separats per comes). Això indica que no està en 1FN. Per a normalitzar-ho, crearem una nova taula per als telèfons dels clients.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TELEFONS_CLIENTS = (codi_client[FK] + tel_client)[PK]
@@ -2060,7 +2061,7 @@ ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
 </tr>
 </tbody>
 </table>
-<h3 id="pas-3-2a-forma-normal-2fn">Pas 3: 2a forma normal (2FN)</h3>
+<h3 id="pas-4-2a-forma-normal-2fn">Pas 4: 2a forma normal (2FN)</h3>
 <p>En aquest pas, hem de garantir que tots els atributs no clau depenen de tota la clau primària i no només d'una part d'ella.</p>
 <p>En la taula <code>FACTURES</code>, la clau primària és <code>(num + linia)</code>. Hem d'identificar les dependències funcionals que no compleixen aquesta condició.</p>
 <p><code>codi_client</code> depèn només de <code>num</code>, i no de <code>linia</code>. Això indica que la taula no està en 2FN. Per a normalitzar-ho, crearem una nova taula per als clients.</p>
@@ -2232,7 +2233,7 @@ ALUMNES_DADES_ACADÈMIQUES = codi_alumne + curs + grup + repetidor_sn
 </tr>
 </tbody>
 </table>
-<h3 id="pas-4-3a-forma-normal-3fn">Pas 4: 3a forma normal (3FN)</h3>
+<h3 id="pas-5-3a-forma-normal-3fn">Pas 5: 3a forma normal (3FN)</h3>
 <p>En aquest pas, hem de garantir que cap atribut no clau depenga d'un altre atribut no clau.</p>
 <p>En la taula <code>ARTICLES</code>, <code>categoria_art</code> depèn de <code>cod_article</code>, i <code>descripcio_cat</code> depèn de <code>categoria_art</code>. Això indica que la taula no està en 3FN. Per a normalitzar-ho, crearem una nova taula per a les categories.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CATEGORIES = (categoria_art[PK] + descripcio_cat)
