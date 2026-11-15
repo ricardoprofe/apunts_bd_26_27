@@ -1,0 +1,1129 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.5/">
+      
+      
+        <link rel="next" href="../installacio-i-us-de-mysql-i-workbench/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 3.1. Instal·lació de MySQL - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-31-installacio-de-mysql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 3.1. Instal·lació de MySQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.4. Diagrama de Martin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.5. Normalització de bases de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD3 Creacio de BD
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD3 Creacio de BD
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 3.1. Instal·lació de MySQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.1. Instal·lació de MySQL
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-el-sgbd-mysql" class="md-nav__link">
+    1. El SGBD MySQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installacio-de-mysql" class="md-nav__link">
+    2. Instal·lació de MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lació de MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installacio-en-ubuntu-server" class="md-nav__link">
+    2.1. Instal·lació en Ubuntu Server
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Instal·lació en Ubuntu Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-configuracio-inicial-de-mysql" class="md-nav__link">
+    2.1.1. Configuració inicial de MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacio-dun-usuari-administrador" class="md-nav__link">
+    Creació d'un usuari administrador
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-mysql-per-permetre-connexions-remotes" class="md-nav__link">
+    Configurar MySQL per permetre connexions remotes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-installacio-local-en-ubuntu" class="md-nav__link">
+    2.2. Instal·lació local en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installacio-en-windows" class="md-nav__link">
+    2.3. Instal·lació en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-us-dun-entorn-virtual-amb-docker" class="md-nav__link">
+    2.4. Ús d'un entorn virtual amb Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacio-del-client-mysql" class="md-nav__link">
+    3. Instalació del client MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instalació del client MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-installacio-del-client-mysql-en-ubuntu" class="md-nav__link">
+    3.1 Instal·lació del client MySQL en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-installacio-del-client-mysql-en-windows" class="md-nav__link">
+    3.2 Instal·lació del client MySQL en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-installacio-de-dbeaver" class="md-nav__link">
+    3.3. Instal·lació de DBeaver
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Instal·lació de DBeaver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-dbeaver-en-ubuntu" class="md-nav__link">
+    Instal·lació de DBeaver en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-dbeaver-en-windows" class="md-nav__link">
+    Instal·lació de DBeaver en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexio-a-un-servidor-mysql-amb-dbeaver" class="md-nav__link">
+    Connexió a un servidor MySQL amb DBeaver
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-altres-clients-mysql" class="md-nav__link">
+    3.4 Altres clients MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installacio-i-us-de-mysql-i-workbench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació i ús de MySQL i Workbench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema-4-sql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema 4: SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-el-sgbd-mysql" class="md-nav__link">
+    1. El SGBD MySQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installacio-de-mysql" class="md-nav__link">
+    2. Instal·lació de MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lació de MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installacio-en-ubuntu-server" class="md-nav__link">
+    2.1. Instal·lació en Ubuntu Server
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Instal·lació en Ubuntu Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-configuracio-inicial-de-mysql" class="md-nav__link">
+    2.1.1. Configuració inicial de MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacio-dun-usuari-administrador" class="md-nav__link">
+    Creació d'un usuari administrador
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-mysql-per-permetre-connexions-remotes" class="md-nav__link">
+    Configurar MySQL per permetre connexions remotes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-installacio-local-en-ubuntu" class="md-nav__link">
+    2.2. Instal·lació local en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installacio-en-windows" class="md-nav__link">
+    2.3. Instal·lació en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-us-dun-entorn-virtual-amb-docker" class="md-nav__link">
+    2.4. Ús d'un entorn virtual amb Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacio-del-client-mysql" class="md-nav__link">
+    3. Instalació del client MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instalació del client MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-installacio-del-client-mysql-en-ubuntu" class="md-nav__link">
+    3.1 Instal·lació del client MySQL en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-installacio-del-client-mysql-en-windows" class="md-nav__link">
+    3.2 Instal·lació del client MySQL en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-installacio-de-dbeaver" class="md-nav__link">
+    3.3. Instal·lació de DBeaver
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Instal·lació de DBeaver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-dbeaver-en-ubuntu" class="md-nav__link">
+    Instal·lació de DBeaver en Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-dbeaver-en-windows" class="md-nav__link">
+    Instal·lació de DBeaver en Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexio-a-un-servidor-mysql-amb-dbeaver" class="md-nav__link">
+    Connexió a un servidor MySQL amb DBeaver
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-altres-clients-mysql" class="md-nav__link">
+    3.4 Altres clients MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-31-installacio-de-mysql">Unitat 3.1. Instal·lació de MySQL</h1>
+<h2 id="1-el-sgbd-mysql">1. El SGBD MySQL</h2>
+<p><strong>MySQL</strong> és un sistema de gestió de bases de dades relacional (SGBD) (anglès <strong>RDBMS</strong> - Relational DataBase Management System) multi-fil (multithread) i multiusuari, que usa el llenguatge SQL (Structured Query Language).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/mysql-logo.jpg" data-title="MySQL Logo" data-desc-position="bottom"><img alt="MySQL Logo" src="../images/mysql-logo.jpg"></a></p>
+<p>MySQL ha esdevingut molt popular gràcies a la seva velocitat en executar consultes i el seu suport de forma nativa per part del llenguatge PHP, en l'elaboració d'aplicacions web i en l'entorn del programari lliure.</p>
+<p>Es pot fer ús de MySQL en aplicacions de tota mena (web, d'escriptori o d'altres) de forma lliure i gratuïta sota les condicions de la <strong>llicència GPL</strong>. Si es vol integrar MySQL com a part d'un producte privatiu cal adquirir una llicència d'ús específica per a aquest propòsit.</p>
+<p>MySQL és un dels components de l'arquitectura <strong>LAMP</strong> (de Linux - sistema operatiu) i la <strong>WAMP</strong> (de Windows - sistema operatiu). Les tres sigles que segueixen (A,M i P) fan referència al conjunt format per Apache (servidor web), MySQL (base de dades) i PHP (llenguatge de programació).</p>
+<p>MySQL pertanyia a l'empresa sueca <strong>MySQL AB</strong>. La companyia desenvolupava i mantenia el programari en la versió lliure i la comercial. Fins que el 16 de gener del 2008, Mysql AB fou adquirida per <strong>Sun Microsystems</strong>. I el 20 d'abril del 2009, <strong>Oracle Corporation</strong> va adquirir Sun Microsystems i, per tant, MySQL.</p>
+<p>Nosaltres utilitzarem la versió <strong>Community Server</strong>, que és la versió lliure i gratuïta de MySQL.</p>
+<div class="admonition info">
+<p class="admonition-title">MariaDB</p>
+<p><strong>MariaDB</strong> és un sistema de gestió de bases de dades relacional (SGBD) que és un fork de MySQL. Va ser creat per l'equip original de desenvolupadors de MySQL després que Oracle adquirís Sun Microsystems, amb l'objectiu de mantenir una alternativa lliure i oberta a MySQL. MariaDB és compatible amb MySQL en termes de sintaxi i funcionalitat, i sovint s'utilitza com a substitut directe de MySQL en moltes aplicacions.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/mariadb.jpg" data-title="MariaDB Logo" data-desc-position="bottom"><img alt="MariaDB Logo" src="../images/mariadb.jpg"></a></p>
+</div>
+<h2 id="2-installacio-de-mysql">2. Instal·lació de MySQL</h2>
+<p>Podem instal·lar MySQL de diverses maneres, depenent del sistema operatiu que estiguem utilitzant. A continuació, es detallen els passos generals per a la instal·lació en els sistemes operatius més comuns.</p>
+<h3 id="21-installacio-en-ubuntu-server">2.1. Instal·lació en Ubuntu Server</h3>
+<p>Ubuntu Server és una distribució de Linux basada en Debian, dissenyada per a servidors. La instal·lació de MySQL en Ubuntu Server es pot realitzar mitjançant el gestor de paquets <code>apt</code>. A continuació, es mostren els passos bàsics per a la instal·lació:</p>
+<ol>
+<li>
+<p><strong>Actualitzar els repositoris</strong>: Abans d'instal·lar qualsevol paquet, és recomanable actualitzar la llista de paquets disponibles. Obriu una terminal i executeu:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>Instal·lar MySQL Server</strong>: Executeu la següent comanda per instal·lar MySQL Server:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>Verificar la instal·lació</strong>: Un cop finalitzada la instal·lació, podeu verificar que MySQL s'ha instal·lat correctament executant:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mysql<span class="w"> </span>--version
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>(OPCIONAL) Configurar la seguretat de MySQL</strong>: És recomanable executar l'script de seguretat proporcionat per MySQL per configurar la contrasenya de l'usuari root i altres opcions de seguretat:<br>
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>mysql_secure_installation
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>En aquest curs no farem servir aquest script</strong>, ja que volem uqe la configuració de MySQL siga la més simple possible. Però en un entorn real, és molt recomanable executar aquest script per millorar la seguretat del servidor MySQL.</p>
+</li>
+<li>
+<p><strong>Iniciar el servei MySQL</strong>: Assegureu-vos que el servei MySQL estiga en funcionament:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Si no estiguera en funcionament, podeu iniciar-lo amb:
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>I detindre'l amb:
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>Accedir a MySQL</strong>: Per accedir a la línia de comandes de MySQL, executeu:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Amb aquesta instrucció, podem començar a treballar directament amb l'usuari root de MySQL.</p>
+<p>Podem veure la versió amb:
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">VERSION</span><span class="p">();</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Tancarem la sessió amb:
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">exit</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+</ol>
+<h4 id="211-configuracio-inicial-de-mysql">2.1.1. Configuració inicial de MySQL</h4>
+<h4 id="creacio-dun-usuari-administrador">Creació d'un usuari administrador</h4>
+<p>Ara per ara, només podem accedir a MySQL amb l'usuari root localment, però no ho podem fer remotament per motius de seguretat. Per a poder accedir a MySQL remotament, cal configurar un usuari administrador que puga accedir remotament. A continuació, es mostren els passos bàsics per a la configuració inicial:</p>
+<ol>
+<li>
+<p><strong>Accedir a MySQL com a root</strong>:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>Crear un usuari administrador</strong>:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">'admin'</span><span class="o">@</span><span class="s1">'%'</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">'1234'</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'admin'</span><span class="o">@</span><span class="s1">'%'</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span>
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Amb la primera instrucció, creem un usuari anomenat <code>admin</code> que pot accedir des de qualsevol host (<code>%</code>) amb la contrasenya <code>1234</code>.  </p>
+<p>La segona instrucció li atorga tots els privilegis sobre totes les bases de dades i taules (<code>*.*</code>), i li permet concedir privilegis a altres usuaris amb l'opció <code>WITH GRANT OPTION</code>.  </p>
+<p>La tercera instrucció actualitza els privilegis per assegurar-se que els canvis tinguen efecte immediatament.</p>
+</li>
+<li>
+<p><strong>Eixir de MySQL</strong>:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">exit</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+<li>
+<p><strong>Accedir a MySQL amb el nou usuari</strong>:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mysql<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Introduïu la contrasenya quan se us demane.</p>
+<p>Una vegada dins, podem comprovar que tenim els  privilegis adequats amb:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">GRANTS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="s1">'admin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+</ol>
+<h4 id="configurar-mysql-per-permetre-connexions-remotes">Configurar MySQL per permetre connexions remotes</h4>
+<p>Per defecte, MySQL només escolta connexions des de <code>localhost</code>. Per permetre connexions remotes, cal editar el fitxer de configuració de MySQL. Obriu el fitxer amb un editor de text, com ara <code>nano</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre></div></td></tr></tbody></table></div>
+<p>Cerqueu la línia que conté <code>bind-address</code> i canvieu-la a:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bind-address = 0.0.0.0
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<div class="admonition info">
+<p class="admonition-title">Nota</p>
+<p>També trobem la directiva <code>mysqlx-bind-address</code>, que serveix per a la connexió amb el protocol MySQL X. Si volem habilitar també aquest protocol per a connexions remotes, podem canviar-la a <code>0.0.0.0</code>.</p>
+</div>
+<p>Això permetrà que MySQL escolte connexions des de qualsevol adreça IP.</p>
+<p>Reinicieu el servei MySQL per aplicar els canvis:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a connectar-nos remotament a un servidor MySQL, necessitem conèixer l'<strong>adreça IP</strong> del servidor i el <strong>port</strong>.</p>
+<ul>
+<li><strong>Adreça IP</strong>: És l'adreça de la màquina on està instal·lat MySQL. Aquesta adreça pot ser una adreça IP local (per exemple, 192.168.x.x) o una adreça IP pública si el servidor és accessible des d'Internet.</li>
+<li><strong>Port</strong>: És l'adreça local del servidor on s'executa un servei. Per defecte, MySQL utilitza el port <strong>3306</strong> per a les connexions. Si no s'ha canviat la configuració, aquest serà el port que haurem d'utilitzar.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Es pot canviar el port de MySQL editant el fitxer de configuració <code>mysqld.cnf</code> descomentant i modificant la directiva <code>port = 3306</code> a un altre número de port. Després de fer aquest canvi, cal reiniciar el servei MySQL per aplicar-lo.</p>
+</div>
+<p>Esbrineu l'adreça IP del servidor MySQL amb:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ip<span class="w"> </span>a
+</code></pre></div></td></tr></tbody></table></div>
+<p>Ara, proveu a connectar-vos a MySQL des d'una màquina remota utilitzant l'usuari <code>admin</code> i la contrasenya <code>1234</code>.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mysql<span class="w"> </span>-h<span class="w"> </span>&lt;IP_DEL_SERVIDOR&gt;<span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p
+</code></pre></div></td></tr></tbody></table></div>
+<p>Si encara no teniu un client MySQL instal·lat a la màquina remota, veurem com fer-ho en la següent secció.</p>
+<h3 id="22-installacio-local-en-ubuntu">2.2. Instal·lació local en Ubuntu</h3>
+<p>Els passos per instal·lar MySQL en una màquina local amb Ubuntu són similars als de la instal·lació en un servidor, ja que Ubuntu és una distribució de Linux. </p>
+<h3 id="23-installacio-en-windows">2.3. Instal·lació en Windows</h3>
+<p>Per a instal·lar MySQL en Windows, podeu seguir aquests passos:</p>
+<ol>
+<li><strong>Descarregar MySQL Installer</strong>: Visiteu el lloc web oficial de MySQL i descarregueu l'instal·lador per a Windows. Podeu trobar-lo a <a href="https://dev.mysql.com/downloads/installer/">MySQL Downloads</a>.</li>
+<li><strong>Executar l'instal·lador</strong>: Feu doble clic al fitxer descarregat per iniciar l'instal·lació.</li>
+<li><strong>Seguir les instruccions de l'instal·lador</strong>: L'instal·lador us guiarà a través del procés d'instal·lació. Podeu triar entre una instal·lació típica o personalitzada segons les vostres necessitats.</li>
+<li><strong>Configurar MySQL</strong>: Durant la instal·lació, se us demanarà que configureu l'usuari root i la contrasenya. També podeu configurar altres opcions com el port i el tipus de servei.</li>
+<li><strong>Finalitzar la instal·lació</strong>: Un cop completada la instal·lació, podeu iniciar el servei MySQL i començar a utilitzar-lo.</li>
+</ol>
+<h3 id="24-us-dun-entorn-virtual-amb-docker">2.4. Ús d'un entorn virtual amb Docker</h3>
+<p>Per a utilitzar MySQL en un entorn virtual amb Docker, podeu seguir aquests passos:</p>
+<ol>
+<li><strong>Instal·lar Docker</strong>: Si encara no teniu Docker instal·lat, podeu descarregar-lo i instal·lar-lo des del lloc web oficial de Docker: <a href="https://www.docker.com/products/docker-desktop">Docker Downloads</a>.</li>
+<li>
+<p><strong>Descarregar i executar la imatge de MySQL</strong>: Obriu una terminal i executeu la següent ordre per descarregar la imatge oficial de MySQL:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-d<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Si ja tenim un servidor MySQL en funcionament, hem de llançar el contenidor amb un port diferent, per exemple el 3307:
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-p<span class="w"> </span><span class="m">3307</span>:3306<span class="w"> </span>-d<span class="w"> </span>mysql
+</code></pre></div></td></tr></tbody></table></div>
+3. <strong>Executar un intèrpret d'ordres al contenidor</strong>: 
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysql<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p1234
+</code></pre></div></td></tr></tbody></table></div><p></p>
+</li>
+</ol>
+<p>Ara podrem <strong>crear l'usuari <code>admin</code></strong> tal com hem vist al punt corresponent a la configuració inicial de MySQL en un servidor.</p>
+<p>Una vegada creat l'usuari <code>admin</code>, podrem connectar-nos al contenidor MySQL des de la màquina host amb:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mysql<span class="w"> </span>-h127.0.0.1<span class="w"> </span>-P3307<span class="w"> </span>-uadmin<span class="w"> </span>-p
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Hem de posar l'adreça IP <code>127.0.0.1</code> en lloc de <code>localhost</code>, ja que el contenidor MySQL està en un entorn virtual i no podem connectar-nos amb <code>localhost</code>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Pots usar l'extensió <strong>Container Tools</strong> de Visual Studio Code per gestionar contenidors Docker de manera més visual.
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/container_tools.png" data-title="Container Tools" data-desc-position="bottom"><img alt="Container Tools" src="../images/container_tools.png"></a></p>
+</div>
+<h2 id="3-instalacio-del-client-mysql">3. Instalació del client MySQL</h2>
+<p>Per a connectar-nos a un servidor MySQL remot, necessitem un client MySQL instal·lat a la nostra màquina local.</p>
+<p>El client MySQL és una eina que ens permet interactuar amb el servidor MySQL mitjançant la línia d'ordres. Al servidor ja tenim un client MySQL instal·lat, però si volem connectar-nos des d'una màquina remota, hem d'instal·lar el client MySQL a aquesta màquina.</p>
+<p>Els clients MySQL estan disponibles per a diversos sistemes operatius, com ara Linux, Windows i macOS. A més, poden ser utilitzats tant en entorns de línia d'ordres com en interfícies gràfiques.</p>
+<h3 id="31-installacio-del-client-mysql-en-ubuntu">3.1 Instal·lació del client MySQL en Ubuntu</h3>
+<p>Instal·lar el client MySQL en Ubuntu és tan simple com actualitzar els repositoris i instal·lar el paquet corresponent:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-client
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="32-installacio-del-client-mysql-en-windows">3.2 Instal·lació del client MySQL en Windows</h3>
+<p>La instal·lació del client MySQL en Windows es pot realitzar mitjançant l'instal·lador de MySQL, que inclou tant el servidor com el client. Durant la instal·lació, podeu seleccionar només el client si no necessiteu instal·lar el servidor.</p>
+<p><a href="https://dev.mysql.com/downloads/installer/">Descarregar MySQL Installer per a Windows</a></p>
+<h3 id="33-installacio-de-dbeaver">3.3. Instal·lació de DBeaver</h3>
+<p><strong>DBeaver</strong> és una eina de gestió de bases de dades que proporciona una interfície gràfica per interactuar amb diversos sistemes de gestió de bases de dades, incloent MySQL. És una aplicació multiplataforma i és molt útil per a desenvolupadors i administradors de bases de dades.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/dbeaver.jpg" data-title="DBeaver" data-desc-position="bottom"><img alt="DBeaver" src="../images/dbeaver.jpg"></a></p>
+<h4 id="installacio-de-dbeaver-en-ubuntu">Instal·lació de DBeaver en Ubuntu</h4>
+<p>Per instal·lar DBeaver en Ubuntu, podeu utilitzar el gestor de paquets <code>apt</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:serge-rider/dbeaver-ce
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>dbeaver-ce
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="installacio-de-dbeaver-en-windows">Instal·lació de DBeaver en Windows</h4>
+<p>Per instal·lar DBeaver en Windows, podeu descarregar l'instal·lador des del lloc web oficial de DBeaver:</p>
+<p><a href="https://dbeaver.io/download/">Descarregar DBeaver per a Windows</a></p>
+<h4 id="connexio-a-un-servidor-mysql-amb-dbeaver">Connexió a un servidor MySQL amb DBeaver</h4>
+<p>Per a connectar-vos a un servidor MySQL amb DBeaver, seguiu aquests passos.</p>
+<p>Primer, crearem una connexió per al servidor de la màquina virtual d'Ubuntu Server:</p>
+<ol>
+<li>Obriu DBeaver i feu clic a "New Database Connection" (Nova connexió de base de dades).</li>
+<li>Seleccioneu "MySQL" com a tipus de base de dades i feu clic a "Next" (Següent).</li>
+<li>Tria el driver a usar, nosaltres usarem el corresponent a la versió 8 de MySQL.</li>
+<li>En el diàleg de configuració de la connexió, introduïu l'adreça IP del servidor MySQL, el port (<code>3306</code> per defecte), el nom d'usuari (<code>admin</code>) i la contrasenya (<code>1234</code>).
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/dbeaver_connection.png" data-title="DBeaver Connection" data-desc-position="bottom"><img alt="DBeaver Connection" src="../images/dbeaver_connection.png"></a></li>
+<li>Feu clic a "Test Connection" (Provar connexió) per assegurar-vos que la connexió és correcta. Si tot està configurat correctament, hauria de mostrar un missatge indicant que la connexió s'ha establert amb èxit.</li>
+<li>Feu clic a "Finish" (Finalitzar) per completar la configuració de la connexió.</li>
+</ol>
+<p>Si ens volem connectar al servidor MySQL de Docker, la IP ha de ser <code>127.0.0.1</code> i el port que hem configurat abans (per defecte <code>3306</code>).</p>
+<h3 id="34-altres-clients-mysql">3.4 Altres clients MySQL</h3>
+<p>Altres clients MySQL que podem utilitzar són:</p>
+<ul>
+<li>Extensió de VSCode <strong>Database Client JDBC</strong>: permet connectar-se a  diversos gestors debases de dades directament des de l'editor de codi Visual Studio Code.
+  <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/vscode_extension.png" data-title="Database Client JDBC" data-desc-position="bottom"><img alt="Database Client JDBC" src="../images/vscode_extension.png"></a></li>
+<li><strong>MySQL Workbench</strong>: és una eina oficial de MySQL que proporciona una interfície gràfica per al disseny, desenvolupament i administració de bases de dades MySQL. Permet crear i gestionar esquemes, executar consultes SQL, visualitzar dades i molt més.
+  <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/workbench.png" data-title="MySQL Workbench" data-desc-position="bottom"><img alt="MySQL Workbench" src="../images/workbench.png"></a></li>
+<li><strong>PHPMyAdmin</strong>: és una aplicació web escrita en PHP que permet administrar bases de dades MySQL a través d'una interfície web. És molt popular per a la gestió de bases de dades en entorns web i ofereix funcionalitats com la creació de bases de dades, gestió d'usuaris, execució de consultes SQL i exportació/importació de dades.
+  <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/phpmyadmin-database-1071625715.jpg" data-title="PHPMyAdmin" data-desc-position="bottom"><img alt="PHPMyAdmin" src="../images/phpmyadmin-database-1071625715.jpg"></a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
