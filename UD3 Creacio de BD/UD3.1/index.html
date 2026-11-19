@@ -481,6 +481,19 @@
     1. El SGBD MySQL
   </a>
   
+    <nav class="md-nav" aria-label="1. El SGBD MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-versions-de-mysql" class="md-nav__link">
+    1.1. Versions de MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -648,6 +661,46 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.3. Creació de taules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.4. Modificació de taules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -685,6 +738,19 @@
   <a href="#1-el-sgbd-mysql" class="md-nav__link">
     1. El SGBD MySQL
   </a>
+  
+    <nav class="md-nav" aria-label="1. El SGBD MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-versions-de-mysql" class="md-nav__link">
+    1.1. Versions de MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -853,6 +919,54 @@
 <p><strong>MariaDB</strong> és un sistema de gestió de bases de dades relacional (SGBD) que és un fork de MySQL. Va ser creat per l'equip original de desenvolupadors de MySQL després que Oracle adquirís Sun Microsystems, amb l'objectiu de mantenir una alternativa lliure i oberta a MySQL. MariaDB és compatible amb MySQL en termes de sintaxi i funcionalitat, i sovint s'utilitza com a substitut directe de MySQL en moltes aplicacions.</p>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../images/mariadb.jpg" data-title="MariaDB Logo" data-desc-position="bottom"><img alt="MariaDB Logo" src="../images/mariadb.jpg"></a></p>
 </div>
+<h3 id="11-versions-de-mysql">1.1. Versions de MySQL</h3>
+<p>Les versions més important de MySQL són:</p>
+<table>
+<thead>
+<tr>
+<th>Versió</th>
+<th>Data de llançament</th>
+<th>Estat</th>
+<th>Fi de support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.7 LTS</td>
+<td>2015-10-21</td>
+<td>End of life</td>
+<td>2023</td>
+</tr>
+<tr>
+<td>8.0 LTS</td>
+<td>2018-04-19</td>
+<td>End of life</td>
+<td>abril 2026</td>
+</tr>
+<tr>
+<td>8.4 LTS</td>
+<td>2024-04-30</td>
+<td>Suportat</td>
+<td>abril 2032</td>
+</tr>
+<tr>
+<td>9.7 LTS</td>
+<td>2024-04-21</td>
+<td>Darrera versió</td>
+<td>abril 2034</td>
+</tr>
+<tr>
+<td>26.10 IR</td>
+<td>2026-09-18</td>
+<td>Preview version</td>
+<td>gener 2027</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>LTS: Long Term Support (Suport a llarg termini).</li>
+<li>IR: Innovation Release (Versió d'innovació).</li>
+</ul>
 <h2 id="2-installacio-de-mysql">2. Instal·lació de MySQL</h2>
 <p>Podem instal·lar MySQL de diverses maneres, depenent del sistema operatiu que estiguem utilitzant. A continuació, es detallen els passos generals per a la instal·lació en els sistemes operatius més comuns.</p>
 <h3 id="21-installacio-en-ubuntu-server">2.1. Instal·lació en Ubuntu Server</h3>
@@ -987,10 +1101,10 @@
 <li><strong>Instal·lar Docker</strong>: Si encara no teniu Docker instal·lat, podeu descarregar-lo i instal·lar-lo des del lloc web oficial de Docker: <a href="https://www.docker.com/products/docker-desktop">Docker Downloads</a>.</li>
 <li>
 <p><strong>Descarregar i executar la imatge de MySQL</strong>: Obriu una terminal i executeu la següent ordre per descarregar la imatge oficial de MySQL:
-   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-d<span class="w"> </span>mysql
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-d<span class="w"> </span>mysql:9.7
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Si ja tenim un servidor MySQL en funcionament, hem de llançar el contenidor amb un port diferent, per exemple el 3307:
-   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-p<span class="w"> </span><span class="m">3307</span>:3306<span class="w"> </span>-d<span class="w"> </span>mysql
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">1234</span><span class="w"> </span>-p<span class="w"> </span><span class="m">3307</span>:3306<span class="w"> </span>-d<span class="w"> </span>mysql:9.7
 </code></pre></div></td></tr></tbody></table></div>
 3. <strong>Executar un intèrpret d'ordres al contenidor</strong>: 
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysql<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p1234

@@ -1,0 +1,1003 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../UD3.3/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 3.4. Modificació de taules - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-34-modificacio-de-taules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 3.4. Modificació de taules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.4. Diagrama de Martin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.5. Normalització de bases de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD3 Creacio de BD
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD3 Creacio de BD
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.1. Instal·lació de MySQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.2. Creació de BD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.3. Creació de taules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 3.4. Modificació de taules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.4. Modificació de taules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-modificacio-de-taules" class="md-nav__link">
+    1. Modificació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Modificació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-reanomenar-una-taula" class="md-nav__link">
+    1.1. Reanomenar una taula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-afegir-una-columna" class="md-nav__link">
+    1.2. Afegir una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-eliminar-una-columna" class="md-nav__link">
+    1.3. Eliminar una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modificar-una-columna" class="md-nav__link">
+    1.4. Modificar una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-afegir-o-eliminar-restriccions" class="md-nav__link">
+    1.5. Afegir o eliminar restriccions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-afegir-o-eliminar-claus-primaries-i-alternatives" class="md-nav__link">
+    1.6. Afegir o eliminar claus primàries i alternatives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemple-practic" class="md-nav__link">
+    2. Exemple pràctic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencies" class="md-nav__link">
+    Referències
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-modificacio-de-taules" class="md-nav__link">
+    1. Modificació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Modificació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-reanomenar-una-taula" class="md-nav__link">
+    1.1. Reanomenar una taula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-afegir-una-columna" class="md-nav__link">
+    1.2. Afegir una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-eliminar-una-columna" class="md-nav__link">
+    1.3. Eliminar una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-modificar-una-columna" class="md-nav__link">
+    1.4. Modificar una columna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-afegir-o-eliminar-restriccions" class="md-nav__link">
+    1.5. Afegir o eliminar restriccions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-afegir-o-eliminar-claus-primaries-i-alternatives" class="md-nav__link">
+    1.6. Afegir o eliminar claus primàries i alternatives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemple-practic" class="md-nav__link">
+    2. Exemple pràctic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencies" class="md-nav__link">
+    Referències
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-34-modificacio-de-taules">Unitat 3.4. Modificació de taules</h1>
+<h2 id="1-modificacio-de-taules">1. Modificació de taules</h2>
+<p>La sentència <strong>ALTER TABLE</strong> permet modificar la definició d'una taula existent. Amb aquesta sentència podem afegir, eliminar o modificar columnes, així com afegir o eliminar restriccions i claus.</p>
+<p>La sintaxi bàsica per a modificar una taula és la següent:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="p">[</span><span class="k">ADD</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CHANGE</span><span class="p">]</span><span class="w"> </span><span class="n">columna</span><span class="w"> </span><span class="p">[</span><span class="n">tipus_dada</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">restricció</span><span class="p">];</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="11-reanomenar-una-taula">1.1. Reanomenar una taula</h3>
+<p>Per reanomenar una taula, utilitzem la sentència <strong>RENAME TABLE</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">RENAME</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula1</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">nom_taula2</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>El seu equivalent amb <strong>ALTER TABLE</strong> és:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula1</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">nom_taula2</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="12-afegir-una-columna">1.2. Afegir una columna</h3>
+<p>Per afegir una columna a una taula existent, utilitzem la sentència <strong>ADD COLUMN</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna</span><span class="w"> </span><span class="n">tipus_dada</span><span class="w"> </span><span class="p">[</span><span class="n">restricció</span><span class="p">];</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>El camp <code>COLUMN</code> és opcional, però és recomanable utilitzar-lo per a millorar la llegibilitat del codi.</p>
+</div>
+<p>Exemples:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naixement</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">edat</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">FIRST</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">sexe</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="n">edat</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>En afegir una columna, podem especificar la seua posició dins de la taula amb les opcions <strong>FIRST</strong> (per afegir-la al principi) o <strong>AFTER nom_columna</strong> (per afegir-la després d'una columna existent).</p>
+<h3 id="13-eliminar-una-columna">1.3. Eliminar una columna</h3>
+<p>Per eliminar una columna d'una taula existent, utilitzem la sentència <strong>DROP COLUMN</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">sexe</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="14-modificar-una-columna">1.4. Modificar una columna</h3>
+<p>Per a <strong>canviar el nom</strong> d'una columna, utilitzem la sentència <strong>CHANGE COLUMN</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="n">CHANGE</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna_actual</span><span class="w"> </span><span class="n">nom_columna_nou</span><span class="w"> </span><span class="n">tipus_dada</span><span class="w"> </span><span class="p">[</span><span class="n">restricció</span><span class="p">];</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Hem d'indicar el tipus de dada i les restriccions de la columna:</p>
+<p>També podem utilitzar la sentència <strong>RENAME COLUMN</strong>, sense necessitat d'indicar el tipus de dada ni les restriccions:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">RENAME</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna_actual</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">nom_columna_nou</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a canviar només el tipus de dada d'una columna, utilitzem la sentència <strong>MODIFY COLUMN</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna</span><span class="w"> </span><span class="n">tipus_dada</span><span class="w"> </span><span class="p">[</span><span class="n">restricció</span><span class="p">];</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a afegir, canviar o eliminar el valor per defecte d'una columna, utilitzem la sentència <strong>ALTER COLUMN</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">valor_defecte</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">nom_columna</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Exemples:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naixement</span><span class="w"> </span><span class="n">data_naix</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naix</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">data_naixement</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naixement</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naixement</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">'2000-01-01'</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">data_naixement</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="15-afegir-o-eliminar-restriccions">1.5. Afegir o eliminar restriccions</h3>
+<p>Per a afegir una restricció a una columna, utilitzem la sentència <strong>ADD CONSTRAINT</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">nom_restricció</span><span class="w"> </span><span class="n">restricció</span><span class="w"> </span><span class="p">(</span><span class="n">nom_columna</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a eliminar una restricció d'una columna, utilitzem la sentència <strong>DROP CONSTRAINT</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">nom_restricció</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>La sentència <code>CHECK</code> permet afegir una restricció de verificació a una columna:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">nom_restricció</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">condició</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a veure les restriccions és preferible utilitzar la sentència <strong><code>SHOW CREATE TABLE nom_taula;</code></strong>, ja que MySQL no té una instrucció específica per a mostrar les restriccions d'una taula.</p>
+<p>Exemples:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">constr_dni</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">dni</span><span class="p">);</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">constr_dni</span><span class="p">;</span><span class="w"> </span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">constr_edat</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">edat</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="16-afegir-o-eliminar-claus-primaries-i-alternatives">1.6. Afegir o eliminar claus primàries i alternatives</h3>
+<p>Per a afegir una clau primària a una taula, utilitzem la sentència <strong>ADD PRIMARY KEY</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nom_columna</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a afegir una clau alternativa a una taula, utilitzem la sentència <strong>ADD UNIQUE</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">nom_columna</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a afegir una clau primària o alternativa a una taula amb més d'una columna, simplement indiquem totes les columnes entre parèntesis:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">columna1</span><span class="p">,</span><span class="w"> </span><span class="n">columna2</span><span class="p">);</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">columna1</span><span class="p">,</span><span class="w"> </span><span class="n">columna2</span><span class="p">);</span><span class="w">    </span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Per a eliminar una clau d'una taula, utilitzem la sentència <strong>DROP PRIMARY KEY</strong> o <strong>DROP FOREIGN KEY</strong> segons el tipus de clau:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span>
+<span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">nom_clau</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Exemples:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">codi_persona</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">codi_persona</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">persona</span><span class="p">(</span><span class="n">codi</span><span class="p">);</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">email_ibfk_1</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="n">Usem</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">contraint</span><span class="w"> </span><span class="n">assignat</span><span class="w"> </span><span class="n">automàticament</span><span class="p">,</span>
+<span class="o">//</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">qual</span><span class="w"> </span><span class="n">podem</span><span class="w"> </span><span class="n">veure</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="o">`</span><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="o">`</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANT</p>
+<p>Abans de modificar taules amb dades, és recomanable fer una còpia de seguretat de la base de dades. Algunes modificacions poden provocar la pèrdua de dades si no es realitzen correctament.</p>
+</div>
+<h2 id="2-exemple-practic">2. Exemple pràctic</h2>
+<p>Per a fer un exemple pràctic de modificació de taules, crearem una nova BD amb un parell de taules. Crea la base de dades de nom <strong>empresa</strong> amb les taules següents:</p>
+<ul>
+<li>
+<p><strong>Taula d’empleats (<code>empleat</code>)</strong> amb les columnes:</p>
+<ul>
+<li>num, enter</li>
+<li>nom, 10 caràcters, camp obligatori</li>
+<li>cap, enter</li>
+<li>comissio, enter</li>
+<li>departament, enter, camp obligatori</li>
+</ul>
+</li>
+<li>
+<p><strong>Taula de departaments (<code>departament</code>)</strong> amb les columnes:</p>
+<ul>
+<li>codi, enter, clau primària</li>
+<li>nom, 15 caràcters, camp oblibagori, únic</li>
+<li>poble, 20 caràcters</li>
+</ul>
+</li>
+</ul>
+<p>Les sentències SQL per a crear la base de dades i les taules són les següents:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">empresa</span><span class="p">;</span>
+<span class="n">USE</span><span class="w"> </span><span class="n">empresa</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">empleat</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">num</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cap</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">comissio</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">departament</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">departament</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">poble</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<ol>
+<li>Fes que el camp <code>num</code> de la taula <code>empleat</code> siga la clau principal.</li>
+<li>Afegeix una nova columna anomenada <code>salari</code> a la taula <code>empleat</code>, de tipus DECIMAL(10,2) i amb la condició de no poder tindre valors nuls.</li>
+<li>Incorpora la condició de que la columna <code>departament</code> de la taula <code>empleat</code> es clau aliena respecte a la taula <code>departament</code> (camp <code>codi</code>). Fes que quan s’esborre un departament, també s’esborren els empleats associats a eixe departament.</li>
+<li>Fes que la columna <code>cap</code> de la taula <code>empleat</code> siga clau aliena, referenciant a la seua pròpia taula.</li>
+<li>Intenta eliminar la columna <code>cap</code> de la taula <code>empleat</code>.</li>
+<li>Elimina la condició de que la columna <code>codi</code> de <code>departament</code> es clau primària.</li>
+</ol>
+<h2 id="referencies">Referències</h2>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/9.7/en/">MySQL Documentation</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/9.7/en/alter-table.html">MySQL ALTER TABLE</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

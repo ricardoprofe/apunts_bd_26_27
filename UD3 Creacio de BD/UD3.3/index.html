@@ -1,0 +1,1395 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../UD3.2/">
+      
+      
+        <link rel="next" href="../UD3.4/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unitat 3.3. Creació de taules - Bases de Dades - 1DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unitat-33-creacio-de-taules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-header__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bases de Dades - 1DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unitat 3.3. Creació de taules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bases de Dades - 1DAM" class="md-nav__button md-logo" aria-label="Bases de Dades - 1DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Bases de Dades - 1DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Dades - 1DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introducció a les Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introducció a les Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20les%20Bases%20de%20Dades/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 01. Introducció a les Bases de Dades.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Modelatge de Bases de Dades
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Modelatge de Bases de Dades
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.1. Model Entitat-Relació (E-R)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.2. Model Entitat-Relació Extès (EER)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.3. Disseny de bases de dades, el model relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.4. Diagrama de Martin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Modelatge%20de%20Bases%20de%20Dades/UD2.5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 2.5. Normalització de bases de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD3 Creacio de BD
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD3 Creacio de BD
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.1. Instal·lació de MySQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.2. Creació de BD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unitat 3.3. Creació de taules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.3. Creació de taules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-tipus-de-dades-en-mysql" class="md-nav__link">
+    1. Tipus de dades en MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tipus de dades en MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tipus-numerics" class="md-nav__link">
+    1.1. Tipus numèrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-tipus-de-text" class="md-nav__link">
+    1.2. Tipus de text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tipus-de-data-i-hora" class="md-nav__link">
+    1.3. Tipus de data i hora
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-el-tipus-blob" class="md-nav__link">
+    1.4. El tipus BLOB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-creacio-i-modificacio-de-taules" class="md-nav__link">
+    2. Creació i modificació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Creació i modificació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-creacio-de-taules" class="md-nav__link">
+    2.1. Creació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Creació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-creacio-de-taules-sense-claus" class="md-nav__link">
+    2.1.1. Creació de taules sense claus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-creacio-de-taules-amb-claus-primaries-i-alternatives" class="md-nav__link">
+    2.1.2. Creació de taules amb claus primàries i alternatives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-creacio-de-taules-amb-claus-alienes" class="md-nav__link">
+    2.1.3. Creació de taules amb claus alienes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-restriccions-de-les-claus-foranes" class="md-nav__link">
+    2.2. Restriccions de les claus foranes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencies" class="md-nav__link">
+    Referències
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD3.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unitat 3.4. Modificació de taules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-tipus-de-dades-en-mysql" class="md-nav__link">
+    1. Tipus de dades en MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tipus de dades en MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tipus-numerics" class="md-nav__link">
+    1.1. Tipus numèrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-tipus-de-text" class="md-nav__link">
+    1.2. Tipus de text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tipus-de-data-i-hora" class="md-nav__link">
+    1.3. Tipus de data i hora
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-el-tipus-blob" class="md-nav__link">
+    1.4. El tipus BLOB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-creacio-i-modificacio-de-taules" class="md-nav__link">
+    2. Creació i modificació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Creació i modificació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-creacio-de-taules" class="md-nav__link">
+    2.1. Creació de taules
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Creació de taules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-creacio-de-taules-sense-claus" class="md-nav__link">
+    2.1.1. Creació de taules sense claus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-creacio-de-taules-amb-claus-primaries-i-alternatives" class="md-nav__link">
+    2.1.2. Creació de taules amb claus primàries i alternatives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-creacio-de-taules-amb-claus-alienes" class="md-nav__link">
+    2.1.3. Creació de taules amb claus alienes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-restriccions-de-les-claus-foranes" class="md-nav__link">
+    2.2. Restriccions de les claus foranes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencies" class="md-nav__link">
+    Referències
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unitat-33-creacio-de-taules">Unitat 3.3. Creació de taules</h1>
+<h2 id="1-tipus-de-dades-en-mysql">1. Tipus de dades en MySQL</h2>
+<p>En MySQL, hi ha diversos tipus de dades que podem utilitzar per a definir les columnes de les nostres taules. A continuació, es mostren els principals:</p>
+<table>
+<thead>
+<tr>
+<th>Classificació</th>
+<th>Tipus de dades</th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enters</td>
+<td><code>TINYINT</code></td>
+<td>Enter entre -128 i 127</td>
+</tr>
+<tr>
+<td>Enters</td>
+<td><code>BOOL</code> o <code>BOOLEAN</code></td>
+<td>Igual que <code>TINYINT(1)</code>. True=1. False=0</td>
+</tr>
+<tr>
+<td>Enters</td>
+<td><code>SMALLINT</code></td>
+<td>Enters entre -32.768 i 32.767</td>
+</tr>
+<tr>
+<td>Enters</td>
+<td><code>MEDIUMINT</code></td>
+<td>Enters entre -8.388.608 i 8.388.607</td>
+</tr>
+<tr>
+<td>Enters</td>
+<td><code>INT</code> o <code>INTEGER</code></td>
+<td>Enters entre -2.147.483.648 i 2.147.483.647</td>
+</tr>
+<tr>
+<td>Enters</td>
+<td><code>BIGINT</code></td>
+<td>Enters entre -9.223.372.036.854.775.808 i 9.223.372.036.854.775.807</td>
+</tr>
+<tr>
+<td>Decimals</td>
+<td><code>DECIMAL(m, d)</code></td>
+<td>Número decimal amb m dígits en total i d dígits després del punt decimal.</td>
+</tr>
+<tr>
+<td>Decimals</td>
+<td><code>FLOAT</code></td>
+<td>Número decimal de precisió simple, usa 4 bytes.</td>
+</tr>
+<tr>
+<td>Decimals</td>
+<td><code>DOUBLE</code></td>
+<td>Número decimal de precisió doble, usa 8 bytes.</td>
+</tr>
+<tr>
+<td>Decimals</td>
+<td><code>REAL</code></td>
+<td>Igual que <code>FLOAT</code>.</td>
+</tr>
+<tr>
+<td>Data i hora</td>
+<td><code>DATE</code></td>
+<td>Guarda dates en any-mes-dia (0000-00-00)</td>
+</tr>
+<tr>
+<td>Data i hora</td>
+<td><code>TIME</code></td>
+<td>Guarda les hores en hora:minuts:segons (00:00:00). Amb la funció <code>DATE_FORMAT()</code> es pot mostrar en AM i PM.</td>
+</tr>
+<tr>
+<td>Data i hora</td>
+<td><code>DATETIME</code> o <code>TIMESTAMP</code></td>
+<td>Data i hora. Format: any-mes-dia hora:minuts:segons (0000-00-00 00:00:00).</td>
+</tr>
+<tr>
+<td>Data i hora</td>
+<td><code>YEAR</code></td>
+<td>4 dígits</td>
+</tr>
+<tr>
+<td>Text</td>
+<td><code>CHAR(n)</code></td>
+<td>Fins 255 caràcters abans de versió 5.03. Fins 65.000 en versions posteriors.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td><code>VARCHAR(n)</code></td>
+<td>Similar a <code>CHAR</code>, ocupa menys però les consultes són més lentes.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td><code>TEXT</code></td>
+<td>Fins 65.000 caràcters.</td>
+</tr>
+<tr>
+<td>Altres</td>
+<td><code>BLOB</code></td>
+<td>Informació binària (imatges, sons...)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">MySQL Data Types</a></p>
+<h3 id="11-tipus-numerics">1.1. Tipus numèrics</h3>
+<p>Els tipus numèrics es poden classificar en <strong>enters</strong> i <strong>decimals</strong>. Els enters són números sense decimals, mentre que els decimals són números amb decimals.</p>
+<p>Per als enters, podem utilitzar els tipus <code>TINYINT</code>, <code>SMALLINT</code>, <code>MEDIUMINT</code>, <code>INT</code> i <code>BIGINT</code>. Aquests tipus de dades tenen diferents rangs de valors que poden emmagatzemar.</p>
+<p>Els enters poden ser <strong><code>UNSIGNED</code></strong>, és a dir, només poden emmagatzemar valors positius. Per exemple, un <code>TINYINT UNSIGNED</code> pot emmagatzemar valors entre 0 i 255. Per defecte, els enters són <strong><code>SIGNED</code></strong>, és a dir, poden emmagatzemar valors positius i negatius.</p>
+<p>Per a valors monetaris en els quals és important la precisió, és millor utilitzar el tipus <strong><code>DECIMAL(m, d)</code></strong>, on <code>m</code> és el nombre total de dígits i <code>d</code> és el nombre de dígits després del punt decimal. Per exemple, <code>DECIMAL(10, 2)</code> pot emmagatzemar números amb fins a 10 dígits en total, dels quals 2 són decimals.</p>
+<p>El tipus <code>BOOL</code> o <code>BOOLEAN</code> és un tipus especial que només pot emmagatzemar els valors <code>TRUE (1)</code> o <code>FALSE (0)</code>.</p>
+<h3 id="12-tipus-de-text">1.2. Tipus de text</h3>
+<ul>
+<li><code>CHAR(n)</code> ocupa sempre n caràcters, encara que no s'utilitzen tots. Per exemple, si definim una columna com <code>CHAR(10)</code> i inserim la paraula "hola", MySQL emmagatzemarà <code>"hola      "</code> (amb 6 espais en blanc al final).</li>
+<li><code>VARCHAR(n)</code> ocupa només els caràcters que s'utilitzen. Per exemple, si definim una columna com <code>VARCHAR(10)</code> i inserim la paraula "hola", MySQL emmagatzemarà només "hola" (sense espais en blanc al final).<br>
+<a href="https://dev.mysql.com/doc/refman/8.0/en/char.html">CHAR i VARCHAR</a></li>
+</ul>
+<p>Utilitzarem <code>CHAR</code> quan sapiguem que totes les dades tindran la mateixa longitud, com per exemple un codi postal. En canvi, utilitzarem <code>VARCHAR</code> quan les dades poden tenir longitud variable, com per exemple un nom o una adreça.</p>
+<p>El tipus <code>TEXT</code> s'utilitza per a emmagatzemar grans quantitats de text, com per exemple un article o un comentari. Aquest tipus de dades pot emmagatzemar fins a 65.000 caràcters.</p>
+<h3 id="13-tipus-de-data-i-hora">1.3. Tipus de data i hora</h3>
+<ul>
+<li><code>DATE</code> guarda dates en el format any-mes-dia (<code>'0000-00-00'</code>).</li>
+<li><code>TIME</code> guarda les hores en el format hora:minuts:segons (<code>'00:00:00'</code>). Amb la funció <code>DATE_FORMAT()</code> es pot mostrar en format AM i PM.</li>
+<li><code>DATETIME</code> o <code>TIMESTAMP</code> guarden la data i l'hora en el format any-mes-dia hora:minuts:segons (<code>'0000-00-00 00:00:00'</code>).</li>
+<li><code>YEAR</code> guarda l'any en 4 dígits.</li>
+</ul>
+<p><code>DATETIME</code> i <code>TIMESTAMP</code> són molt similars, però hi ha algunes diferències importants. <code>DATETIME</code> mostra els valors en format <code>'YYYY-MM-DD HH:MM:SS'</code>. <code>TIMESTAMP</code> emmagatzema els valors com un nombre enter que representa el nombre de segons des del 1 de gener de 1970 (<em>epoch</em>). </p>
+<h3 id="14-el-tipus-blob">1.4. El tipus BLOB</h3>
+<p>Un <strong>BLOB</strong> (<em>Binary Large Object</em>) és un tipus de dades que s'utilitza per a emmagatzemar grans quantitats d'informació binària, com ara imatges, sons o vídeos. Els BLOBs poden ser de diferents tipus segons la seua grandària:</p>
+<ul>
+<li><code>TINYBLOB</code>: fins a 255 bytes.</li>
+<li><code>BLOB</code>: fins a 65.535 bytes (64 KB).</li>
+<li><code>MEDIUMBLOB</code>: fins a 16.777.215 bytes (16 MB).</li>
+<li><code>LONGBLOB</code>: fins a 4.294.967.295 bytes (4 GB).</li>
+</ul>
+<h2 id="2-creacio-i-modificacio-de-taules">2. Creació i modificació de taules</h2>
+<p>El DDL de MySQL permet crear i modificar taules amb instruccions específiques. A continuació, es mostren les instruccions bàsiques per a crear i modificar taules:</p>
+<table>
+<thead>
+<tr>
+<th>Instrucció</th>
+<th>Descripció</th>
+<th>Referència</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CREATE TABLE</code></td>
+<td>Crea una nova taula amb les columnes i tipus de dades especificats.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">CREATE TABLE</a></td>
+</tr>
+<tr>
+<td><code>ALTER TABLE</code></td>
+<td>Modifica una taula existent, afegint, eliminant o canviant columnes, així com afegint o eliminant claus primàries i foranes.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/alter-table.html">ALTER TABLE</a></td>
+</tr>
+<tr>
+<td><code>DROP TABLE</code></td>
+<td>Elimina una taula existent i totes les dades que conté.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/drop-table.html">DROP TABLE</a></td>
+</tr>
+<tr>
+<td><code>TRUNCATE TABLE</code></td>
+<td>Elimina totes les dades d'una taula, però manté la seua estructura.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html">TRUNCATE TABLE</a></td>
+</tr>
+<tr>
+<td><code>RENAME TABLE</code></td>
+<td>Canvia el nom d'una taula existent.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/rename-table.html">RENAME TABLE</a></td>
+</tr>
+</tbody>
+</table>
+<p>També disposem d'instruccions per a visualitzar la informació de les taules, com ara:</p>
+<table>
+<thead>
+<tr>
+<th>Instrucció</th>
+<th>Descripció</th>
+<th>Referència</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SHOW TABLES;</code></td>
+<td>Mostra les taules que hi ha en la base de dades actual.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/show-tables.html">SHOW TABLES</a></td>
+</tr>
+<tr>
+<td><code>DESCRIBE</code> o <code>DESC nom_taula;</code></td>
+<td>Mostra la informació de les columnes d'una taula, com ara el nom, tipus de dades, si pot ser nul·la, si és clau primària, etc.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/describe.html">DESCRIBE</a></td>
+</tr>
+<tr>
+<td><code>SHOW CREATE TABLE nom_taula;</code></td>
+<td>Mostra la instrucció SQL que es va utilitzar per a crear una taula, incloent les claus primàries i foranes.</td>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/show-create-table.html">SHOW CREATE TABLE</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Motors d’emmagatzematge de MySQL</p>
+<p>MySQL permet utilitzar diferents motors d’emmagatzematge per a les taules. Els més comuns són:</p>
+<ul>
+<li><strong>InnoDB</strong>: és el motor d’emmagatzematge per defecte en MySQL. Permet transaccions, claus foranes i bloqueig a nivell de fila.</li>
+<li><strong>MyISAM</strong>: és un motor d’emmagatzematge més antic que InnoDB. No permet transaccions ni claus foranes, però és més ràpid en algunes consultes.</li>
+</ul>
+<p>Per a especificar el motor d’emmagatzematge d’una taula, podem utilitzar la següent sintaxi:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+</div>
+<h3 id="21-creacio-de-taules">2.1. Creació de taules</h3>
+<p>La sintaxi bàsica per a crear una taula és la següent:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">nom_taula</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">nom_columna1</span><span class="w"> </span><span class="n">tipus_dada1</span><span class="w"> </span><span class="p">[</span><span class="n">restriccions</span><span class="p">],</span>
+<span class="w">    </span><span class="n">nom_columna2</span><span class="w"> </span><span class="n">tipus_dada2</span><span class="w"> </span><span class="p">[</span><span class="n">restriccions</span><span class="p">],</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nom_columna1</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">nom_columna2</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">altra_taula</span><span class="p">(</span><span class="n">nom_columna_referenciada</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Els noms (de taules, camps, etc) han de començar per lletra i no poden contindre espais o caràcters de puntuació especials.</p>
+<p>A banda del tipus de dades, podem indicar restriccions per a cada columna. Les restriccions més comunes són:</p>
+<ul>
+<li><strong>NOT NULL</strong>: indica que la columna no pot tindre valors nuls.</li>
+<li><strong>DEFAULT valor</strong>: indica un valor per defecte per a la columna.</li>
+<li><strong>AUTO_INCREMENT</strong>: indica que la columna és un enter que s'incrementa automàticament amb cada nou registre. Només es pot utilitzar en una columna amb tipus de dades enter.</li>
+<li><strong>PRIMARY KEY</strong>: indica que la columna és la clau primària de la taula.</li>
+<li><strong>UNIQUE</strong>: indica que la columna ha de tindre valors únics. És a dir, no poden haver dos registres amb el mateix valor en aquesta columna.</li>
+</ul>
+<p>Exemples:</p>
+<h4 id="211-creacio-de-taules-sense-claus">2.1.1. Creació de taules sense claus</h4>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">alumne</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="212-creacio-de-taules-amb-claus-primaries-i-alternatives">2.1.2. Creació de taules amb claus primàries i alternatives</h4>
+<p>Quan creem una taula, si volem indicar que un  camp és clau primària utilitzarem PRIMARY KEY. Per a indicar que és clau alternativa, usarem: UNIQUE.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">dni</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">deute</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w">        </span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>La clau primària i/o les claus alternatives també es poden indicar després de l’última columna:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">dni</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">codi</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">dni</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>També podem posar noms a les restriccions (que han de ser únics en tota la base de dades). Una utilitat és poder esborrar després una restricció indicant el seu nom:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">dni</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">pk_persona</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">codi</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">ak_persona</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">(</span><span class="n">dni</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Després podríem esborrar una restricció amb:  </p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">ak_persona</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">persona</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>O bé:  </p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">persona</span><span class="w">  </span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">ak_persona</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Esta forma d’indicar les claus al final de la taula és necessàri si volem indicar que una clau és composta. Per exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">linia_factura</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">num</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">linia</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">linia</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="213-creacio-de-taules-amb-claus-alienes">2.1.3. Creació de taules amb claus alienes</h4>
+<p>Cal utilizar el motor d’emmagatzematge <strong>InnoDB</strong> per a poder utilitzar claus foranes. Per defecte, MySQL utilitza el motor InnoDB, per tant no cal indicar-ho.</p>
+<p>Hem d'utilitzar la instrucció <code>FOREIGN KEY</code> per a indicar que una columna és una clau forana. Aquesta instrucció ha d’anar després de l’última columna de la taula.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">cpo</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">poble</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tel</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">poble</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">poble</span><span class="p">(</span><span class="n">cpo</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>En este exemple veiem com seria la definició d’una <strong>clau aliena composta</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">cinta</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">cod_cinta</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">num_copia</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">rebobinada</span><span class="w"> </span><span class="n">BOOL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">cod_cinta</span><span class="p">,</span><span class="w"> </span><span class="n">num_copia</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">prestec</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">cinta</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">copia</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">soci</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">cinta</span><span class="p">,</span><span class="w"> </span><span class="n">copia</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">cinta</span><span class="p">,</span><span class="w"> </span><span class="n">copia</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">cinta</span><span class="p">(</span><span class="n">cod_cinta</span><span class="p">,</span><span class="w"> </span><span class="n">num_copia</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition info">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>També podem posar la clau forana amb CONSTRAINT, com hem fet amb les claus primàries i alternatives. Per exemple:</li>
+</ul>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">poble</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tel</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_client_poble</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">poble</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">poble</span><span class="p">(</span><span class="n">cpo</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+- És opcional indicar la columna de la taula referenciada (<code>cpo</code>) a no ser que en la taula pare fóra clau alternativa (en compte de clau principal).<p></p>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">poble</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">poble</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+- La clau aliena també es pot posar en la pròpia definició del camp en la taula, però no té cap efecte (almenys en MySQL). Serveix com a documentació:<p></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">poble</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="p">(</span><span class="n">cpo</span><span class="p">),</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+</div>
+<p>Més endavant vorem sentències d’insert, delete, etc. però veiem ara uns exemples per vore el funcionament de claus primàries i alienes:</p>
+<p>Omplim la taula <code>poble</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">46701</span><span class="p">,</span><span class="w"> </span><span class="s1">'Gandia'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">55555</span><span class="p">,</span><span class="w"> </span><span class="s1">'Beniopa'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Omplim la taula <code>client</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'Pep'</span><span class="p">,</span><span class="w"> </span><span class="mi">46701</span><span class="p">,</span><span class="w"> </span><span class="s1">'123456789'</span><span class="p">);</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="k">No</span><span class="w"> </span><span class="n">dóna</span><span class="w"> </span><span class="n">problemes</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'Pepa'</span><span class="p">,</span><span class="w"> </span><span class="mi">46701</span><span class="p">,</span><span class="w"> </span><span class="s1">'987654321'</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">clau</span><span class="w"> </span><span class="n">primària</span><span class="p">,</span><span class="w"> </span><span class="n">ja</span><span class="w"> </span><span class="n">existeix</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">registre</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="n">codi</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">'Pepa'</span><span class="p">,</span><span class="w"> </span><span class="mi">77777</span><span class="p">,</span><span class="w"> </span><span class="s1">'623456789'</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">clau</span><span class="w"> </span><span class="n">aliena</span><span class="p">,</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">existeix</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="n">cpo</span><span class="o">=</span><span class="mi">77777</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Esborrem registres de la taula de <code>poble</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">55555</span><span class="p">;</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="k">No</span><span class="w"> </span><span class="n">dóna</span><span class="w"> </span><span class="n">problemes</span>
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">46701</span><span class="p">;</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">clau</span><span class="w"> </span><span class="n">aliena</span><span class="p">,</span><span class="w"> </span><span class="n">existeix</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">registre</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">taula</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="n">poble</span><span class="o">=</span><span class="mi">46701</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="22-restriccions-de-les-claus-foranes">2.2. Restriccions de les claus foranes</h3>
+<p>Quan definim una clau forana, podem especificar que, si s’esborra un registre de la taula pare (la de pobles), s’esborren també, automàticament, els registres relacionats de la taula filla (és a dir: que s’eliminen també els clients d’eixe poble).</p>
+<p>O bé, podem indicar que, quan modifiquem un codi postal en la taula de pobles, que també es modifique eixe codi en els corresponents clients que tenien eixe poble.</p>
+<p>Eixes dos coses (i més) es poden fer posant-ho en la restricció de clau aliena de la taula. Per exemple:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">codi</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">poble</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tel</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">poble</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">poble</span><span class="p">(</span><span class="n">cpo</span><span class="p">)</span>
+<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span>
+<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w"> </span>
+<span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Estes són les accions que podem fer en un ON DELETE o en un ON UPDATE:</p>
+<ul>
+<li><strong>CASCADE</strong>: Els registres dependents també s’esborren o es modifiquen.</li>
+<li><strong>SET NULL</strong>: Els registres dependents es posen a null (si no tenien la restricció de <code>NOT NULL</code>).</li>
+<li><strong>SET DEFAULT</strong>: Els registres dependents es posen al valor per defecte (si el tenien). El motor InnoDB ho accepta, però sense cap efecte.</li>
+<li><strong>RESTRICT</strong>: No deixa esborrar/modificar de la taula pare si té registres dependents. És l’opció per defecte (si no posem <code>ON UPDATE</code> o <code>ON DELETE</code>).</li>
+<li><strong>NO ACTION</strong>: En MySQL fa exactament el mateix que RESTRICT.</li>
+</ul>
+<p>Exemples amb les taules poble i client:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">55555</span><span class="p">,</span><span class="w"> </span><span class="s1">'Beniopa'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'Pep'</span><span class="p">,</span><span class="w"> </span><span class="mi">46701</span><span class="p">,</span><span class="w"> </span><span class="s1">'123456789'</span><span class="p">);</span><span class="w">  </span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">'Pepa'</span><span class="p">,</span><span class="w"> </span><span class="mi">55555</span><span class="p">,</span><span class="w"> </span><span class="s1">'987654321'</span><span class="p">);</span>
+
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">46702</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">46701</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Es</span><span class="w"> </span><span class="n">canvia</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="n">Gandia</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">també</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="n">canvia</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">Pep</span><span class="p">,</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">tenia</span><span class="w"> </span><span class="n">poble</span><span class="o">=</span><span class="mi">46701</span><span class="p">.</span>
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cpo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">55555</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Esborra</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">poble</span><span class="w"> </span><span class="n">Beniopa</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">també</span><span class="w"> </span><span class="n">esborra</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">Pepa</span><span class="p">,</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">tenia</span><span class="w"> </span><span class="n">poble</span><span class="o">=</span><span class="mi">55555</span><span class="p">.</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h5 id="exercici-practic">Exercici pràctic</h5>
+<p>Per a fer un estudi sobre els tipus de cultius que es donen en cada comarca del món, s'ha creat el següent esquema ER, amb el posterior esquema relacional:</p>
+<pre class="mermaid"><code>erDiagram
+    tipus_cultiu ||--o{ cultivar : "cultiu"
+    comarca ||--o{ cultivar : "comarca"
+    provincia ||--o{ comarca : "prov + pais"
+    pais ||--o{ provincia : "pais"
+
+    tipus_cultiu {
+        string codi PK
+        string nom
+    }
+
+    cultivar {
+        string cultiu PK, FK
+        string comarca PK, FK
+    }
+
+    comarca {
+        string codi PK
+        string nom
+        string prov FK
+        string pais FK
+    }
+
+    provincia {
+        string prov PK
+        string pais PK, FK
+        int n_hab
+    }
+
+    pais {
+        string nom PK
+        string continent
+    }</code></pre>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>TIPUS_CULTIU = codi[PK] + nom
+
+CULTIVAR = (cultiu + comarca)[PK]
+    FK: cultiu -&gt; TIPUS_CULTIU (codi)
+        comarca -&gt; COMARCA (codi)
+
+COMARCA = codi[PK] + nom + prov (NN) + país (NN)
+    FK: (prov + país) -&gt; PROVÍNCIA (prov + país)
+
+PROVÍNCIA = (prov + país)[PK] + n_hab
+    FK: país -&gt; PAIS (cod)
+
+PAIS = nom[PK] + continent
+</code></pre></div></td></tr></tbody></table></div>
+<p>Indicacions:</p>
+<ul>
+<li>Abans de crear una taula amb claus alienes, caldrà crear primer les taules de les qual depén. Si no, et donarà error quan intentes crear eixa taula.</li>
+<li>El codi dels tipus de cultius serà un char(3). El codi de comarques un char(5). La quantitat d'habitants (n_hab) serà un enter. Els altres camps seran un varchar(30).</li>
+<li>Caldrà indicar les claus alienes de forma que:<ul>
+<li>Si modifiquem el codi d’un país o província en la taula de províncies, també haurà de canviar en la taula de comarques.</li>
+<li>Si modifiquem un codi de cultiu en la taula tipus_cultius, també s’haurà de modificar en la taula cultivar.</li>
+<li>Si esborrem un tipus de cultiu en la taula tipus_cultius, també s’hauran d’esborrar els registres de cultivar que tinguen eixe cultiu.</li>
+</ul>
+</li>
+</ul>
+<h2 id="referencies">Referències</h2>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.4/en/">MySQL Documentation</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">MySQL Data Types</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
